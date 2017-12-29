@@ -6,17 +6,22 @@
   <meta name="keywords" content="">
   <meta name="description" content="CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414216435vntz3tln.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/151341426530208bttzpy.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414230473b8ptgi9t.png?imageslim">
+<meta property="og:updated_time" content="2017-12-29T05:39:02.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
+<meta name="twitter:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -113,7 +118,7 @@
     
 </ul>
 <div class="left-bottom">
-    <div class="menus" >
+    <div class="menus">
     
     
     <a class="dynamic-menu site_url"   href="/photos/">相册</a>
@@ -123,8 +128,8 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="34">
-
+<input type="hidden" id="yelog_site_posts_number" value="33">
+<input type="hidden" id="yelog_site_word_count" value="40.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -146,7 +151,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
         <label for="tagswitch">Tags:</label>
@@ -199,15 +204,11 @@
 </div>
 
     
+    <div id="local-search-result">
+
+    </div>
+    
     <nav id="title-list-nav">
-        
-        <a  class=""
-           href="/2017/12/29/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
-        </a>
         
         <a  class="Git "
            href="/2017/12/23/2017-07-19-git/"
@@ -244,7 +245,7 @@
         <a  class="Redis "
            href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
             <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
         </a>
@@ -252,7 +253,7 @@
         <a  class="kafka "
            href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
            data-tag="kafka"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
             <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
         </a>
@@ -340,7 +341,7 @@
         <a  class="hexo "
            href="/2017/12/26/3-hexo使用说明/"
            data-tag="hexo"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
             <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
         </a>
@@ -348,7 +349,7 @@
         <a  class="Git "
            href="/2017/12/15/Git分支管理/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git分支管理">Git分支管理</span>
             <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
         </a>
@@ -356,7 +357,7 @@
         <a  class="Git "
            href="/2017/12/15/Git常用命令-1/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git常用命令">Git常用命令</span>
             <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
         </a>
@@ -364,7 +365,7 @@
         <a  class="Linux "
            href="/2017/12/23/Linux基础命令/"
            data-tag="Linux"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Linux基础命令">Linux基础命令</span>
             <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
         </a>
@@ -372,7 +373,7 @@
         <a  class="SpringBoot "
            href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
             <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
         </a>
@@ -380,7 +381,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
            data-tag="swagger"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
             <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
         </a>
@@ -388,7 +389,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
            data-tag="SpringCloud"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
             <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
         </a>
@@ -396,7 +397,7 @@
         <a  class="SpringBoot "
            href="/2017/12/11/SpringBoot事务配置规则/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
             <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
         </a>
@@ -404,7 +405,7 @@
         <a  class="Git "
            href="/2017/12/16/git常用命令/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="git常用命令">git常用命令</span>
             <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
         </a>
@@ -412,7 +413,7 @@
         <a  class="SpringBoot Mybatis "
            href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
            data-tag="SpringBoot,Mybatis"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
             <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
         </a>
@@ -420,7 +421,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
             <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
         </a>
@@ -428,7 +429,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
             <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
         </a>
@@ -436,7 +437,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/中华第一腿/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="中华第一腿">中华第一腿</span>
             <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
         </a>
@@ -444,7 +445,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
             <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
         </a>
@@ -452,7 +453,7 @@
         <a  class="COS "
            href="/2017/12/10/宅舞/"
            data-tag="COS"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="宅舞">宅舞</span>
             <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
         </a>
@@ -460,7 +461,7 @@
         <a  class="梦想开始的地方 "
            href="/2017/12/17/梦想开始的地方/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
             <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
         </a>
@@ -468,7 +469,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/这舞蹈可以/"
            data-tag="bilibili"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="B站女王啊">B站女王啊</span>
             <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
         </a>
@@ -507,6 +508,8 @@
         
     </div>
     <div class="article-meta">
+        
+        <span>字数:2,925</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -551,85 +554,304 @@
 <li>三台虚拟机(IP)：192.168.252.101,192.168.102..102,192.168.252.103</li>
 </ul>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>升级所有的包，防止出现版本过久不兼容问题</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y update</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ yum -y update
+</code></pre>
 <p>安裝 GCC 编译工具 不然会有编译不过的问题</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install -y gcc g++ gcc-c++ make</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ yum install -y gcc g++ gcc-c++ make
+</code></pre>
 <p>关闭防火墙 节点之前需要开放指定端口，为了方便，生产不要禁用</p>
 <p>centos 6.x</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ service iptables stop # 关闭命令：</span><br></pre></td></tr></table></figure>
-<p>centos 7.x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl stop firewalld.service # 停止firewall</span><br></pre></td></tr></table></figure></p>
-<h2 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h2><h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p><strong>下载，解压，编译安装</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">$ wget http://download.redis.io/releases/redis-4.0.1.tar.gz</span><br><span class="line">$ tar xzf redis-4.0.1.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> redis-4.0.1</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
+<pre><code>$ service iptables stop # 关闭命令：
+</code></pre><p>centos 7.x</p>
+<pre><code>$ systemctl stop firewalld.service # 停止firewall
+</code></pre><h2 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h2><h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p><strong>下载，解压，编译安装</strong></p>
+<pre><code class="sh">cd /opt
+$ wget http://download.redis.io/releases/redis-4.0.1.tar.gz
+$ tar xzf redis-4.0.1.tar.gz
+$ cd redis-4.0.1
+$ make
+</code></pre>
 <p><strong>如果因为上次编译失败，有残留的文件</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make distclean</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ make distclean
+</code></pre>
 <h3 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h3><p>1.首先在 192.168.252.101机器上 /opt/redis-4.0.1目录下创建 <code>redis-cluster</code> 目录</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /opt/redis-4.0.1/redis-cluster</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ mkdir /opt/redis-4.0.1/redis-cluster
+</code></pre>
 <p>2.在 <code>redis-cluster</code> 目录下，创建名为<code>7000、7001、7002</code>的目录</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt/redis-4.0.1/redis-cluster</span><br><span class="line">$ mkdir 7000 7001 7002</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ cd /opt/redis-4.0.1/redis-cluster
+$ mkdir 7000 7001 7002
+</code></pre>
 <p>3.分别修改这三个配置文件，把如下<code>redis.conf 配置</code>内容粘贴进去</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vi 7000/redis.conf </span><br><span class="line">$ vi 7001/redis.conf</span><br><span class="line">$ vi 7002/redis.conf</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ vi 7000/redis.conf 
+$ vi 7001/redis.conf
+$ vi 7002/redis.conf
+</code></pre>
 <p><strong>redis.conf 配置</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">port 7000</span><br><span class="line"><span class="built_in">bind</span> 192.168.252.101</span><br><span class="line">daemonize yes</span><br><span class="line">pidfile /var/run/redis_7000.pid</span><br><span class="line">cluster-enabled yes</span><br><span class="line">cluster-config-file nodes_7000.conf</span><br><span class="line">cluster-node-timeout 10100</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">port 7000
+bind 192.168.252.101
+daemonize yes
+pidfile /var/run/redis_7000.pid
+cluster-enabled yes
+cluster-config-file nodes_7000.conf
+cluster-node-timeout 10100
+appendonly yes
+</code></pre>
 <p><strong>redis.conf 配置说明</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#端口7000,7001,7002</span></span><br><span class="line">port 7000</span><br><span class="line"></span><br><span class="line"><span class="comment">#默认ip为127.0.0.1，需要改为其他节点机器可访问的ip，否则创建集群时无法访问对应的端口，无法创建集群</span></span><br><span class="line"><span class="built_in">bind</span> 192.168.252.101</span><br><span class="line"></span><br><span class="line"><span class="comment">#redis后台运行</span></span><br><span class="line">daemonize yes</span><br><span class="line"></span><br><span class="line"><span class="comment">#pidfile文件对应7000，7001，7002</span></span><br><span class="line">pidfile /var/run/redis_7000.pid</span><br><span class="line"></span><br><span class="line"><span class="comment">#开启集群，把注释#去掉</span></span><br><span class="line">cluster-enabled yes</span><br><span class="line"></span><br><span class="line"><span class="comment">#集群的配置，配置文件首次启动自动生成 7000，7001，7002          </span></span><br><span class="line">cluster-config-file nodes_7000.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#请求超时，默认15秒，可自行设置 </span></span><br><span class="line">cluster-node-timeout 10100    </span><br><span class="line">        </span><br><span class="line"><span class="comment">#aof日志开启，有需要就开启，它会每次写操作都记录一条日志</span></span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">#端口7000,7001,7002
+port 7000
+
+#默认ip为127.0.0.1，需要改为其他节点机器可访问的ip，否则创建集群时无法访问对应的端口，无法创建集群
+bind 192.168.252.101
+
+#redis后台运行
+daemonize yes
+
+#pidfile文件对应7000，7001，7002
+pidfile /var/run/redis_7000.pid
+
+#开启集群，把注释#去掉
+cluster-enabled yes
+
+#集群的配置，配置文件首次启动自动生成 7000，7001，7002          
+cluster-config-file nodes_7000.conf
+
+#请求超时，默认15秒，可自行设置 
+cluster-node-timeout 10100    
+
+#aof日志开启，有需要就开启，它会每次写操作都记录一条日志
+appendonly yes
+</code></pre>
 <p>···<br><strong>接着在另外两台机器上<code>(192.168.252.102，192.168.252.103)</code>重复以上三步，只是把目录改为<code>7003、7004、7005、7006、7007、7008</code>对应的配置文件也按照这个规则修改即可</strong></p>
-<h3 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#第一台机器上执行 3个节点</span></span><br><span class="line">$ <span class="keyword">for</span>((i=0;i&lt;=2;i++)); <span class="keyword">do</span> /opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-cluster/700<span class="variable">$i</span>/redis.conf; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#第二台机器上执行 3个节点</span></span><br><span class="line">$ <span class="keyword">for</span>((i=3;i&lt;=5;i++)); <span class="keyword">do</span> /opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-cluster/700<span class="variable">$i</span>/redis.conf; <span class="keyword">done</span></span><br><span class="line">                     </span><br><span class="line"><span class="comment">#第三台机器上执行 3个节点 </span></span><br><span class="line">$ <span class="keyword">for</span>((i=6;i&lt;=8;i++)); <span class="keyword">do</span> /opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-cluster/700<span class="variable">$i</span>/redis.conf; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h3><pre><code class="sh">#第一台机器上执行 3个节点
+$ for((i=0;i&lt;=2;i++)); do /opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-cluster/700$i/redis.conf; done
+
+#第二台机器上执行 3个节点
+$ for((i=3;i&lt;=5;i++)); do /opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-cluster/700$i/redis.conf; done
+
+#第三台机器上执行 3个节点 
+$ for((i=6;i&lt;=8;i++)); do /opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-cluster/700$i/redis.conf; done
+</code></pre>
 <h3 id="检查服务"><a href="#检查服务" class="headerlink" title="检查服务"></a>检查服务</h3><p>检查各 Redis 各个节点启动情况</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep redis           //redis是否启动成功</span><br><span class="line">$ netstat -tnlp | grep redis    //监听redis端口</span><br></pre></td></tr></table></figure>
-<h3 id="安装-Ruby"><a href="#安装-Ruby" class="headerlink" title="安装 Ruby"></a>安装 Ruby</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y install ruby ruby-devel rubygems rpm-build</span><br><span class="line">$ gem install redis</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ ps -ef | grep redis           //redis是否启动成功
+$ netstat -tnlp | grep redis    //监听redis端口
+</code></pre>
+<h3 id="安装-Ruby"><a href="#安装-Ruby" class="headerlink" title="安装 Ruby"></a>安装 Ruby</h3><pre><code class="sh">$ yum -y install ruby ruby-devel rubygems rpm-build
+$ gem install redis
+</code></pre>
 <h3 id="创建集群"><a href="#创建集群" class="headerlink" title="创建集群"></a>创建集群</h3><p><strong>注意：在任意一台上运行</strong> 不要在每台机器上都运行，一台就够了</p>
 <p>Redis 官方提供了 <code>redis-trib.rb</code> 这个工具，就在解压目录的 src 目录中</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/redis-4.0.1/src/redis-trib.rb create --replicas 1 192.168.252.101:7000 192.168.252.101:7001 192.168.252.101:7002 192.168.252.102:7003 192.168.252.102:7004 192.168.252.102:7005 192.168.252.103:7006 192.168.252.103:7007 192.168.252.103:7008</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ /opt/redis-4.0.1/src/redis-trib.rb create --replicas 1 192.168.252.101:7000 192.168.252.101:7001 192.168.252.101:7002 192.168.252.102:7003 192.168.252.102:7004 192.168.252.102:7005 192.168.252.103:7006 192.168.252.103:7007 192.168.252.103:7008
+</code></pre>
 <p>出现以下内容</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-cluster]<span class="comment"># /opt/redis-4.0.1/src/redis-trib.rb create --replicas 1 192.168.252.101:7000 192.168.252.101:7001 192.168.252.101:7002 192.168.252.102:7003 192.168.252.102:7004 192.168.252.102:7005 192.168.252.103:7006 192.168.252.103:7007 192.168.252.103:7008</span></span><br><span class="line">&gt;&gt;&gt; Creating cluster</span><br><span class="line">&gt;&gt;&gt; Performing <span class="built_in">hash</span> slots allocation on 9 nodes...</span><br><span class="line">Using 4 masters:</span><br><span class="line">192.168.252.101:7000</span><br><span class="line">192.168.252.102:7003</span><br><span class="line">192.168.252.103:7006</span><br><span class="line">192.168.252.101:7001</span><br><span class="line">Adding replica 192.168.252.102:7004 to 192.168.252.101:7000</span><br><span class="line">Adding replica 192.168.252.103:7007 to 192.168.252.102:7003</span><br><span class="line">Adding replica 192.168.252.101:7002 to 192.168.252.103:7006</span><br><span class="line">Adding replica 192.168.252.102:7005 to 192.168.252.101:7001</span><br><span class="line">Adding replica 192.168.252.103:7008 to 192.168.252.101:7000</span><br><span class="line">M: 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000</span><br><span class="line">   slots:0-4095 (4096 slots) master</span><br><span class="line">M: 44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001</span><br><span class="line">   slots:12288-16383 (4096 slots) master</span><br><span class="line">S: 38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002</span><br><span class="line">   replicates f1abb62a8c9b448ea14db421bdfe3f1d8075189c</span><br><span class="line">M: 987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003</span><br><span class="line">   slots:4096-8191 (4096 slots) master</span><br><span class="line">S: 6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004</span><br><span class="line">   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf</span><br><span class="line">S: 2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005</span><br><span class="line">   replicates 44c81c15b01d992cb9ede4ad35477ec853d70723</span><br><span class="line">M: f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006</span><br><span class="line">   slots:8192-12287 (4096 slots) master</span><br><span class="line">S: eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007</span><br><span class="line">   replicates 987965baf505a9aa43e50e46c76189c51a8f17ec</span><br><span class="line">S: 2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008</span><br><span class="line">   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf</span><br><span class="line">Can I <span class="built_in">set</span> the above configuration? (<span class="built_in">type</span> <span class="string">'yes'</span> to accept): yes</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">[root@localhost redis-cluster]# /opt/redis-4.0.1/src/redis-trib.rb create --replicas 1 192.168.252.101:7000 192.168.252.101:7001 192.168.252.101:7002 192.168.252.102:7003 192.168.252.102:7004 192.168.252.102:7005 192.168.252.103:7006 192.168.252.103:7007 192.168.252.103:7008
+&gt;&gt;&gt; Creating cluster
+&gt;&gt;&gt; Performing hash slots allocation on 9 nodes...
+Using 4 masters:
+192.168.252.101:7000
+192.168.252.102:7003
+192.168.252.103:7006
+192.168.252.101:7001
+Adding replica 192.168.252.102:7004 to 192.168.252.101:7000
+Adding replica 192.168.252.103:7007 to 192.168.252.102:7003
+Adding replica 192.168.252.101:7002 to 192.168.252.103:7006
+Adding replica 192.168.252.102:7005 to 192.168.252.101:7001
+Adding replica 192.168.252.103:7008 to 192.168.252.101:7000
+M: 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000
+   slots:0-4095 (4096 slots) master
+M: 44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001
+   slots:12288-16383 (4096 slots) master
+S: 38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002
+   replicates f1abb62a8c9b448ea14db421bdfe3f1d8075189c
+M: 987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003
+   slots:4096-8191 (4096 slots) master
+S: 6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004
+   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf
+S: 2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005
+   replicates 44c81c15b01d992cb9ede4ad35477ec853d70723
+M: f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006
+   slots:8192-12287 (4096 slots) master
+S: eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007
+   replicates 987965baf505a9aa43e50e46c76189c51a8f17ec
+S: 2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008
+   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf
+Can I set the above configuration? (type &#39;yes&#39; to accept): yes
+</code></pre>
 <p><strong>输入 yes</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Nodes configuration updated</span><br><span class="line">&gt;&gt;&gt; Assign a different config epoch to each node</span><br><span class="line">&gt;&gt;&gt; Sending CLUSTER MEET messages to join the cluster</span><br><span class="line">Waiting <span class="keyword">for</span> the cluster to join.........</span><br><span class="line">&gt;&gt;&gt; Performing Cluster Check (using node 192.168.252.101:7000)</span><br><span class="line">M: 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000</span><br><span class="line">   slots:0-4095 (4096 slots) master</span><br><span class="line">   2 additional replica(s)</span><br><span class="line">S: 6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf</span><br><span class="line">M: 44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001</span><br><span class="line">   slots:12288-16383 (4096 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">S: 2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf</span><br><span class="line">M: f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006</span><br><span class="line">   slots:8192-12287 (4096 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">S: eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 987965baf505a9aa43e50e46c76189c51a8f17ec</span><br><span class="line">S: 38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates f1abb62a8c9b448ea14db421bdfe3f1d8075189c</span><br><span class="line">S: 2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 44c81c15b01d992cb9ede4ad35477ec853d70723</span><br><span class="line">M: 987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003</span><br><span class="line">   slots:4096-8191 (4096 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">[OK] All nodes agree about slots configuration.</span><br><span class="line">&gt;&gt;&gt; Check <span class="keyword">for</span> open slots...</span><br><span class="line">&gt;&gt;&gt; Check slots coverage...</span><br><span class="line">[OK] All 16384 slots covered.</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">&gt;&gt;&gt; Nodes configuration updated
+&gt;&gt;&gt; Assign a different config epoch to each node
+&gt;&gt;&gt; Sending CLUSTER MEET messages to join the cluster
+Waiting for the cluster to join.........
+&gt;&gt;&gt; Performing Cluster Check (using node 192.168.252.101:7000)
+M: 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000
+   slots:0-4095 (4096 slots) master
+   2 additional replica(s)
+S: 6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004
+   slots: (0 slots) slave
+   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf
+M: 44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001
+   slots:12288-16383 (4096 slots) master
+   1 additional replica(s)
+S: 2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008
+   slots: (0 slots) slave
+   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf
+M: f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006
+   slots:8192-12287 (4096 slots) master
+   1 additional replica(s)
+S: eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007
+   slots: (0 slots) slave
+   replicates 987965baf505a9aa43e50e46c76189c51a8f17ec
+S: 38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002
+   slots: (0 slots) slave
+   replicates f1abb62a8c9b448ea14db421bdfe3f1d8075189c
+S: 2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005
+   slots: (0 slots) slave
+   replicates 44c81c15b01d992cb9ede4ad35477ec853d70723
+M: 987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003
+   slots:4096-8191 (4096 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+</code></pre>
 <h3 id="关闭集群"><a href="#关闭集群" class="headerlink" title="关闭集群"></a>关闭集群</h3><p>这样也可以，推荐</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pkill redis</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ pkill redis
+</code></pre>
 <p>循环节点逐个关闭</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span>((i=0;i&lt;=2;i++)); <span class="keyword">do</span> /opt/redis-4.0.1/src/redis-cli -c -h 192.168.252.101 -p 700<span class="variable">$i</span> shutdown; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">$ <span class="keyword">for</span>((i=3;i&lt;=5;i++)); <span class="keyword">do</span> /opt/redis-4.0.1/src/redis-cli -c -h 192.168.252.102 -p 700<span class="variable">$i</span> shutdown; <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">$ <span class="keyword">for</span>((i=6;i&lt;=8;i++)); <span class="keyword">do</span> /opt/redis-4.0.1/src/redis-cli -c -h 192.168.252.103 -p 700<span class="variable">$i</span> shutdown; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ for((i=0;i&lt;=2;i++)); do /opt/redis-4.0.1/src/redis-cli -c -h 192.168.252.101 -p 700$i shutdown; done
+
+$ for((i=3;i&lt;=5;i++)); do /opt/redis-4.0.1/src/redis-cli -c -h 192.168.252.102 -p 700$i shutdown; done
+
+$ for((i=6;i&lt;=8;i++)); do /opt/redis-4.0.1/src/redis-cli -c -h 192.168.252.103 -p 700$i shutdown; done
+</code></pre>
 <h2 id="集群验证"><a href="#集群验证" class="headerlink" title="集群验证"></a>集群验证</h2><h3 id="连接集群测试"><a href="#连接集群测试" class="headerlink" title="连接集群测试"></a>连接集群测试</h3><p>参数 -C 可连接到集群，因为 redis.conf 将 bind 改为了ip地址，所以 -h 参数不可以省略，-p 参数为端口号</p>
 <ul>
 <li><strong>我们在192.168.252.101机器redis 7000 的节点set 一个key</strong></li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/redis-4.0.1/src/redis-cli -h 192.168.252.101 -c -p 7000</span><br><span class="line">192.168.252.101:7000&gt; <span class="built_in">set</span> name www.ymq.io</span><br><span class="line">-&gt; Redirected to slot [5798] located at 192.168.252.102:7003</span><br><span class="line">OK</span><br><span class="line">192.168.252.102:7003&gt; get name</span><br><span class="line"><span class="string">"www.ymq.io"</span></span><br><span class="line">192.168.252.102:7003&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ /opt/redis-4.0.1/src/redis-cli -h 192.168.252.101 -c -p 7000
+192.168.252.101:7000&gt; set name www.ymq.io
+-&gt; Redirected to slot [5798] located at 192.168.252.102:7003
+OK
+192.168.252.102:7003&gt; get name
+&quot;www.ymq.io&quot;
+192.168.252.102:7003&gt;
+</code></pre>
 <p>发现redis set name 之后重定向到192.168.252.102机器 redis 7003 这个节点</p>
 <ul>
 <li><strong>我们在192.168.252.103机器redis 7008 的节点get一个key</strong></li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost redis-cluster]<span class="comment"># /opt/redis-4.0.1/src/redis-cli -h 192.168.252.103 -c -p 7008</span></span><br><span class="line">192.168.252.103:7008&gt; get name</span><br><span class="line">-&gt; Redirected to slot [5798] located at 192.168.252.102:7003</span><br><span class="line"><span class="string">"www.ymq.io"</span></span><br><span class="line">192.168.252.102:7003&gt;</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">[root@localhost redis-cluster]# /opt/redis-4.0.1/src/redis-cli -h 192.168.252.103 -c -p 7008
+192.168.252.103:7008&gt; get name
+-&gt; Redirected to slot [5798] located at 192.168.252.102:7003
+&quot;www.ymq.io&quot;
+192.168.252.102:7003&gt;
+</code></pre>
 <p>发现redis get name 重定向到192.168.252.102机器 redis 7003 这个节点</p>
 <blockquote>
 <p>如果您看到这样的现象，说明集群已经是可用的了</p>
 </blockquote>
-<h3 id="检查集群状态"><a href="#检查集群状态" class="headerlink" title="检查集群状态"></a>检查集群状态</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/redis-4.0.1/src/redis-trib.rb check 192.168.252.101:7000</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Performing Cluster Check (using node 192.168.252.101:7000)</span><br><span class="line">M: 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000</span><br><span class="line">   slots:0-4095 (4096 slots) master</span><br><span class="line">   2 additional replica(s)</span><br><span class="line">S: 6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf</span><br><span class="line">M: 44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001</span><br><span class="line">   slots:12288-16383 (4096 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">S: 2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf</span><br><span class="line">M: f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006</span><br><span class="line">   slots:8192-12287 (4096 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">S: eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 987965baf505a9aa43e50e46c76189c51a8f17ec</span><br><span class="line">S: 38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates f1abb62a8c9b448ea14db421bdfe3f1d8075189c</span><br><span class="line">S: 2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005</span><br><span class="line">   slots: (0 slots) slave</span><br><span class="line">   replicates 44c81c15b01d992cb9ede4ad35477ec853d70723</span><br><span class="line">M: 987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003</span><br><span class="line">   slots:4096-8191 (4096 slots) master</span><br><span class="line">   1 additional replica(s)</span><br><span class="line">[OK] All nodes agree about slots configuration.</span><br><span class="line">&gt;&gt;&gt; Check <span class="keyword">for</span> open slots...</span><br><span class="line">&gt;&gt;&gt; Check slots coverage...</span><br><span class="line">[OK] All 16384 slots covered.</span><br></pre></td></tr></table></figure>
+<h3 id="检查集群状态"><a href="#检查集群状态" class="headerlink" title="检查集群状态"></a>检查集群状态</h3><pre><code class="sh">$ /opt/redis-4.0.1/src/redis-trib.rb check 192.168.252.101:7000
+</code></pre>
+<pre><code class="sh">&gt;&gt;&gt; Performing Cluster Check (using node 192.168.252.101:7000)
+M: 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000
+   slots:0-4095 (4096 slots) master
+   2 additional replica(s)
+S: 6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004
+   slots: (0 slots) slave
+   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf
+M: 44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001
+   slots:12288-16383 (4096 slots) master
+   1 additional replica(s)
+S: 2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008
+   slots: (0 slots) slave
+   replicates 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf
+M: f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006
+   slots:8192-12287 (4096 slots) master
+   1 additional replica(s)
+S: eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007
+   slots: (0 slots) slave
+   replicates 987965baf505a9aa43e50e46c76189c51a8f17ec
+S: 38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002
+   slots: (0 slots) slave
+   replicates f1abb62a8c9b448ea14db421bdfe3f1d8075189c
+S: 2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005
+   slots: (0 slots) slave
+   replicates 44c81c15b01d992cb9ede4ad35477ec853d70723
+M: 987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003
+   slots:4096-8191 (4096 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+&gt;&gt;&gt; Check for open slots...
+&gt;&gt;&gt; Check slots coverage...
+[OK] All 16384 slots covered.
+</code></pre>
 <h3 id="列出集群节点"><a href="#列出集群节点" class="headerlink" title="列出集群节点"></a>列出集群节点</h3><p>列出集群当前已知的所有节点（node），以及这些节点的相关信息</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/redis-4.0.1/src/redis-cli -h 192.168.252.101 -c -p 7000</span><br><span class="line"></span><br><span class="line">192.168.252.101:7000&gt; cluster nodes</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004@17004 slave 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 0 1502815268317 5 connected</span><br><span class="line">44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001@17001 master - 0 1502815268000 2 connected 12288-16383</span><br><span class="line">2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008@17008 slave 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 0 1502815269000 9 connected</span><br><span class="line">7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000@17000 myself,master - 0 1502815269000 1 connected 0-4095</span><br><span class="line">f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006@17006 master - 0 1502815269000 7 connected 8192-12287</span><br><span class="line">eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007@17007 slave 987965baf505a9aa43e50e46c76189c51a8f17ec 0 1502815267000 8 connected</span><br><span class="line">38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002@17002 slave f1abb62a8c9b448ea14db421bdfe3f1d8075189c 0 1502815269327 7 connected</span><br><span class="line">2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005@17005 slave 44c81c15b01d992cb9ede4ad35477ec853d70723 0 1502815270336 6 connected</span><br><span class="line">987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003@17003 master - 0 1502815271345 4 connected 4096-8191</span><br><span class="line">192.168.252.101:7000&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="打印集群信息"><a href="#打印集群信息" class="headerlink" title="打印集群信息"></a>打印集群信息</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 192.168.252.101:7000&gt; cluster info</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">cluster_state:ok</span><br><span class="line">cluster_slots_assigned:16384</span><br><span class="line">cluster_slots_ok:16384</span><br><span class="line">cluster_slots_pfail:0</span><br><span class="line">cluster_slots_fail:0</span><br><span class="line">cluster_known_nodes:9</span><br><span class="line">cluster_size:4</span><br><span class="line">cluster_current_epoch:9</span><br><span class="line">cluster_my_epoch:1</span><br><span class="line">cluster_stats_messages_ping_sent:485</span><br><span class="line">cluster_stats_messages_pong_sent:485</span><br><span class="line">cluster_stats_messages_sent:970</span><br><span class="line">cluster_stats_messages_ping_received:477</span><br><span class="line">cluster_stats_messages_pong_received:485</span><br><span class="line">cluster_stats_messages_meet_received:8</span><br><span class="line">cluster_stats_messages_received:970</span><br><span class="line">192.168.252.101:7000&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="集群命令"><a href="#集群命令" class="headerlink" title="集群命令"></a>集群命令</h2><p>语法格式<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -c -p port</span><br></pre></td></tr></table></figure></p>
-<h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cluster info ：打印集群的信息</span><br><span class="line">cluster nodes ：列出集群当前已知的所有节点（ node），以及这些节点的相关信息。</span><br></pre></td></tr></table></figure>
-<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cluster meet &lt;ip&gt; &lt;port&gt; ：将 ip 和 port 所指定的节点添加到集群当中，让它成为集群的一份子。</span><br><span class="line">cluster forget &lt;node_id&gt; ：从集群中移除 node_id 指定的节点。</span><br><span class="line">cluster replicate &lt;node_id&gt; ：将当前节点设置为 node_id 指定的节点的从节点。</span><br><span class="line">cluster saveconfig ：将节点的配置文件保存到硬盘里面。</span><br></pre></td></tr></table></figure>
-<h3 id="槽-slot"><a href="#槽-slot" class="headerlink" title="槽(slot)"></a>槽(slot)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cluster addslots &lt;slot&gt; [slot ...] ：将一个或多个槽（ slot）指派（ assign）给当前节点。</span><br><span class="line">cluster delslots &lt;slot&gt; [slot ...] ：移除一个或多个槽对当前节点的指派。</span><br><span class="line">cluster flushslots ：移除指派给当前节点的所有槽，让当前节点变成一个没有指派任何槽的节点。</span><br><span class="line">cluster setslot &lt;slot&gt; node &lt;node_id&gt; ：将槽 slot 指派给 node_id 指定的节点，如果槽已经指派给另一个节点，那么先让另一个节点删除该槽&gt;，然后再进行指派。</span><br><span class="line">cluster setslot &lt;slot&gt; migrating &lt;node_id&gt; ：将本节点的槽 slot 迁移到 node_id 指定的节点中。</span><br><span class="line">cluster setslot &lt;slot&gt; importing &lt;node_id&gt; ：从 node_id 指定的节点中导入槽 slot 到本节点。</span><br><span class="line">cluster setslot &lt;slot&gt; stable ：取消对槽 slot 的导入（ import）或者迁移（ migrate）。</span><br></pre></td></tr></table></figure>
-<h3 id="键"><a href="#键" class="headerlink" title="键"></a>键</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cluster keyslot &lt;key&gt; ：计算键 key 应该被放置在哪个槽上。</span><br><span class="line">cluster countkeysinslot &lt;slot&gt; ：返回槽 slot 目前包含的键值对数量。</span><br><span class="line">cluster getkeysinslot &lt;slot&gt; &lt;count&gt; ：返回 count 个 slot 槽中的键 。</span><br></pre></td></tr></table></figure>
-<p>出处：<a href="http://www.ymq.io" target="_blank" rel="noopener">http://www.ymq.io</a><br>转自：鹏磊</p>
+<pre><code class="sh">$ /opt/redis-4.0.1/src/redis-cli -h 192.168.252.101 -c -p 7000
+
+192.168.252.101:7000&gt; cluster nodes
+</code></pre>
+<pre><code class="sh">6555292fed9c5d52fcf5b983c441aff6f96923d5 192.168.252.102:7004@17004 slave 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 0 1502815268317 5 connected
+44c81c15b01d992cb9ede4ad35477ec853d70723 192.168.252.101:7001@17001 master - 0 1502815268000 2 connected 12288-16383
+2919e041dd3d1daf176d6800dcd262f4e727f366 192.168.252.103:7008@17008 slave 7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 0 1502815269000 9 connected
+7c622ac191edd40dd61d9b79b27f6f69d02a5bbf 192.168.252.101:7000@17000 myself,master - 0 1502815269000 1 connected 0-4095
+f1abb62a8c9b448ea14db421bdfe3f1d8075189c 192.168.252.103:7006@17006 master - 0 1502815269000 7 connected 8192-12287
+eb4067373d36d8a8df07951f92794e67a6aac022 192.168.252.103:7007@17007 slave 987965baf505a9aa43e50e46c76189c51a8f17ec 0 1502815267000 8 connected
+38f03c27af39723e1828eb62d1775c4b6e2c3638 192.168.252.101:7002@17002 slave f1abb62a8c9b448ea14db421bdfe3f1d8075189c 0 1502815269327 7 connected
+2b5ba254a0405d4efde4c459867b15176f79244a 192.168.252.102:7005@17005 slave 44c81c15b01d992cb9ede4ad35477ec853d70723 0 1502815270336 6 connected
+987965baf505a9aa43e50e46c76189c51a8f17ec 192.168.252.102:7003@17003 master - 0 1502815271345 4 connected 4096-8191
+192.168.252.101:7000&gt;
+</code></pre>
+<h3 id="打印集群信息"><a href="#打印集群信息" class="headerlink" title="打印集群信息"></a>打印集群信息</h3><pre><code class="sh">$ 192.168.252.101:7000&gt; cluster info
+</code></pre>
+<pre><code class="sh">cluster_state:ok
+cluster_slots_assigned:16384
+cluster_slots_ok:16384
+cluster_slots_pfail:0
+cluster_slots_fail:0
+cluster_known_nodes:9
+cluster_size:4
+cluster_current_epoch:9
+cluster_my_epoch:1
+cluster_stats_messages_ping_sent:485
+cluster_stats_messages_pong_sent:485
+cluster_stats_messages_sent:970
+cluster_stats_messages_ping_received:477
+cluster_stats_messages_pong_received:485
+cluster_stats_messages_meet_received:8
+cluster_stats_messages_received:970
+192.168.252.101:7000&gt;
+</code></pre>
+<h2 id="集群命令"><a href="#集群命令" class="headerlink" title="集群命令"></a>集群命令</h2><p>语法格式</p>
+<pre><code class="sh">redis-cli -c -p port
+</code></pre>
+<h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><pre><code>cluster info ：打印集群的信息
+cluster nodes ：列出集群当前已知的所有节点（ node），以及这些节点的相关信息。
+</code></pre><h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><pre><code>cluster meet &lt;ip&gt; &lt;port&gt; ：将 ip 和 port 所指定的节点添加到集群当中，让它成为集群的一份子。
+cluster forget &lt;node_id&gt; ：从集群中移除 node_id 指定的节点。
+cluster replicate &lt;node_id&gt; ：将当前节点设置为 node_id 指定的节点的从节点。
+cluster saveconfig ：将节点的配置文件保存到硬盘里面。
+</code></pre><h3 id="槽-slot"><a href="#槽-slot" class="headerlink" title="槽(slot)"></a>槽(slot)</h3><pre><code>cluster addslots &lt;slot&gt; [slot ...] ：将一个或多个槽（ slot）指派（ assign）给当前节点。
+cluster delslots &lt;slot&gt; [slot ...] ：移除一个或多个槽对当前节点的指派。
+cluster flushslots ：移除指派给当前节点的所有槽，让当前节点变成一个没有指派任何槽的节点。
+cluster setslot &lt;slot&gt; node &lt;node_id&gt; ：将槽 slot 指派给 node_id 指定的节点，如果槽已经指派给另一个节点，那么先让另一个节点删除该槽&gt;，然后再进行指派。
+cluster setslot &lt;slot&gt; migrating &lt;node_id&gt; ：将本节点的槽 slot 迁移到 node_id 指定的节点中。
+cluster setslot &lt;slot&gt; importing &lt;node_id&gt; ：从 node_id 指定的节点中导入槽 slot 到本节点。
+cluster setslot &lt;slot&gt; stable ：取消对槽 slot 的导入（ import）或者迁移（ migrate）。
+</code></pre><h3 id="键"><a href="#键" class="headerlink" title="键"></a>键</h3><pre><code>cluster keyslot &lt;key&gt; ：计算键 key 应该被放置在哪个槽上。
+cluster countkeysinslot &lt;slot&gt; ：返回槽 slot 目前包含的键值对数量。
+cluster getkeysinslot &lt;slot&gt; &lt;count&gt; ：返回 count 个 slot 槽中的键 。
+</code></pre><p>出处：<a href="http://www.ymq.io" target="_blank" rel="noopener">http://www.ymq.io</a><br>转自：鹏磊</p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       
     </div>
 </article>
 
 
-<p>
-    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
 
 <div class="article_copyright">
     <p><span>文章标题:</span>CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务</p>
-    
+    <p><span>文章字数:</span><span class="post-count">2,925</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
     <p><span>发布时间:</span>2017-12-23, 12:30:55</p>
     <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
@@ -690,7 +912,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'data': ['@Ciwei','@如果没有你','#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -702,14 +924,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -987,11 +1201,6 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
@@ -1119,71 +1328,6 @@
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
                 <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->

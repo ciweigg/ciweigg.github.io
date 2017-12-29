@@ -6,17 +6,22 @@
   <meta name="keywords" content="">
   <meta name="description" content="CentOs7.3 搭建 Redis-4.0.1 单机服务 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414216435vntz3tln.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/151341426530208bttzpy.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414230473b8ptgi9t.png?imageslim">
+<meta property="og:updated_time" content="2017-12-29T05:39:02.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
+<meta name="twitter:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -113,7 +118,7 @@
     
 </ul>
 <div class="left-bottom">
-    <div class="menus" >
+    <div class="menus">
     
     
     <a class="dynamic-menu site_url"   href="/photos/">相册</a>
@@ -123,8 +128,8 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="34">
-
+<input type="hidden" id="yelog_site_posts_number" value="33">
+<input type="hidden" id="yelog_site_word_count" value="40.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -146,7 +151,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
         <label for="tagswitch">Tags:</label>
@@ -199,15 +204,11 @@
 </div>
 
     
+    <div id="local-search-result">
+
+    </div>
+    
     <nav id="title-list-nav">
-        
-        <a  class=""
-           href="/2017/12/29/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
-        </a>
         
         <a  class="Git "
            href="/2017/12/23/2017-07-19-git/"
@@ -244,7 +245,7 @@
         <a  class="Redis "
            href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
             <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
         </a>
@@ -252,7 +253,7 @@
         <a  class="kafka "
            href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
            data-tag="kafka"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
             <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
         </a>
@@ -340,7 +341,7 @@
         <a  class="hexo "
            href="/2017/12/26/3-hexo使用说明/"
            data-tag="hexo"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
             <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
         </a>
@@ -348,7 +349,7 @@
         <a  class="Git "
            href="/2017/12/15/Git分支管理/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git分支管理">Git分支管理</span>
             <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
         </a>
@@ -356,7 +357,7 @@
         <a  class="Git "
            href="/2017/12/15/Git常用命令-1/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git常用命令">Git常用命令</span>
             <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
         </a>
@@ -364,7 +365,7 @@
         <a  class="Linux "
            href="/2017/12/23/Linux基础命令/"
            data-tag="Linux"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Linux基础命令">Linux基础命令</span>
             <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
         </a>
@@ -372,7 +373,7 @@
         <a  class="SpringBoot "
            href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
             <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
         </a>
@@ -380,7 +381,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
            data-tag="swagger"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
             <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
         </a>
@@ -388,7 +389,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
            data-tag="SpringCloud"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
             <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
         </a>
@@ -396,7 +397,7 @@
         <a  class="SpringBoot "
            href="/2017/12/11/SpringBoot事务配置规则/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
             <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
         </a>
@@ -404,7 +405,7 @@
         <a  class="Git "
            href="/2017/12/16/git常用命令/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="git常用命令">git常用命令</span>
             <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
         </a>
@@ -412,7 +413,7 @@
         <a  class="SpringBoot Mybatis "
            href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
            data-tag="SpringBoot,Mybatis"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
             <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
         </a>
@@ -420,7 +421,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
             <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
         </a>
@@ -428,7 +429,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
             <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
         </a>
@@ -436,7 +437,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/中华第一腿/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="中华第一腿">中华第一腿</span>
             <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
         </a>
@@ -444,7 +445,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
             <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
         </a>
@@ -452,7 +453,7 @@
         <a  class="COS "
            href="/2017/12/10/宅舞/"
            data-tag="COS"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="宅舞">宅舞</span>
             <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
         </a>
@@ -460,7 +461,7 @@
         <a  class="梦想开始的地方 "
            href="/2017/12/17/梦想开始的地方/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
             <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
         </a>
@@ -468,7 +469,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/这舞蹈可以/"
            data-tag="bilibili"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="B站女王啊">B站女王啊</span>
             <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
         </a>
@@ -507,6 +508,8 @@
         
     </div>
     <div class="article-meta">
+        
+        <span>字数:1,490</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -551,56 +554,191 @@
 </ul>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>关闭防火墙 节点之前需要开放指定端口，为了方便，生产不要禁用</p>
 <p>centos 6.x</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop # 关闭命令：</span><br></pre></td></tr></table></figure>
-<p>centos 7.x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service # 停止firewall</span><br></pre></td></tr></table></figure></p>
-<h2 id="单机搭建"><a href="#单机搭建" class="headerlink" title="单机搭建"></a>单机搭建</h2><h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p><strong>下载，解压，编译安装</strong></p>
+<pre><code>service iptables stop # 关闭命令：
+</code></pre><p>centos 7.x</p>
+<pre><code>systemctl stop firewalld.service # 停止firewall
+</code></pre><h2 id="单机搭建"><a href="#单机搭建" class="headerlink" title="单机搭建"></a>单机搭建</h2><h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p><strong>下载，解压，编译安装</strong></p>
 <p>升级所有的包，防止出现版本过久不兼容问题</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">yum -y update
+</code></pre>
 <p>安裝 GCC 编译工具 不然会有编译不过的问题</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc g++ gcc-c++ make</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">wget http://download.redis.io/releases/redis-4.0.1.tar.gz</span><br><span class="line">tar xzf redis-4.0.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> redis-4.0.1</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">yum install -y gcc g++ gcc-c++ make
+</code></pre>
+<pre><code class="sh">cd /opt
+wget http://download.redis.io/releases/redis-4.0.1.tar.gz
+tar xzf redis-4.0.1.tar.gz
+cd redis-4.0.1
+make
+</code></pre>
 <p><strong>如果因为上次编译失败，有残留的文件</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make distclean</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">make distclean
+</code></pre>
 <h3 id="创建配置"><a href="#创建配置" class="headerlink" title="创建配置"></a>创建配置</h3><p><strong>默认的 <code>redis.conf</code> 配置文件内容太多，很多配置，不太好，用的时候再往，自己定义的配置文件加</strong></p>
 <p> 1.创建 <code>redis-sentinel</code> 目录 用于放自定义配置文件启动 <code>redis.conf</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir redis-sentinel</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">mkdir redis-sentinel
+</code></pre>
 <p> 2.在 <code>redis-sentinel</code> 目录下，创建 redis.conf  把如下<code>Redis.conf  配置</code>内容粘贴进去</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/redis-4.0.1/redis-sentinel</span><br><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">cd /opt/redis-4.0.1/redis-sentinel
+vi redis.conf
+</code></pre>
 <p><strong>Redis.conf 配置</strong></p>
 <p><code>bind</code> 改成自己的IP 不然外网连不上</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">port 6379</span><br><span class="line"><span class="built_in">bind</span> 192.168.252.104</span><br><span class="line">daemonize yes</span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">port 6379
+bind 192.168.252.104
+daemonize yes
+pidfile /var/run/redis_6379.pid
+appendonly yes
+</code></pre>
 <p><strong>redis.conf 配置说明</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#端口7000</span></span><br><span class="line">port 7000</span><br><span class="line"></span><br><span class="line"><span class="comment">#默认IP为127.0.0.1，需要改为其他节点机器可访问的IP</span></span><br><span class="line"><span class="built_in">bind</span> 192.168.252.101</span><br><span class="line"></span><br><span class="line"><span class="comment">#redis后台运行</span></span><br><span class="line">daemonize yes </span><br><span class="line"></span><br><span class="line"><span class="comment">#当 Redis 以守护进程的方式运行的时候，Redis 默认会把 pid 文件放在/var/run/redis_6379.pid</span></span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line">        </span><br><span class="line"><span class="comment">#aof日志开启，有需要就开启，它会每次写操作都记录一条日志</span></span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">#端口7000
+port 7000
+
+#默认IP为127.0.0.1，需要改为其他节点机器可访问的IP
+bind 192.168.252.101
+
+#redis后台运行
+daemonize yes 
+
+#当 Redis 以守护进程的方式运行的时候，Redis 默认会把 pid 文件放在/var/run/redis_6379.pid
+pidfile /var/run/redis_6379.pid
+
+#aof日志开启，有需要就开启，它会每次写操作都记录一条日志
+appendonly yes
+</code></pre>
 <h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>使用指定配置文件启动 <code>--raw</code> 防止中文 <code>get</code> 乱码</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-sentinel/redis.conf --raw</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">21915:C 17 Aug 12:58:03.301 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">21915:C 17 Aug 12:58:03.301 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=21915, just started</span></span><br><span class="line">21915:C 17 Aug 12:58:03.301 <span class="comment"># Configuration loaded</span></span><br></pre></td></tr></table></figure>
+<pre><code class="sh">/opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-sentinel/redis.conf --raw
+</code></pre>
+<pre><code class="sh">21915:C 17 Aug 12:58:03.301 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+21915:C 17 Aug 12:58:03.301 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=21915, just started
+21915:C 17 Aug 12:58:03.301 # Configuration loaded
+</code></pre>
 <p>‘$remote_addr - $remote_user [$time_local] “$request” ‘$status $body_bytes_sent “$http_referer” ‘’”$http_user_agent” “$http_x_forwarded_for”‘;</p>
 <h3 id="检查服务"><a href="#检查服务" class="headerlink" title="检查服务"></a>检查服务</h3><p>检查各 Redis 各个节点启动情况</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep redis           //redis是否启动成功</span><br><span class="line">$ netstat -tnlp | grep redis    //监听redis端口</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ ps -ef | grep redis           //redis是否启动成功
+$ netstat -tnlp | grep redis    //监听redis端口
+</code></pre>
 <h3 id="测试-Redis"><a href="#测试-Redis" class="headerlink" title="测试 Redis"></a>测试 Redis</h3><p>启动redis服务进程后，就可以使用测试客户端程序redis-cli和redis服务交互了</p>
 <p>比如</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/redis-4.0.1/src/redis-cli -h 192.168.252.104 -c -p 6379 </span><br><span class="line">192.168.252.104:6379&gt; set name www.ymq.io</span><br><span class="line">OK</span><br><span class="line">192.168.252.104:6379&gt; get name</span><br><span class="line">&quot;www.ymq.io&quot;</span><br><span class="line">192.168.252.104:6379&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#kconfig: 345 86 14</span></span><br><span class="line"><span class="comment">#description: Startup and shutdown script for Redis</span></span><br><span class="line"> </span><br><span class="line">PROGDIR=/opt/redis-4.0.1 <span class="comment">#安装路径</span></span><br><span class="line">PROGNAME=src/redis-server</span><br><span class="line">DAEMON=<span class="variable">$PROGDIR</span>/<span class="variable">$PROGNAME</span></span><br><span class="line">CONFIG=/opt/redis-4.0.1/redis-sentinel/redis.conf</span><br><span class="line">PIDFILE=/var/run/redis_6379.pid</span><br><span class="line">DESC=<span class="string">"redis daemon"</span></span><br><span class="line">SCRIPTNAME=/etc/rc.d/init.d/redisd</span><br><span class="line"> </span><br><span class="line">start()</span><br><span class="line">&#123;</span><br><span class="line">         <span class="keyword">if</span> <span class="built_in">test</span> -x <span class="variable">$DAEMON</span></span><br><span class="line">         <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">"Starting <span class="variable">$DESC</span>: <span class="variable">$PROGNAME</span>"</span></span><br><span class="line">                   <span class="keyword">if</span> <span class="variable">$DAEMON</span> <span class="variable">$CONFIG</span></span><br><span class="line">                   <span class="keyword">then</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"OK"</span></span><br><span class="line">                   <span class="keyword">else</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"failed"</span></span><br><span class="line">                   <span class="keyword">fi</span></span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">                   <span class="built_in">echo</span> -e <span class="string">"Couldn't find Redis Server (<span class="variable">$DAEMON</span>)"</span></span><br><span class="line">         <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stop()</span><br><span class="line">&#123;</span><br><span class="line">         <span class="keyword">if</span> <span class="built_in">test</span> -e <span class="variable">$PIDFILE</span></span><br><span class="line">         <span class="keyword">then</span></span><br><span class="line">                   <span class="built_in">echo</span> -e <span class="string">"Stopping <span class="variable">$DESC</span>: <span class="variable">$PROGNAME</span>"</span></span><br><span class="line">                   <span class="keyword">if</span> <span class="built_in">kill</span> `cat <span class="variable">$PIDFILE</span>`</span><br><span class="line">                   <span class="keyword">then</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"OK"</span></span><br><span class="line">                   <span class="keyword">else</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"failed"</span></span><br><span class="line">                   <span class="keyword">fi</span></span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">                   <span class="built_in">echo</span> -e <span class="string">"No Redis Server (<span class="variable">$DAEMON</span>) running"</span></span><br><span class="line">         <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">restart()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">"Restarting <span class="variable">$DESC</span>: <span class="variable">$PROGNAME</span>"</span></span><br><span class="line">    stop</span><br><span class="line">         start</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">list()</span><br><span class="line">&#123;</span><br><span class="line">         ps aux | grep <span class="variable">$PROGNAME</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line">         start)</span><br><span class="line">                   start</span><br><span class="line">        ;;</span><br><span class="line">         stop)</span><br><span class="line">        stop</span><br><span class="line">        ;;</span><br><span class="line">         restart)</span><br><span class="line">        restart</span><br><span class="line">        ;;</span><br><span class="line">         list)</span><br><span class="line">        list</span><br><span class="line">        ;;</span><br><span class="line"> </span><br><span class="line">         *)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$SCRIPTNAME</span> &#123;start|stop|restart|list&#125;"</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
-<h3 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd start</span><br><span class="line">Starting redis daemon: src/redis-server</span><br><span class="line">22330:C 17 Aug 13:56:59.300 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">22330:C 17 Aug 13:56:59.300 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=22330, just started</span></span><br><span class="line">22330:C 17 Aug 13:56:59.300 <span class="comment"># Configuration loaded</span></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-<h3 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd stop</span><br><span class="line">Stopping redis daemon: src/redis-server</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd restart</span><br><span class="line">Restarting redis daemon: src/redis-server</span><br><span class="line">No Redis Server (/opt/redis-4.0.1/src/redis-server) running</span><br><span class="line">Starting redis daemon: src/redis-server</span><br><span class="line">22354:C 17 Aug 13:57:16.110 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">22354:C 17 Aug 13:57:16.110 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=22354, just started</span></span><br><span class="line">22354:C 17 Aug 13:57:16.110 <span class="comment"># Configuration loaded</span></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-<h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd list</span><br><span class="line">root      22355  0.0  0.7  41656  7512 ?        Ssl  13:57   0:00 /opt/redis-4.0.1/src/redis-server 192.168.252.104:6379</span><br><span class="line">root      22370  0.0  0.0   9028   660 pts/1    R+   13:57   0:00 grep src/redis-server</span><br></pre></td></tr></table></figure>
+<pre><code>$ /opt/redis-4.0.1/src/redis-cli -h 192.168.252.104 -c -p 6379 
+192.168.252.104:6379&gt; set name www.ymq.io
+OK
+192.168.252.104:6379&gt; get name
+&quot;www.ymq.io&quot;
+192.168.252.104:6379&gt;
+</code></pre><h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h2><pre><code class="sh">#!/bin/sh
+
+#kconfig: 345 86 14
+#description: Startup and shutdown script for Redis
+
+PROGDIR=/opt/redis-4.0.1 #安装路径
+PROGNAME=src/redis-server
+DAEMON=$PROGDIR/$PROGNAME
+CONFIG=/opt/redis-4.0.1/redis-sentinel/redis.conf
+PIDFILE=/var/run/redis_6379.pid
+DESC=&quot;redis daemon&quot;
+SCRIPTNAME=/etc/rc.d/init.d/redisd
+
+start()
+{
+         if test -x $DAEMON
+         then
+        echo -e &quot;Starting $DESC: $PROGNAME&quot;
+                   if $DAEMON $CONFIG
+                   then
+                            echo -e &quot;OK&quot;
+                   else
+                            echo -e &quot;failed&quot;
+                   fi
+         else
+                   echo -e &quot;Couldn&#39;t find Redis Server ($DAEMON)&quot;
+         fi
+}
+
+stop()
+{
+         if test -e $PIDFILE
+         then
+                   echo -e &quot;Stopping $DESC: $PROGNAME&quot;
+                   if kill `cat $PIDFILE`
+                   then
+                            echo -e &quot;OK&quot;
+                   else
+                            echo -e &quot;failed&quot;
+                   fi
+         else
+                   echo -e &quot;No Redis Server ($DAEMON) running&quot;
+         fi
+}
+
+restart()
+{
+    echo -e &quot;Restarting $DESC: $PROGNAME&quot;
+    stop
+         start
+}
+
+list()
+{
+         ps aux | grep $PROGNAME
+}
+
+case $1 in
+         start)
+                   start
+        ;;
+         stop)
+        stop
+        ;;
+         restart)
+        restart
+        ;;
+         list)
+        list
+        ;;
+
+         *)
+        echo &quot;Usage: $SCRIPTNAME {start|stop|restart|list}&quot; &gt;&amp;2
+        exit 1
+        ;;
+esac
+exit 0
+</code></pre>
+<h3 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h3><pre><code class="sh">$ service redisd start
+Starting redis daemon: src/redis-server
+22330:C 17 Aug 13:56:59.300 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+22330:C 17 Aug 13:56:59.300 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=22330, just started
+22330:C 17 Aug 13:56:59.300 # Configuration loaded
+OK
+</code></pre>
+<h3 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h3><pre><code class="sh">$ service redisd stop
+Stopping redis daemon: src/redis-server
+OK
+</code></pre>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><pre><code class="sh">$ service redisd restart
+Restarting redis daemon: src/redis-server
+No Redis Server (/opt/redis-4.0.1/src/redis-server) running
+Starting redis daemon: src/redis-server
+22354:C 17 Aug 13:57:16.110 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+22354:C 17 Aug 13:57:16.110 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=22354, just started
+22354:C 17 Aug 13:57:16.110 # Configuration loaded
+OK
+</code></pre>
+<h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><pre><code class="sh">$ service redisd list
+root      22355  0.0  0.7  41656  7512 ?        Ssl  13:57   0:00 /opt/redis-4.0.1/src/redis-server 192.168.252.104:6379
+root      22370  0.0  0.0   9028   660 pts/1    R+   13:57   0:00 grep src/redis-server
+</code></pre>
 <p>出处：<a href="http://www.ymq.io" target="_blank" rel="noopener">http://www.ymq.io</a><br>转自：鹏磊</p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       
     </div>
 </article>
 
 
-<p>
-    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
 
 <div class="article_copyright">
     <p><span>文章标题:</span>CentOs7.3 搭建 Redis-4.0.1 单机服务</p>
-    
+    <p><span>文章字数:</span><span class="post-count">1,490</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
     <p><span>发布时间:</span>2017-12-23, 12:31:22</p>
     <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
@@ -661,7 +799,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'data': ['@Ciwei','@如果没有你','#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -673,14 +811,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -958,11 +1088,6 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
@@ -1090,71 +1215,6 @@
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
                 <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->

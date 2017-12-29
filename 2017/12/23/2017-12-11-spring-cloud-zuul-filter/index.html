@@ -6,17 +6,22 @@
   <meta name="keywords" content="">
   <meta name="description" content="Spring Cloud（七）服务网关 Zuul Filter 使用 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414216435vntz3tln.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/151341426530208bttzpy.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414230473b8ptgi9t.png?imageslim">
+<meta property="og:updated_time" content="2017-12-29T05:39:02.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
+<meta name="twitter:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -113,7 +118,7 @@
     
 </ul>
 <div class="left-bottom">
-    <div class="menus" >
+    <div class="menus">
     
     
     <a class="dynamic-menu site_url"   href="/photos/">相册</a>
@@ -123,8 +128,8 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="34">
-
+<input type="hidden" id="yelog_site_posts_number" value="33">
+<input type="hidden" id="yelog_site_word_count" value="40.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -146,7 +151,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
         <label for="tagswitch">Tags:</label>
@@ -199,15 +204,11 @@
 </div>
 
     
+    <div id="local-search-result">
+
+    </div>
+    
     <nav id="title-list-nav">
-        
-        <a  class=""
-           href="/2017/12/29/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
-        </a>
         
         <a  class="Git "
            href="/2017/12/23/2017-07-19-git/"
@@ -244,7 +245,7 @@
         <a  class="Redis "
            href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
             <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
         </a>
@@ -252,7 +253,7 @@
         <a  class="kafka "
            href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
            data-tag="kafka"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
             <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
         </a>
@@ -340,7 +341,7 @@
         <a  class="hexo "
            href="/2017/12/26/3-hexo使用说明/"
            data-tag="hexo"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
             <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
         </a>
@@ -348,7 +349,7 @@
         <a  class="Git "
            href="/2017/12/15/Git分支管理/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git分支管理">Git分支管理</span>
             <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
         </a>
@@ -356,7 +357,7 @@
         <a  class="Git "
            href="/2017/12/15/Git常用命令-1/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git常用命令">Git常用命令</span>
             <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
         </a>
@@ -364,7 +365,7 @@
         <a  class="Linux "
            href="/2017/12/23/Linux基础命令/"
            data-tag="Linux"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Linux基础命令">Linux基础命令</span>
             <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
         </a>
@@ -372,7 +373,7 @@
         <a  class="SpringBoot "
            href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
             <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
         </a>
@@ -380,7 +381,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
            data-tag="swagger"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
             <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
         </a>
@@ -388,7 +389,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
            data-tag="SpringCloud"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
             <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
         </a>
@@ -396,7 +397,7 @@
         <a  class="SpringBoot "
            href="/2017/12/11/SpringBoot事务配置规则/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
             <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
         </a>
@@ -404,7 +405,7 @@
         <a  class="Git "
            href="/2017/12/16/git常用命令/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="git常用命令">git常用命令</span>
             <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
         </a>
@@ -412,7 +413,7 @@
         <a  class="SpringBoot Mybatis "
            href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
            data-tag="SpringBoot,Mybatis"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
             <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
         </a>
@@ -420,7 +421,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
             <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
         </a>
@@ -428,7 +429,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
             <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
         </a>
@@ -436,7 +437,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/中华第一腿/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="中华第一腿">中华第一腿</span>
             <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
         </a>
@@ -444,7 +445,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
             <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
         </a>
@@ -452,7 +453,7 @@
         <a  class="COS "
            href="/2017/12/10/宅舞/"
            data-tag="COS"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="宅舞">宅舞</span>
             <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
         </a>
@@ -460,7 +461,7 @@
         <a  class="梦想开始的地方 "
            href="/2017/12/17/梦想开始的地方/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
             <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
         </a>
@@ -468,7 +469,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/这舞蹈可以/"
            data-tag="bilibili"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="B站女王啊">B站女王啊</span>
             <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
         </a>
@@ -507,6 +508,8 @@
         
     </div>
     <div class="article-meta">
+        
+        <span>字数:1,532</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -550,19 +553,181 @@
 <li><a href="https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-eureka-provider-2" target="_blank" rel="noopener">https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-eureka-provider-2</a></li>
 </ul>
 <h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p><strong>新建项目</strong> <code>spring-cloud-zuul-filter</code></p>
-<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
 <h3 id="开启服务注册"><a href="#开启服务注册" class="headerlink" title="开启服务注册"></a>开启服务注册</h3><p>在程序的启动类 <code>ZuulFilterApplication</code> 通过 <code>@EnableZuulProxy</code> 开启 Zuul 服务网关</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.ymq.example.zuul.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.zuul.EnableZuulProxy;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableZuulProxy</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZuulFilterApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(ZuulFilterApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package io.ymq.example.zuul.filter;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.Bean;
+
+@EnableZuulProxy
+@SpringBootApplication
+public class ZuulFilterApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ZuulFilterApplication.class, args);
+    }
+}
+</code></pre>
 <h3 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h3><p>配置文件 <code>application.yml</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: zuul-service-filter</span><br><span class="line"></span><br><span class="line">server:</span><br><span class="line">  port: 9000</span><br><span class="line"></span><br><span class="line">zuul:</span><br><span class="line">  routes:</span><br><span class="line">    api:</span><br><span class="line">        path: /**</span><br><span class="line">        serviceId: eureka-provider</span><br><span class="line"></span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    serviceUrl:</span><br><span class="line">      defaultZone: http://localhost:8761/eureka/</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">spring:
+  application:
+    name: zuul-service-filter
+
+server:
+  port: 9000
+
+zuul:
+  routes:
+    api:
+        path: /**
+        serviceId: eureka-provider
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+</code></pre>
 <h3 id="TokenFilter"><a href="#TokenFilter" class="headerlink" title="TokenFilter"></a>TokenFilter</h3><p><code>ZuulFilter</code> 是Zuul中核心组件，通过继承该抽象类，覆写几个关键方法达到自定义调度请求的作用</p>
 <p><strong>TokenFilter 过滤器</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.ymq.example.zuul.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.netflix.zuul.ZuulFilter;</span><br><span class="line"><span class="keyword">import</span> com.netflix.zuul.context.RequestContext;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.lang.StringUtils;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 描述: 过滤器 token</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> yanpenglei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2017-12-11 14:38</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenFilter</span> <span class="keyword">extends</span> <span class="title">ZuulFilter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(TokenFilter.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">filterType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"pre"</span>; <span class="comment">// 可以在请求被路由之前调用</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">filterOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// filter执行顺序，通过数字指定 ,优先级为0，数字越大，优先级越低</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;<span class="comment">// 是否执行该过滤器，此处为true，说明需要过滤</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RequestContext ctx = RequestContext.getCurrentContext();</span><br><span class="line">        HttpServletRequest request = ctx.getRequest();</span><br><span class="line"></span><br><span class="line">        LOGGER.info(<span class="string">"---&gt;&gt;&gt; TokenFilter &#123;&#125;,&#123;&#125;"</span>, request.getMethod(), request.getRequestURL().toString());</span><br><span class="line"></span><br><span class="line">        String token = request.getParameter(<span class="string">"token"</span>);<span class="comment">// 获取请求的参数</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isNotBlank(token)) &#123;</span><br><span class="line">            ctx.setSendZuulResponse(<span class="keyword">true</span>); <span class="comment">//对请求进行路由</span></span><br><span class="line">            ctx.setResponseStatusCode(<span class="number">200</span>);</span><br><span class="line">            ctx.set(<span class="string">"isSuccess"</span>, <span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ctx.setSendZuulResponse(<span class="keyword">false</span>); <span class="comment">//不对其进行路由</span></span><br><span class="line">            ctx.setResponseStatusCode(<span class="number">400</span>);</span><br><span class="line">            ctx.setResponseBody(<span class="string">"token is empty"</span>);</span><br><span class="line">            ctx.set(<span class="string">"isSuccess"</span>, <span class="keyword">false</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package io.ymq.example.zuul.filter;
+
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.HttpServletRequest;
+
+/**
+ * 描述: 过滤器 token
+ *
+ * @author yanpenglei
+ * @create 2017-12-11 14:38
+ **/
+public class TokenFilter extends ZuulFilter {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(TokenFilter.class);
+
+    @Override
+    public String filterType() {
+        return &quot;pre&quot;; // 可以在请求被路由之前调用
+    }
+
+    @Override
+    public int filterOrder() {
+        return 0; // filter执行顺序，通过数字指定 ,优先级为0，数字越大，优先级越低
+    }
+
+    @Override
+    public boolean shouldFilter() {
+        return true;// 是否执行该过滤器，此处为true，说明需要过滤
+    }
+
+    @Override
+    public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+
+        LOGGER.info(&quot;---&gt;&gt;&gt; TokenFilter {},{}&quot;, request.getMethod(), request.getRequestURL().toString());
+
+        String token = request.getParameter(&quot;token&quot;);// 获取请求的参数
+
+        if (StringUtils.isNotBlank(token)) {
+            ctx.setSendZuulResponse(true); //对请求进行路由
+            ctx.setResponseStatusCode(200);
+            ctx.set(&quot;isSuccess&quot;, true);
+            return null;
+        } else {
+            ctx.setSendZuulResponse(false); //不对其进行路由
+            ctx.setResponseStatusCode(400);
+            ctx.setResponseBody(&quot;token is empty&quot;);
+            ctx.set(&quot;isSuccess&quot;, false);
+            return null;
+        }
+    }
+
+}
+</code></pre>
 <h3 id="PasswordFilter"><a href="#PasswordFilter" class="headerlink" title="PasswordFilter"></a>PasswordFilter</h3><p><code>ZuulFilter</code> 是Zuul中核心组件，通过继承该抽象类，覆写几个关键方法达到自定义调度请求的作用</p>
 <p><strong>PasswordFilter 过滤器</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.ymq.example.zuul.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.netflix.zuul.ZuulFilter;</span><br><span class="line"><span class="keyword">import</span> com.netflix.zuul.context.RequestContext;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 描述: 过滤器 Password</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> yanpenglei</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2017-12-11 15:40</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PasswordFilter</span> <span class="keyword">extends</span> <span class="title">ZuulFilter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Logger LOGGER = LoggerFactory.getLogger(TokenFilter.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">filterType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"post"</span>; <span class="comment">// 请求处理完成后执行的filter</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">filterOrder</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// 优先级为0，数字越大，优先级越低</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RequestContext ctx = RequestContext.getCurrentContext();</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">boolean</span>) ctx.get(<span class="string">"isSuccess"</span>);</span><br><span class="line">        <span class="comment">// 判断上一个过滤器结果为true，否则就不走下面过滤器，直接跳过后面的所有过滤器并返回 上一个过滤器不通过的结果。</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        RequestContext ctx = RequestContext.getCurrentContext();</span><br><span class="line">        HttpServletRequest request = ctx.getRequest();</span><br><span class="line"></span><br><span class="line">        LOGGER.info(<span class="string">"---&gt;&gt;&gt; PasswordFilter &#123;&#125;,&#123;&#125;"</span>, request.getMethod(), request.getRequestURL().toString());</span><br><span class="line"></span><br><span class="line">        String username = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != username &amp;&amp; username.equals(<span class="string">"123456"</span>)) &#123;</span><br><span class="line">            ctx.setSendZuulResponse(<span class="keyword">true</span>);</span><br><span class="line">            ctx.setResponseStatusCode(<span class="number">200</span>);</span><br><span class="line">            ctx.set(<span class="string">"isSuccess"</span>, <span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ctx.setSendZuulResponse(<span class="keyword">false</span>);</span><br><span class="line">            ctx.setResponseStatusCode(<span class="number">400</span>);</span><br><span class="line">            ctx.setResponseBody(<span class="string">"The password cannot be empty"</span>);</span><br><span class="line">            ctx.set(<span class="string">"isSuccess"</span>, <span class="keyword">false</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package io.ymq.example.zuul.filter;
+
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.HttpServletRequest;
+
+/**
+ * 描述: 过滤器 Password
+ *
+ * @author yanpenglei
+ * @create 2017-12-11 15:40
+ **/
+public class PasswordFilter extends ZuulFilter {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(TokenFilter.class);
+
+    @Override
+    public String filterType() {
+        return &quot;post&quot;; // 请求处理完成后执行的filter
+    }
+
+    @Override
+    public int filterOrder() {
+        return 1; // 优先级为0，数字越大，优先级越低
+    }
+
+    @Override
+    public boolean shouldFilter() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        return (boolean) ctx.get(&quot;isSuccess&quot;);
+        // 判断上一个过滤器结果为true，否则就不走下面过滤器，直接跳过后面的所有过滤器并返回 上一个过滤器不通过的结果。
+    }
+
+    @Override
+    public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+
+        LOGGER.info(&quot;---&gt;&gt;&gt; PasswordFilter {},{}&quot;, request.getMethod(), request.getRequestURL().toString());
+
+        String username = request.getParameter(&quot;password&quot;);
+        if (null != username &amp;&amp; username.equals(&quot;123456&quot;)) {
+            ctx.setSendZuulResponse(true);
+            ctx.setResponseStatusCode(200);
+            ctx.set(&quot;isSuccess&quot;, true);
+            return null;
+        } else {
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseStatusCode(400);
+            ctx.setResponseBody(&quot;The password cannot be empty&quot;);
+            ctx.set(&quot;isSuccess&quot;, false);
+            return null;
+        }
+    }
+}
+</code></pre>
 <h3 id="开启过滤器"><a href="#开启过滤器" class="headerlink" title="开启过滤器"></a>开启过滤器</h3><p>在程序的启动类 <code>ZuulFilterApplication</code> 添加 Bean</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> TokenFilter <span class="title">tokenFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> TokenFilter();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> PasswordFilter <span class="title">PasswordFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> PasswordFilter();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">@Bean
+public TokenFilter tokenFilter() {
+    return new TokenFilter();
+}
+
+@Bean
+public PasswordFilter PasswordFilter() {
+    return new PasswordFilter();
+}
+</code></pre>
 <h3 id="filterType"><a href="#filterType" class="headerlink" title="filterType"></a>filterType</h3><p><strong>filterType：返回一个字符串代表过滤器的类型，在zuul中定义了四种不同生命周期的过滤器类型，具体如下:</strong> </p>
 <ul>
 <li>pre：路由之前</li>
@@ -604,19 +769,15 @@
 <p>出处：<a href="http://www.ymq.io" target="_blank" rel="noopener">http://www.ymq.io</a><br>转自：鹏磊</p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       
     </div>
 </article>
 
 
-<p>
-    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
 
 <div class="article_copyright">
     <p><span>文章标题:</span>Spring Cloud（七）服务网关 Zuul Filter 使用</p>
-    
+    <p><span>文章字数:</span><span class="post-count">1,532</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
     <p><span>发布时间:</span>2017-12-23, 11:51:33</p>
     <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
@@ -677,7 +838,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'data': ['@Ciwei','@如果没有你','#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -689,14 +850,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -974,11 +1127,6 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
@@ -1106,71 +1254,6 @@
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
                 <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->

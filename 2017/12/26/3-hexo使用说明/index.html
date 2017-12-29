@@ -6,17 +6,22 @@
   <meta name="keywords" content=" hexo ">
   <meta name="description" content="3-hexo使用说明 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414216435vntz3tln.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/151341426530208bttzpy.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414230473b8ptgi9t.png?imageslim">
+<meta property="og:updated_time" content="2017-12-29T05:39:02.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
+<meta name="twitter:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -113,7 +118,7 @@
     
 </ul>
 <div class="left-bottom">
-    <div class="menus" >
+    <div class="menus">
     
     
     <a class="dynamic-menu site_url"   href="/photos/">相册</a>
@@ -123,8 +128,8 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="34">
-
+<input type="hidden" id="yelog_site_posts_number" value="33">
+<input type="hidden" id="yelog_site_word_count" value="40.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -146,7 +151,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
         <label for="tagswitch">Tags:</label>
@@ -199,15 +204,11 @@
 </div>
 
     
+    <div id="local-search-result">
+
+    </div>
+    
     <nav id="title-list-nav">
-        
-        <a  class=""
-           href="/2017/12/29/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
-        </a>
         
         <a  class="Git "
            href="/2017/12/23/2017-07-19-git/"
@@ -244,7 +245,7 @@
         <a  class="Redis "
            href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
             <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
         </a>
@@ -252,7 +253,7 @@
         <a  class="kafka "
            href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
            data-tag="kafka"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
             <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
         </a>
@@ -340,7 +341,7 @@
         <a  class="hexo "
            href="/2017/12/26/3-hexo使用说明/"
            data-tag="hexo"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
             <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
         </a>
@@ -348,7 +349,7 @@
         <a  class="Git "
            href="/2017/12/15/Git分支管理/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git分支管理">Git分支管理</span>
             <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
         </a>
@@ -356,7 +357,7 @@
         <a  class="Git "
            href="/2017/12/15/Git常用命令-1/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git常用命令">Git常用命令</span>
             <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
         </a>
@@ -364,7 +365,7 @@
         <a  class="Linux "
            href="/2017/12/23/Linux基础命令/"
            data-tag="Linux"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Linux基础命令">Linux基础命令</span>
             <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
         </a>
@@ -372,7 +373,7 @@
         <a  class="SpringBoot "
            href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
             <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
         </a>
@@ -380,7 +381,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
            data-tag="swagger"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
             <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
         </a>
@@ -388,7 +389,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
            data-tag="SpringCloud"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
             <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
         </a>
@@ -396,7 +397,7 @@
         <a  class="SpringBoot "
            href="/2017/12/11/SpringBoot事务配置规则/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
             <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
         </a>
@@ -404,7 +405,7 @@
         <a  class="Git "
            href="/2017/12/16/git常用命令/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="git常用命令">git常用命令</span>
             <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
         </a>
@@ -412,7 +413,7 @@
         <a  class="SpringBoot Mybatis "
            href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
            data-tag="SpringBoot,Mybatis"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
             <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
         </a>
@@ -420,7 +421,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
             <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
         </a>
@@ -428,7 +429,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
             <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
         </a>
@@ -436,7 +437,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/中华第一腿/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="中华第一腿">中华第一腿</span>
             <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
         </a>
@@ -444,7 +445,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
             <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
         </a>
@@ -452,7 +453,7 @@
         <a  class="COS "
            href="/2017/12/10/宅舞/"
            data-tag="COS"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="宅舞">宅舞</span>
             <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
         </a>
@@ -460,7 +461,7 @@
         <a  class="梦想开始的地方 "
            href="/2017/12/17/梦想开始的地方/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
             <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
         </a>
@@ -468,7 +469,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/这舞蹈可以/"
            data-tag="bilibili"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="B站女王啊">B站女王啊</span>
             <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
         </a>
@@ -492,6 +493,8 @@
     <div class="article-meta">
         
         
+        <span class="author"><a href="javascript:">Ciwei</a></span>
+        
         
         <span class="book">
             
@@ -513,6 +516,8 @@
         
     </div>
     <div class="article-meta">
+        
+        <span>字数:939</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -556,8 +561,23 @@
 <li>替换 <code>source/img/avatar.jpg</code> 图片。</li>
 <li>修改 <code>_config.yml</code> 中头像的配置记录</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 你的头像url</span><br><span class="line">avatar: /img/avatar.jpg</span><br><span class="line">favicon: /img/avatar.jpg</span><br></pre></td></tr></table></figure>
-<h2 id="设置链接图标"><a href="#设置链接图标" class="headerlink" title="设置链接图标"></a>设置链接图标</h2><p>如下，如果没有连接，则不展示图标。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#链接图标，链接为空则不显示</span><br><span class="line">link:</span><br><span class="line">  rss: /atom.xml</span><br><span class="line">  github: https://github.com/yelog</span><br><span class="line">  facebook: https://www.facebook.com/faker.tops</span><br><span class="line">  twitter:</span><br><span class="line">  linkedin:</span><br><span class="line">  instagram:</span><br><span class="line">  reddit: https://www.reddit.com/user/yelog/</span><br><span class="line">  weibo: http://weibo.com/u/2307534817</span><br><span class="line">  email: jaytp@qq.com</span><br></pre></td></tr></table></figure></p>
+<pre><code class="xml"># 你的头像url
+avatar: /img/avatar.jpg
+favicon: /img/avatar.jpg
+</code></pre>
+<h2 id="设置链接图标"><a href="#设置链接图标" class="headerlink" title="设置链接图标"></a>设置链接图标</h2><p>如下，如果没有连接，则不展示图标。</p>
+<pre><code class="xml">#链接图标，链接为空则不显示
+link:
+  rss: /atom.xml
+  github: https://github.com/yelog
+  facebook: https://www.facebook.com/faker.tops
+  twitter:
+  linkedin:
+  instagram:
+  reddit: https://www.reddit.com/user/yelog/
+  weibo: http://weibo.com/u/2307534817
+  email: jaytp@qq.com
+</code></pre>
 <h2 id="配置评论系统"><a href="#配置评论系统" class="headerlink" title="配置评论系统"></a>配置评论系统</h2><p>目前添加了三种评论系统 <strong>disqus、多说、网易云跟帖</strong></p>
 <blockquote>
 <p><code>日志：</code> 2017-03-21：多说将于2017-06-01正式关停服务</p>
@@ -569,43 +589,103 @@
 <li>登陆 <code>disqus</code> 注册，得到shortname，填入shortname。</li>
 <li>重启 <code>hexo</code>。</li>
 </ol>
-<h3 id="meta区显示评论数"><a href="#meta区显示评论数" class="headerlink" title="meta区显示评论数"></a>meta区显示评论数</h3><p>开启设置 <code>_config.yml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">comment_count: true</span><br><span class="line"># 文章标题下方显示评论数</span><br></pre></td></tr></table></figure></p>
+<h3 id="meta区显示评论数"><a href="#meta区显示评论数" class="headerlink" title="meta区显示评论数"></a>meta区显示评论数</h3><p>开启设置 <code>_config.yml</code></p>
+<pre><code class="xml">comment_count: true
+# 文章标题下方显示评论数
+</code></pre>
 <p><img src="http://oncj6b2vl.bkt.clouddn.com/FlDHXpVnJ-ECFCehRBoKkQMlqj_R.png" alt="开启效果"></p>
-<h3 id="评论区预加载"><a href="#评论区预加载" class="headerlink" title="评论区预加载"></a>评论区预加载</h3><p>开启设置 <code>_config.yml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">preload_comment: false</span><br></pre></td></tr></table></figure></p>
+<h3 id="评论区预加载"><a href="#评论区预加载" class="headerlink" title="评论区预加载"></a>评论区预加载</h3><p>开启设置 <code>_config.yml</code></p>
+<pre><code class="xml">preload_comment: false
+</code></pre>
 <ol>
 <li>false: 当点击评论条等区域时再加载评论模块</li>
 <li>true: 页面加载时加载评论区<br><img src="http://oncj6b2vl.bkt.clouddn.com/FrYn2xsPMLBizQZ_p_mCa-hJYTG_.png" alt="关闭效果"></li>
 </ol>
-<h2 id="样式设置"><a href="#样式设置" class="headerlink" title="样式设置"></a>样式设置</h2><h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p>首先要关闭hexo根目录下<code>_config.yml</code>中的高亮设置：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">highlight:</span><br><span class="line">  enable: false</span><br></pre></td></tr></table></figure></p>
-<p>配置主题下<code>_config.yml</code>中的高亮设置：<br>可以根据提示，配置喜欢的高亮主题<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">highlight:</span><br><span class="line">  on: true # true开启代码高亮</span><br><span class="line">  lineNum: true # true显示行号</span><br><span class="line">  theme: darcula</span><br><span class="line"># 代码高亮主题,效果可以查看 https://highlightjs.org/static/demo/</span><br><span class="line"># 支持主题：</span><br><span class="line"># sublime : 参考sublime的高亮主题</span><br><span class="line"># darcula : 参考idea中的darcula的主题</span><br><span class="line"># atom-dark : 参考Atom的dark主题</span><br><span class="line"># atom-light : 参考Atom的light主题</span><br><span class="line"># github : 参考GitHub版的高亮主题</span><br><span class="line"># github-gist : GitHub-Gist主题</span><br><span class="line"># brown-paper : 牛皮纸效果</span><br><span class="line"># gruvbox-light : gruvbox的light主题</span><br><span class="line"># gruvbox-dark ： gruvbox的dark主题</span><br><span class="line"># rainbow :</span><br><span class="line"># railscasts :</span><br><span class="line"># sunburst :</span><br><span class="line"># kimbie-dark :</span><br><span class="line"># kimbie-light :</span><br><span class="line"># school-book : 纸张效果</span><br></pre></td></tr></table></figure></p>
-<h3 id="表格样式"><a href="#表格样式" class="headerlink" title="表格样式"></a>表格样式</h3><p>目前提供了3中样式，修改 <code>_config.yml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">table: green_title</span><br><span class="line"># table 的样式</span><br><span class="line"># 为空时类似github的table样式</span><br><span class="line"># green 绿色样式</span><br><span class="line"># green_title 头部为青色的table样式</span><br></pre></td></tr></table></figure></p>
-<h3 id="文章列表的hover样式"><a href="#文章列表的hover样式" class="headerlink" title="文章列表的hover样式"></a>文章列表的hover样式</h3><p>鼠标移入的背景色和文字颜色变动，设置 <code>_config.yml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#文章列表 鼠标移上去的样式, 为空时使用默认效果</span><br><span class="line">article_list:</span><br><span class="line">  hover:</span><br><span class="line">    background: '#e2e0e0'  # 背景色:提供几种：'#c1bfc1'  '#fbf4a8'</span><br><span class="line">    color:     # 文字颜色 提供几种：'#ffffff'</span><br><span class="line"># 注意：由于颜色如果包含#，使用单引号 ' 引起来</span><br></pre></td></tr></table></figure></p>
+<h2 id="样式设置"><a href="#样式设置" class="headerlink" title="样式设置"></a>样式设置</h2><h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p>首先要关闭hexo根目录下<code>_config.yml</code>中的高亮设置：</p>
+<pre><code class="xml">highlight:
+  enable: false
+</code></pre>
+<p>配置主题下<code>_config.yml</code>中的高亮设置：<br>可以根据提示，配置喜欢的高亮主题</p>
+<pre><code class="xml">highlight:
+  on: true # true开启代码高亮
+  lineNum: true # true显示行号
+  theme: darcula
+# 代码高亮主题,效果可以查看 https://highlightjs.org/static/demo/
+# 支持主题：
+# sublime : 参考sublime的高亮主题
+# darcula : 参考idea中的darcula的主题
+# atom-dark : 参考Atom的dark主题
+# atom-light : 参考Atom的light主题
+# github : 参考GitHub版的高亮主题
+# github-gist : GitHub-Gist主题
+# brown-paper : 牛皮纸效果
+# gruvbox-light : gruvbox的light主题
+# gruvbox-dark ： gruvbox的dark主题
+# rainbow :
+# railscasts :
+# sunburst :
+# kimbie-dark :
+# kimbie-light :
+# school-book : 纸张效果
+</code></pre>
+<h3 id="表格样式"><a href="#表格样式" class="headerlink" title="表格样式"></a>表格样式</h3><p>目前提供了3中样式，修改 <code>_config.yml</code></p>
+<pre><code class="xml">table: green_title
+# table 的样式
+# 为空时类似github的table样式
+# green 绿色样式
+# green_title 头部为青色的table样式
+</code></pre>
+<h3 id="文章列表的hover样式"><a href="#文章列表的hover样式" class="headerlink" title="文章列表的hover样式"></a>文章列表的hover样式</h3><p>鼠标移入的背景色和文字颜色变动，设置 <code>_config.yml</code></p>
+<pre><code class="xml">#文章列表 鼠标移上去的样式, 为空时使用默认效果
+article_list:
+  hover:
+    background: &#39;#e2e0e0&#39;  # 背景色:提供几种：&#39;#c1bfc1&#39;  &#39;#fbf4a8&#39;
+    color:     # 文字颜色 提供几种：&#39;#ffffff&#39;
+# 注意：由于颜色如果包含#，使用单引号 &#39; 引起来
+</code></pre>
 <h2 id="开启字数统计"><a href="#开启字数统计" class="headerlink" title="开启字数统计"></a>开启字数统计</h2><ol>
 <li>开启此功能需先安装插件，在 hexo根目录 执行 <code>npm i hexo-wordcount --save</code></li>
 <li>修改 <code>_config.yml</code></li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">word_count: true</span><br></pre></td></tr></table></figure>
+<pre><code class="xml">word_count: true
+</code></pre>
 <h2 id="多作者模式"><a href="#多作者模式" class="headerlink" title="多作者模式"></a>多作者模式</h2><p>可查看这篇文章： </p>
 <h2 id="文章排序及置顶"><a href="#文章排序及置顶" class="headerlink" title="文章排序及置顶"></a>文章排序及置顶</h2><p>可查看这篇文章： </p>
-<h2 id="关于写文章"><a href="#关于写文章" class="headerlink" title="关于写文章"></a>关于写文章</h2><h3 id="如何写"><a href="#如何写" class="headerlink" title="如何写"></a>如何写</h3><p>每篇文章最好写上文集和标签，方便筛选和查看。<br>一般推荐一篇文章设置一个文集，一个或多个标签<br><code>categories</code>:文集，为左侧列表<br><code>tags</code>:标签，通过#来筛选<br>例如 本篇文章的设置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 3-hexo使用说明</span><br><span class="line">date: 2017-03-23 15:13:47</span><br><span class="line">categories:</span><br><span class="line">- 工具</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">- 3-hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<h3 id="写作技巧"><a href="#写作技巧" class="headerlink" title="写作技巧"></a>写作技巧</h3><p>1.设置模板，blog根目录 <code>scaffolds/post.md</code><br>加入categories,tags等，这样以后通过 <code>hexo new</code> 生成的模板就不用写这两个单词了。<br>当然，你也可以写入任何你每个文章中都会有的部分。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">tags:</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<p>2.设置脚本命令<br>其实就通过alias，触发一些命令的集合<br>在 <code>~/.bashrc</code> 文件中添加<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> hs=<span class="string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo s'</span>  <span class="comment">#启动本地服务</span></span><br><span class="line"><span class="built_in">alias</span> hd=<span class="string">'hexo clean &amp;&amp; hexo g &amp;&amp; hexo d'</span>  <span class="comment">#部署博客</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="关于写文章"><a href="#关于写文章" class="headerlink" title="关于写文章"></a>关于写文章</h2><h3 id="如何写"><a href="#如何写" class="headerlink" title="如何写"></a>如何写</h3><p>每篇文章最好写上文集和标签，方便筛选和查看。<br>一般推荐一篇文章设置一个文集，一个或多个标签<br><code>categories</code>:文集，为左侧列表<br><code>tags</code>:标签，通过#来筛选<br>例如 本篇文章的设置</p>
+<pre><code class="xml">---
+title: 3-hexo使用说明
+date: 2017-03-23 15:13:47
+categories:
+- 工具
+tags:
+- hexo
+- 3-hexo
+---
+</code></pre>
+<h3 id="写作技巧"><a href="#写作技巧" class="headerlink" title="写作技巧"></a>写作技巧</h3><p>1.设置模板，blog根目录 <code>scaffolds/post.md</code><br>加入categories,tags等，这样以后通过 <code>hexo new</code> 生成的模板就不用写这两个单词了。<br>当然，你也可以写入任何你每个文章中都会有的部分。</p>
+<pre><code class="xml">---
+title: {{ title }}
+date: {{ date }}
+categories:
+tags:
+---
+</code></pre>
+<p>2.设置脚本命令<br>其实就通过alias，触发一些命令的集合<br>在 <code>~/.bashrc</code> 文件中添加</p>
+<pre><code class="bash">alias hs=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo s&#39;  #启动本地服务
+alias hd=&#39;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&#39;  #部署博客
+</code></pre>
 <p>甚至你也可以加入备份文章的命令，可以自由发挥。</p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       
     </div>
 </article>
 
 
-<p>
-    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
 
 <div class="article_copyright">
     <p><span>文章标题:</span>3-hexo使用说明</p>
-    
+    <p><span>文章字数:</span><span class="post-count">939</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
     <p><span>发布时间:</span>2017-12-26, 17:23:00</p>
     <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
@@ -666,7 +746,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'data': ['@Ciwei','@如果没有你','#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -678,14 +758,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -963,11 +1035,6 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
@@ -1095,71 +1162,6 @@
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
                 <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->

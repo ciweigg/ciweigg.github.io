@@ -6,17 +6,22 @@
   <meta name="keywords" content="">
   <meta name="description" content="搭建高吞吐量 Kafka 分布式发布订阅消息 集群 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414216435vntz3tln.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/151341426530208bttzpy.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414230473b8ptgi9t.png?imageslim">
+<meta property="og:updated_time" content="2017-12-29T05:39:02.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
+<meta name="twitter:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -113,7 +118,7 @@
     
 </ul>
 <div class="left-bottom">
-    <div class="menus" >
+    <div class="menus">
     
     
     <a class="dynamic-menu site_url"   href="/photos/">相册</a>
@@ -123,8 +128,8 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="34">
-
+<input type="hidden" id="yelog_site_posts_number" value="33">
+<input type="hidden" id="yelog_site_word_count" value="40.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -146,7 +151,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
         <label for="tagswitch">Tags:</label>
@@ -199,15 +204,11 @@
 </div>
 
     
+    <div id="local-search-result">
+
+    </div>
+    
     <nav id="title-list-nav">
-        
-        <a  class=""
-           href="/2017/12/29/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
-        </a>
         
         <a  class="Git "
            href="/2017/12/23/2017-07-19-git/"
@@ -244,7 +245,7 @@
         <a  class="Redis "
            href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
             <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
         </a>
@@ -252,7 +253,7 @@
         <a  class="kafka "
            href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
            data-tag="kafka"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
             <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
         </a>
@@ -340,7 +341,7 @@
         <a  class="hexo "
            href="/2017/12/26/3-hexo使用说明/"
            data-tag="hexo"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
             <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
         </a>
@@ -348,7 +349,7 @@
         <a  class="Git "
            href="/2017/12/15/Git分支管理/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git分支管理">Git分支管理</span>
             <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
         </a>
@@ -356,7 +357,7 @@
         <a  class="Git "
            href="/2017/12/15/Git常用命令-1/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git常用命令">Git常用命令</span>
             <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
         </a>
@@ -364,7 +365,7 @@
         <a  class="Linux "
            href="/2017/12/23/Linux基础命令/"
            data-tag="Linux"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Linux基础命令">Linux基础命令</span>
             <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
         </a>
@@ -372,7 +373,7 @@
         <a  class="SpringBoot "
            href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
             <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
         </a>
@@ -380,7 +381,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
            data-tag="swagger"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
             <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
         </a>
@@ -388,7 +389,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
            data-tag="SpringCloud"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
             <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
         </a>
@@ -396,7 +397,7 @@
         <a  class="SpringBoot "
            href="/2017/12/11/SpringBoot事务配置规则/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
             <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
         </a>
@@ -404,7 +405,7 @@
         <a  class="Git "
            href="/2017/12/16/git常用命令/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="git常用命令">git常用命令</span>
             <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
         </a>
@@ -412,7 +413,7 @@
         <a  class="SpringBoot Mybatis "
            href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
            data-tag="SpringBoot,Mybatis"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
             <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
         </a>
@@ -420,7 +421,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
             <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
         </a>
@@ -428,7 +429,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
             <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
         </a>
@@ -436,7 +437,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/中华第一腿/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="中华第一腿">中华第一腿</span>
             <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
         </a>
@@ -444,7 +445,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
             <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
         </a>
@@ -452,7 +453,7 @@
         <a  class="COS "
            href="/2017/12/10/宅舞/"
            data-tag="COS"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="宅舞">宅舞</span>
             <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
         </a>
@@ -460,7 +461,7 @@
         <a  class="梦想开始的地方 "
            href="/2017/12/17/梦想开始的地方/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
             <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
         </a>
@@ -468,7 +469,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/这舞蹈可以/"
            data-tag="bilibili"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="B站女王啊">B站女王啊</span>
             <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
         </a>
@@ -507,6 +508,8 @@
         
     </div>
     <div class="article-meta">
+        
+        <span>字数:2,057</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -557,38 +560,73 @@
 <p>下载最新版本的kafka ，我在北京我就选择，清华镜像比较快</p>
 <p>清华镜像:<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/ </a></p>
 <p>阿里镜像:<a href="https://mirrors.aliyun.com/apache/kafka/" target="_blank" rel="noopener">https://mirrors.aliyun.com/apache/kafka/</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt</span><br><span class="line">$ wget https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/0.11.0.0/kafka_2.12-0.11.0.0.tgz</span><br><span class="line">$ tar -zxvf kafka_2.12-0.11.0.0.tgz</span><br><span class="line">$ <span class="built_in">cd</span> kafka_2.12-0.11.0.0</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ cd /opt
+$ wget https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/0.11.0.0/kafka_2.12-0.11.0.0.tgz
+$ tar -zxvf kafka_2.12-0.11.0.0.tgz
+$ cd kafka_2.12-0.11.0.0
+</code></pre>
 <h3 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h3><p>在 node4 操作</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi /opt/kafka_2.12-0.11.0.0/config/server.properties</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">broker.id=0  每台服务器不能重复</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置zookeeper的集群地址</span></span><br><span class="line">zookeeper.connect=192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ vi /opt/kafka_2.12-0.11.0.0/config/server.properties
+</code></pre>
+<pre><code class="sh">broker.id=0  每台服务器不能重复
+
+#设置zookeeper的集群地址
+zookeeper.connect=192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181
+</code></pre>
 <p>把配置复制到 node5,node6 集群</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;5..6&#125; ; <span class="keyword">do</span> scp -r /opt/kafka_2.12-0.11.0.0/ node<span class="variable">$a</span>:/opt/kafka_2.12-0.11.0.0 ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ for a in {5..6} ; do scp -r /opt/kafka_2.12-0.11.0.0/ node$a:/opt/kafka_2.12-0.11.0.0 ; done
+</code></pre>
 <p>修改 node5,node6 集群的<code>broker.id</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi /opt/kafka_2.12-0.11.0.0/config/server.properties</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ vi /opt/kafka_2.12-0.11.0.0/config/server.properties
+</code></pre>
 <h3 id="3-启动kafka"><a href="#3-启动kafka" class="headerlink" title="3.启动kafka"></a>3.启动kafka</h3><p>在 node1,启动 Kafka使用的 ZooKeeper，所以先<strong>启动ZooKeeper服务器</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;1..3&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile;  /opt/zookeeper-3.4.9/bin/zkServer.sh start"</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ for a in {1..3} ; do ssh node$a &quot;source /etc/profile;  /opt/zookeeper-3.4.9/bin/zkServer.sh start&quot; ; done
+</code></pre>
 <p><strong>现在 node4 启动Kafka服务器</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;4..6&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile;  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-start.sh /opt/kafka_2.12-0.11.0.0/config/server.properties"</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ for a in {4..6} ; do ssh node$a &quot;source /etc/profile;  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-start.sh /opt/kafka_2.12-0.11.0.0/config/server.properties&quot; ; done
+</code></pre>
 <p>或者后台启动运行，日志查看去Kafka解压目录有个<code>log</code> 文件夹查看</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;4..6&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile; nohup  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-start.sh /opt/kafka_2.12-0.11.0.0/config/server.properties &gt; /dev/null 2&gt;&amp;1 &amp;"</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ for a in {4..6} ; do ssh node$a &quot;source /etc/profile; nohup  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-start.sh /opt/kafka_2.12-0.11.0.0/config/server.properties &gt; /dev/null 2&gt;&amp;1 &amp;&quot; ; done
+</code></pre>
 <p>查看进程，Kafka 是否启动成功</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">3825 Kafka</span><br><span class="line">6360 Jps</span><br></pre></td></tr></table></figure>
-<p>如果报错删除<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kafka.common.KafkaException: Failed to acquire lock on file .lock <span class="keyword">in</span> /tmp/kafka-logs. A Kafka instance <span class="keyword">in</span> another process or thread is using this directory.</span><br><span class="line"></span><br><span class="line">$ rm -rf /tmp/kafka-logs</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-创建主题"><a href="#4-创建主题" class="headerlink" title="4.创建主题"></a>4.创建主题</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --create --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --replication-factor 2 --partitions 1 --topic ymq</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ jps
+3825 Kafka
+6360 Jps
+</code></pre>
+<p>如果报错删除</p>
+<pre><code class="sh">kafka.common.KafkaException: Failed to acquire lock on file .lock in /tmp/kafka-logs. A Kafka instance in another process or thread is using this directory.
+
+$ rm -rf /tmp/kafka-logs
+</code></pre>
+<h3 id="4-创建主题"><a href="#4-创建主题" class="headerlink" title="4.创建主题"></a>4.创建主题</h3><pre><code class="sh">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --create --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --replication-factor 2 --partitions 1 --topic ymq
+</code></pre>
 <p>–replication-factor 2   #复制两份<br>–partitions 1              #创建1个分区<br>–topic                     #主题为ymq  </p>
 <p>运行list topic命令，可以看到该主题：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --list --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --list --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181
+</code></pre>
 <h3 id="5-生产消息"><a href="#5-生产消息" class="headerlink" title="5.生产消息"></a>5.生产消息</h3><p>Kafka附带一个命令行客户端，它将从文件或标准输入中输入，并将其作为消息发送到Kafka群集。默认情况下，每行将作为单独的消息发送。</p>
 <p>在 <strong>node5</strong> 运行生产者，然后在控制台中输入一些消息以发送到服务器。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic ymq</span><br><span class="line">&gt;www.ymq.io</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic ymq
+&gt;www.ymq.io
+</code></pre>
 <h3 id="6-消费消息"><a href="#6-消费消息" class="headerlink" title="6.消费消息"></a>6.消费消息</h3><p>在<strong>node6</strong> 运行消费者，将把消息转储到标准输出。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-console-consumer.sh --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181  --topic ymq --from-beginning</span><br><span class="line">Using the ConsoleConsumer with old consumer is deprecated and will be removed <span class="keyword">in</span> a future major release. Consider using the new consumer by passing [bootstrap-server] instead of [zookeeper]. </span><br><span class="line">www.ymq.io</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-console-consumer.sh --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181  --topic ymq --from-beginning
+Using the ConsoleConsumer with old consumer is deprecated and will be removed in a future major release. Consider using the new consumer by passing [bootstrap-server] instead of [zookeeper]. 
+www.ymq.io
+</code></pre>
 <h3 id="7-topic详情"><a href="#7-topic详情" class="headerlink" title="7.topic详情"></a>7.topic详情</h3><p>用describe 查看集群中topic每个节点情况 </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --describe --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --topic ymq</span><br><span class="line">Topic:ymq	PartitionCount:1	ReplicationFactor:2	Configs:</span><br><span class="line">	Topic: ymq	Partition: 0	Leader: 1	Replicas: 1,3	Isr: 3,1</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --describe --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --topic ymq
+Topic:ymq    PartitionCount:1    ReplicationFactor:2    Configs:
+    Topic: ymq    Partition: 0    Leader: 1    Replicas: 1,3    Isr: 3,1
+</code></pre>
 <p>以下是输出的说明。第一行给出了所有分区的摘要，每个附加行提供有关一个分区的信息。由于我们这个主题只有一个分区，只有一行。</p>
 <p><code>leader</code>负责给定分区的读取和写入分配节点编号，每个分区的部分数据会随机指定不同的节点<br><code>replicas</code>是复制此分区的日志的节点列表<br><code>isr</code>一组正在同步的副本列表</p>
-<h3 id="8-删除topic"><a href="#8-删除topic" class="headerlink" title="8.删除topic"></a>8.删除topic</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --delete --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --topic ymq</span><br><span class="line">Topic ymq is marked <span class="keyword">for</span> deletion.</span><br><span class="line">Note: This will have no impact <span class="keyword">if</span> delete.topic.enable is not <span class="built_in">set</span> to <span class="literal">true</span>.</span><br></pre></td></tr></table></figure>
-<h3 id="9-停止kafka"><a href="#9-停止kafka" class="headerlink" title="9.停止kafka"></a>9.停止kafka</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;4..6&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile;  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-stop.sh /opt/kafka_2.12-0.11.0.0/config/server.properties "</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-删除topic"><a href="#8-删除topic" class="headerlink" title="8.删除topic"></a>8.删除topic</h3><pre><code class="sh">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --delete --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --topic ymq
+Topic ymq is marked for deletion.
+Note: This will have no impact if delete.topic.enable is not set to true.
+</code></pre>
+<h3 id="9-停止kafka"><a href="#9-停止kafka" class="headerlink" title="9.停止kafka"></a>9.停止kafka</h3><pre><code class="sh">$ for a in {4..6} ; do ssh node$a &quot;source /etc/profile;  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-stop.sh /opt/kafka_2.12-0.11.0.0/config/server.properties &quot; ; done
+</code></pre>
 <h2 id="部署-Kafka-Manager"><a href="#部署-Kafka-Manager" class="headerlink" title="部署 Kafka Manager"></a>部署 Kafka Manager</h2><p><a href="https://github.com/yahoo/kafka-manager" target="_blank" rel="noopener">Yahoo开源Kafka集群管理器Kafka Manager</a></p>
 <p>作为一个分布式的消息发布-订阅系统，Apache Kafka在Yahoo内部已经被很多团队所使用，例如媒体分析团队就将其应用到了实时分析流水线中，同时，Yahoo整个Kafka集群处理的峰值带宽超过了20Gbps（压缩数据）。为了让开发者和服务工程师能够更加简单地维护Kafka集群，Yahoo构建了一个基于Web的管理工具，称为Kafka Manager，日前该项目已经在GitHub上开源。</p>
 <p>通过Kafka Manager用户能够更容易地发现集群中哪些主题或者分区分布不均匀，同时能够管理多个集群，能够更容易地检查集群的状态，能够创建主题，执行首选的副本选择，能够基于集群当前的状态生成分区分配，并基于生成的分配执行分区的重分配，此外，Kafka Manager还是一个非常好的可以快速查看集群状态的工具。</p>
@@ -612,15 +650,27 @@
 </ul>
 <h3 id="源码，并编译打包"><a href="#源码，并编译打包" class="headerlink" title="源码，并编译打包"></a>源码，并编译打包</h3><p>在 kafka-manager: 192.168.252.127 <strong>node7</strong> 部署</p>
 <p><strong>编译超级慢</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ yum install git</span><br><span class="line">$ <span class="built_in">cd</span> /opt/</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/yahoo/kafka-manager</span><br><span class="line">$ <span class="built_in">cd</span> kafka-manager/</span><br><span class="line">$ ./sbt clean dist</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">$ yum install git
+$ cd /opt/
+$ git clone https://github.com/yahoo/kafka-manager
+$ cd kafka-manager/
+$ ./sbt clean dist
+</code></pre>
 <h3 id="下载编译好的包"><a href="#下载编译好的包" class="headerlink" title="下载编译好的包"></a>下载编译好的包</h3><p>反正我是没编译成功，从网上找了一个编译好的</p>
 <p>链接: <a href="https://pan.baidu.com/s/1mimPXHI" target="_blank" rel="noopener">百度网盘下载</a> 密码: kha2  </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yum install unzip</span><br><span class="line">$ unzip kafka-manager-1.3.2.1.zip</span><br><span class="line">$ vi /opt/kafka-manager-1.3.2.1/conf/application.conf</span><br></pre></td></tr></table></figure>
-<p>修改这个 zk 地址<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kafka-manager.zkhosts=<span class="string">"192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181"</span></span><br></pre></td></tr></table></figure></p>
+<pre><code class="sh">$ yum install unzip
+$ unzip kafka-manager-1.3.2.1.zip
+$ vi /opt/kafka-manager-1.3.2.1/conf/application.conf
+</code></pre>
+<p>修改这个 zk 地址</p>
+<pre><code class="sh">kafka-manager.zkhosts=&quot;192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181&quot;
+</code></pre>
 <h3 id="启动-kafka-manager"><a href="#启动-kafka-manager" class="headerlink" title="启动 kafka-manager"></a>启动 kafka-manager</h3><p>默认端口 <code>NettyServer - Listening for HTTP on /0:0:0:0:0:0:0:0:9000</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka-manager-1.3.2.1/bin/kafka-manager -Dconfig.file=conf/application.conf</span><br></pre></td></tr></table></figure>
+<pre><code class="`sh">$ /opt/kafka-manager-1.3.2.1/bin/kafka-manager -Dconfig.file=conf/application.conf
+</code></pre>
 <p>或者后台运行 并且配置端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nohup bin/kafka-manager  -Dconfig.file=/home/hadoop/app/kafka-manager-1.3.2.1/conf/application.conf -Dhttp.port=9000 &amp;</span><br></pre></td></tr></table></figure>
+<pre><code class="`sh">$ nohup bin/kafka-manager  -Dconfig.file=/home/hadoop/app/kafka-manager-1.3.2.1/conf/application.conf -Dhttp.port=9000 &amp;
+</code></pre>
 <p>访问：<a href="">http://ip:9000/</a></p>
 <p><img src="http://www.ymq.io/images/2017/Kafka/add-cluster.png" alt=""> </p>
 <p><img src="http://www.ymq.io/images/2017/Kafka/topic.png" alt=""> </p>
@@ -628,19 +678,15 @@
 <p>出处：<a href="http://www.ymq.io" target="_blank" rel="noopener">http://www.ymq.io</a><br>转自：鹏磊</p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       
     </div>
 </article>
 
 
-<p>
-    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
 
 <div class="article_copyright">
     <p><span>文章标题:</span>搭建高吞吐量 Kafka 分布式发布订阅消息 集群</p>
-    
+    <p><span>文章字数:</span><span class="post-count">2,057</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
     <p><span>发布时间:</span>2017-12-23, 12:30:00</p>
     <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
@@ -701,7 +747,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'data': ['@Ciwei','@如果没有你','#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -713,14 +759,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -998,11 +1036,6 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
@@ -1130,71 +1163,6 @@
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
                 <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->

@@ -6,17 +6,22 @@
   <meta name="keywords" content="">
   <meta name="description" content="Spring Cloud（二）Consul 服务治理实现 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414216435vntz3tln.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/151341426530208bttzpy.png?imageslim">
+<meta property="og:image" content="http://oisa91ton.bkt.clouddn.com/1513414230473b8ptgi9t.png?imageslim">
+<meta property="og:updated_time" content="2017-12-29T05:39:02.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="属于我的荣耀与回忆：   现在的我：现在写写代码，看看电视剧的日子也是很不错的呀 后台技术：  框架：SpringBoot Mybatis Spring 中间件:RabbitMQ ActiveMQ RocketMQ 分库分表:MyCat 文件服务器:FastDFS 分布式日志:ELK 数据库:Mysql 分布式事务:Tx 容器:Docker 掌握分布式框架：Dubbo,SpringCloud NO">
+<meta name="twitter:image" content="http://oisa91ton.bkt.clouddn.com/1.jpg">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -113,7 +118,7 @@
     
 </ul>
 <div class="left-bottom">
-    <div class="menus" >
+    <div class="menus">
     
     
     <a class="dynamic-menu site_url"   href="/photos/">相册</a>
@@ -123,8 +128,8 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="34">
-
+<input type="hidden" id="yelog_site_posts_number" value="33">
+<input type="hidden" id="yelog_site_word_count" value="40.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -146,7 +151,7 @@
 </div>
         <div class="title-list">
     <form onkeydown="if(event.keyCode==13){return false;}">
-        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <input class="search" type="text" placeholder="以 in: 开头进行全文搜索" autocomplete="off"id="local-search-input" >
         <i class="cross"></i>
         <span>
         <label for="tagswitch">Tags:</label>
@@ -199,15 +204,11 @@
 </div>
 
     
+    <div id="local-search-result">
+
+    </div>
+    
     <nav id="title-list-nav">
-        
-        <a  class=""
-           href="/2017/12/29/hello-world/"
-           data-tag=""
-           data-author="" >
-            <span class="post-title" title="Hello World">Hello World</span>
-            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
-        </a>
         
         <a  class="Git "
            href="/2017/12/23/2017-07-19-git/"
@@ -244,7 +245,7 @@
         <a  class="Redis "
            href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
             <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
         </a>
@@ -252,7 +253,7 @@
         <a  class="kafka "
            href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
            data-tag="kafka"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
             <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
         </a>
@@ -340,7 +341,7 @@
         <a  class="hexo "
            href="/2017/12/26/3-hexo使用说明/"
            data-tag="hexo"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
             <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
         </a>
@@ -348,7 +349,7 @@
         <a  class="Git "
            href="/2017/12/15/Git分支管理/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git分支管理">Git分支管理</span>
             <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
         </a>
@@ -356,7 +357,7 @@
         <a  class="Git "
            href="/2017/12/15/Git常用命令-1/"
            data-tag="git"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Git常用命令">Git常用命令</span>
             <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
         </a>
@@ -364,7 +365,7 @@
         <a  class="Linux "
            href="/2017/12/23/Linux基础命令/"
            data-tag="Linux"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Linux基础命令">Linux基础命令</span>
             <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
         </a>
@@ -372,7 +373,7 @@
         <a  class="SpringBoot "
            href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
             <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
         </a>
@@ -380,7 +381,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
            data-tag="swagger"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
             <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
         </a>
@@ -388,7 +389,7 @@
         <a  class="SpringCloud "
            href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
            data-tag="SpringCloud"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
             <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
         </a>
@@ -396,7 +397,7 @@
         <a  class="SpringBoot "
            href="/2017/12/11/SpringBoot事务配置规则/"
            data-tag="SpringBoot"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
             <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
         </a>
@@ -404,7 +405,7 @@
         <a  class="Git "
            href="/2017/12/16/git常用命令/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="git常用命令">git常用命令</span>
             <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
         </a>
@@ -412,7 +413,7 @@
         <a  class="SpringBoot Mybatis "
            href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
            data-tag="SpringBoot,Mybatis"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
             <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
         </a>
@@ -420,7 +421,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
             <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
         </a>
@@ -428,7 +429,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
             <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
         </a>
@@ -436,7 +437,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/中华第一腿/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="中华第一腿">中华第一腿</span>
             <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
         </a>
@@ -444,7 +445,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
             <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
         </a>
@@ -452,7 +453,7 @@
         <a  class="COS "
            href="/2017/12/10/宅舞/"
            data-tag="COS"
-           data-author="" >
+           data-author="Ciwei" >
             <span class="post-title" title="宅舞">宅舞</span>
             <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
         </a>
@@ -460,7 +461,7 @@
         <a  class="梦想开始的地方 "
            href="/2017/12/17/梦想开始的地方/"
            data-tag=""
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
             <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
         </a>
@@ -468,7 +469,7 @@
         <a  class="舞蹈 "
            href="/2017/12/17/这舞蹈可以/"
            data-tag="bilibili"
-           data-author="" >
+           data-author="John Doe" >
             <span class="post-title" title="B站女王啊">B站女王啊</span>
             <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
         </a>
@@ -507,6 +508,8 @@
         
     </div>
     <div class="article-meta">
+        
+        <span>字数:2,481</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -603,17 +606,51 @@
 </tbody>
 </table>
 <p><strong>关闭防火墙</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">systemctl stop firewalld.service
+</code></pre>
 <p>Consul 最新版的下载地址:<br><a href="https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip" target="_blank" rel="noopener">https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip</a></p>
 <p><strong>下载，然后unzip 解压，得到唯一，一个可执行文件</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">wget https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip</span><br><span class="line">unzip consul_1.0.1_linux_amd64.zip</span><br><span class="line">cp consul /usr/<span class="built_in">local</span>/bin/</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">cd /opt/
+wget https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip
+unzip consul_1.0.1_linux_amd64.zip
+cp consul /usr/local/bin/
+</code></pre>
 <p><strong>查看是否安装成功</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 opt]<span class="comment"># consul</span></span><br></pre></td></tr></table></figure>
+<pre><code class="sh">[root@node1 opt]# consul
+</code></pre>
 <p>出现如下结果，表示安装成功</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Usage: consul [--version] [--<span class="built_in">help</span>] &lt;<span class="built_in">command</span>&gt; [&lt;args&gt;]</span><br><span class="line"></span><br><span class="line">Available commands are:</span><br><span class="line">    agent          Runs a Consul agent</span><br><span class="line">    catalog        Interact with the catalog</span><br><span class="line">    event          Fire a new event</span><br><span class="line">    <span class="built_in">exec</span>           Executes a <span class="built_in">command</span> on Consul nodes</span><br><span class="line">    force-leave    Forces a member of the cluster to enter the <span class="string">"left"</span> state</span><br><span class="line">    info           Provides debugging information <span class="keyword">for</span> operators.</span><br><span class="line">    join           Tell Consul agent to join cluster</span><br><span class="line">    keygen         Generates a new encryption key</span><br><span class="line">    keyring        Manages gossip layer encryption keys</span><br><span class="line">    kv             Interact with the key-value store</span><br><span class="line">    leave          Gracefully leaves the Consul cluster and shuts down</span><br><span class="line">    lock           Execute a <span class="built_in">command</span> holding a lock</span><br><span class="line">    maint          Controls node or service maintenance mode</span><br><span class="line">    members        Lists the members of a Consul cluster</span><br><span class="line">    monitor        Stream logs from a Consul agent</span><br><span class="line">    operator       Provides cluster-level tools <span class="keyword">for</span> Consul operators</span><br><span class="line">    reload         Triggers the agent to reload configuration files</span><br><span class="line">    rtt            Estimates network round trip time between nodes</span><br><span class="line">    snapshot       Saves, restores and inspects snapshots of Consul server state</span><br><span class="line">    validate       Validate config files/directories</span><br><span class="line">    version        Prints the Consul version</span><br><span class="line">    watch          Watch <span class="keyword">for</span> changes <span class="keyword">in</span> Consul</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">Usage: consul [--version] [--help] &lt;command&gt; [&lt;args&gt;]
+
+Available commands are:
+    agent          Runs a Consul agent
+    catalog        Interact with the catalog
+    event          Fire a new event
+    exec           Executes a command on Consul nodes
+    force-leave    Forces a member of the cluster to enter the &quot;left&quot; state
+    info           Provides debugging information for operators.
+    join           Tell Consul agent to join cluster
+    keygen         Generates a new encryption key
+    keyring        Manages gossip layer encryption keys
+    kv             Interact with the key-value store
+    leave          Gracefully leaves the Consul cluster and shuts down
+    lock           Execute a command holding a lock
+    maint          Controls node or service maintenance mode
+    members        Lists the members of a Consul cluster
+    monitor        Stream logs from a Consul agent
+    operator       Provides cluster-level tools for Consul operators
+    reload         Triggers the agent to reload configuration files
+    rtt            Estimates network round trip time between nodes
+    snapshot       Saves, restores and inspects snapshots of Consul server state
+    validate       Validate config files/directories
+    version        Prints the Consul version
+    watch          Watch for changes in Consul
+</code></pre>
 <p><strong>检查版本</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 opt]<span class="comment"># consul version</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Consul v1.0.1</span><br><span class="line">Protocol 2 spoken by default, understands 2 to 3 (agent will automatically use protocol &gt;2 when speaking to compatible agents)</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">[root@node1 opt]# consul version
+</code></pre>
+<pre><code class="sh">Consul v1.0.1
+Protocol 2 spoken by default, understands 2 to 3 (agent will automatically use protocol &gt;2 when speaking to compatible agents)
+</code></pre>
 <h2 id="Consul常用命令"><a href="#Consul常用命令" class="headerlink" title="Consul常用命令"></a>Consul常用命令</h2><table>
 <thead>
 <tr>
@@ -706,7 +743,8 @@
 <h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>我们尝试一下：</p>
 <p><code>-dev表示开发模式运行，使用-client 参数可指定允许客户端使用什么ip去访问，例如-client 192.168.252.121 表示可以使用</code></p>
 <p><a href="http://192.168.252.121:8500/ui/" target="_blank" rel="noopener">http://192.168.252.121:8500/ui/ 去访问。</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">consul agent -dev -client 192.168.252.121</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">consul agent -dev -client 192.168.252.121
+</code></pre>
 <p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/1.png" alt="Consul Cluster"></p>
 <h2 id="Consul-的高可用"><a href="#Consul-的高可用" class="headerlink" title="Consul 的高可用"></a>Consul 的高可用</h2><p>Consul Cluster集群架构图如下： </p>
 <p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/2.png" alt="Consul Cluster集群架构"></p>
@@ -743,46 +781,96 @@
 </table>
 <h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><p>命令参数，参看上面详细介绍</p>
 <p><strong>在 node1 机器上启动 Consul</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">mkdir data</span><br><span class="line">consul agent -data-dir /opt/data -node=192.168.252.121 -<span class="built_in">bind</span>=0.0.0.0 -datacenter=dc1 -ui -client=192.168.252.121 -server -bootstrap-expect 1 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
-<p><strong>在 node2 机器上启动 Consul,并且将node2节点加入到node1节点上</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">mkdir data</span><br><span class="line">consul agent -data-dir /opt/data -node=192.168.252.122 -<span class="built_in">bind</span>=0.0.0.0 -datacenter=dc1 -ui -client=192.168.252.122 -join=192.168.252.121 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<pre><code class="sh">cd /opt/
+mkdir data
+consul agent -data-dir /opt/data -node=192.168.252.121 -bind=0.0.0.0 -datacenter=dc1 -ui -client=192.168.252.121 -server -bootstrap-expect 1 &gt; /dev/null 2&gt;&amp;1 &amp;
+</code></pre>
+<p><strong>在 node2 机器上启动 Consul,并且将node2节点加入到node1节点上</strong></p>
+<pre><code class="sh">cd /opt/
+mkdir data
+consul agent -data-dir /opt/data -node=192.168.252.122 -bind=0.0.0.0 -datacenter=dc1 -ui -client=192.168.252.122 -join=192.168.252.121 &gt; /dev/null 2&gt;&amp;1 &amp;
+</code></pre>
 <p><strong>在 node3 机器上启动 Consul,并且将node3节点加入到node1节点上</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">mkdir data</span><br><span class="line">consul agent -data-dir /opt/data -node=192.168.252.123 -<span class="built_in">bind</span>=0.0.0.0 -datacenter=dc1 -ui  -client=192.168.252.123 -join=192.168.252.121 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">cd /opt/
+mkdir data
+consul agent -data-dir /opt/data -node=192.168.252.123 -bind=0.0.0.0 -datacenter=dc1 -ui  -client=192.168.252.123 -join=192.168.252.121 &gt; /dev/null 2&gt;&amp;1 &amp;
+</code></pre>
 <p>在node1上查看当前集群节点：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">consul members -rpc-addr=192.168.252.123:8400  </span><br><span class="line"></span><br><span class="line">consul leave -rpc-addr=192.168.252.123:8400</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">consul members -rpc-addr=192.168.252.123:8400  
+
+consul leave -rpc-addr=192.168.252.123:8400
+</code></pre>
 <p><a href="http://192.168.252.121:8500/ui/" target="_blank" rel="noopener">http://192.168.252.121:8500/ui/ 去访问。</a></p>
 <p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/3.png" alt="Consul Cluster集群 nodes"></p>
 <h1 id="GitHub-代码"><a href="#GitHub-代码" class="headerlink" title="GitHub:代码"></a>GitHub:代码</h1><p>代码我已放到 Github ，导入<code>spring-cloud-consul-client</code> 项目 </p>
 <p>github <a href="https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client" target="_blank" rel="noopener">https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client</a></p>
 <h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>在项目 <code>spring-cloud-consul</code> <code>pom.xml</code>中引入需要的依赖内容：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- spring cloud starter consul discovery --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-consul-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre><code class="xml">&lt;!-- spring cloud starter consul discovery --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
 <h2 id="开启服务注册"><a href="#开启服务注册" class="headerlink" title="开启服务注册"></a>开启服务注册</h2><p>客户端注册Consul时，它提供有关自身的元数据，如主机和端口，ID，名称和标签。默认情况下，将创建一个HTTP 检查，每隔10秒Consul命中/health端点。如果健康检查失败，则服务实例被标记为关键。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.ymq.example.consul;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConsulApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">home</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello world"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(ConsulApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">package io.ymq.example.consul;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+@RestController
+public class ConsulApplication {
+
+    @RequestMapping(&quot;/&quot;)
+    public String home() {
+        return &quot;Hello world&quot;;
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(ConsulApplication.class, args);
+    }
+}
+</code></pre>
 <h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>在<code>application.yml</code>配置文件中增加如下信息：如果Consul客户端位于localhost:8500以外，则需要配置来定位客户端</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: consul-client</span><br><span class="line">  cloud:</span><br><span class="line">    consul:</span><br><span class="line">      host: 192.168.252.121</span><br><span class="line">      port: 8500</span><br><span class="line">      discovery:</span><br><span class="line">        healthCheckPath: /</span><br><span class="line">        healthCheckInterval: 5s</span><br></pre></td></tr></table></figure>
+<pre><code class="sh">spring:
+  application:
+    name: consul-client
+  cloud:
+    consul:
+      host: 192.168.252.121
+      port: 8500
+      discovery:
+        healthCheckPath: /
+        healthCheckInterval: 5s
+</code></pre>
 <p>如果Consul客户端位于localhost:8500以外的位置，则需要配置来定位客户端。例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">host: 192.168.252.121</span><br><span class="line">port: 8500</span><br></pre></td></tr></table></figure>
-<p><strong>HTTP健康检查路径</strong></p>
+<pre><code>host: 192.168.252.121
+port: 8500
+</code></pre><p><strong>HTTP健康检查路径</strong></p>
 <p>“10s”和“1m”分别表示10秒和1分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">discovery:</span><br><span class="line">	healthCheckPath: $&#123;management.context-path&#125;/health</span><br><span class="line">	healthCheckInterval: 15s</span><br></pre></td></tr></table></figure>
-<h2 id="访问服务"><a href="#访问服务" class="headerlink" title="访问服务"></a>访问服务</h2><p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/4.png" alt="Consul Cluster 集群 服务注册情况"></p>
+<pre><code>discovery:
+    healthCheckPath: ${management.context-path}/health
+    healthCheckInterval: 15s
+</code></pre><h2 id="访问服务"><a href="#访问服务" class="headerlink" title="访问服务"></a>访问服务</h2><p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/4.png" alt="Consul Cluster 集群 服务注册情况"></p>
 <p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/5.png" alt="Consul Cluster集群 服务注册情况"></p>
 <h2 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h2><p>代码我已放到 Github ，导入<code>spring-cloud-consul-client</code> 项目 </p>
 <p>github <a href="https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client" target="_blank" rel="noopener">https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client</a></p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       
     </div>
 </article>
 
 
-<p>
-    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
 
 <div class="article_copyright">
     <p><span>文章标题:</span>Spring Cloud（二）Consul 服务治理实现</p>
-    
+    <p><span>文章字数:</span><span class="post-count">2,481</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
     <p><span>发布时间:</span>2017-12-23, 11:52:35</p>
     <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
@@ -843,7 +931,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'data': ['@Ciwei','@如果没有你','#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
@@ -855,14 +943,6 @@
         
 
         /*渲染打赏样式*/
-        
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
         
 
         /*高亮代码块行号*/
@@ -1140,11 +1220,6 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
@@ -1272,71 +1347,6 @@
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe.
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
                 <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
                 <!-- element will get class pswp__preloader--active when preloader is running -->
