@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CentOs7.3 搭建 Redis-4.0.1 单机服务 | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="CentOs7.3 搭建 Redis-4.0.1 单机服务 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:type" content="website">
+<meta property="og:title" content="相册">
+<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="相册">
+<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet" href="/css/hl_theme/atom-light.css">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+</div>
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Ciwei</span>
+</div>
+
+<div class="icon">
+    
+    <a class="rss" title="rss" href="/atom.xml" target="_blank"></a>
+    
+    
+    <a class="github" title="github" href="https://github.com/yelog" target="_blank"></a>
+    
+    
+    <a class="facebook" title="facebook" href="https://www.facebook.com/faker.tops" target="_blank"></a>
+    
+    
+    
+    <a class="linkedin" title="linkedin" href="https://www.linkedin.com/in/%E7%8E%89%E6%9D%B0-%E6%9D%A8-13a40a103/" target="_blank"></a>
+    
+    
+    
+    <a class="reddit" title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank"></a>
+    
+    
+    <a class="weibo" title="weibo" href="http://weibo.com/u/2307534817" target="_blank"></a>
+    
+    
+    <a class="email" title="email" href="mailto:jaytp@qq.com"></a>
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+<ul>
+    <li class="all active">全部文章</li>
+    
+    <li data-rel="Git"> Git </li>
+    
+    <li data-rel="Redis"> Redis </li>
+    
+    <li data-rel="kafka"> kafka </li>
+    
+    <li data-rel="SpringCloud"> SpringCloud </li>
+    
+    <li data-rel="hexo"> hexo </li>
+    
+    <li data-rel="Linux"> Linux </li>
+    
+    <li data-rel="SpringBoot"> SpringBoot </li>
+    
+    <li data-rel="舞蹈"> 舞蹈 </li>
+    
+    <li data-rel="COS"> COS </li>
+    
+    <li data-rel="梦想开始的地方"> 梦想开始的地方 </li>
+    
+    <li data-rel="Mybatis"> Mybatis </li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus" >
+    
+    
+    <a class="dynamic-menu site_url"   href="/photos/">相册</a>
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+        <label for="tagswitch">Tags:</label>
+        <input id="tagswitch" type="checkbox">
+    </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">SpringBoot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">swagger</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">SpringCloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Mybatis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">COS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">bilibili</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2017/12/29/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/23/2017-07-19-git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="常用 Git 命令清单">常用 Git 命令清单</span>
+            <span class="post-date" title="2017-12-23 12:29:54">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-08-14-redis-cluster/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务">CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务</span>
+            <span class="post-date" title="2017-12-23 12:30:55">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-08-14-redis/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOs7.3 搭建 Redis-4.0.1 单机服务">CentOs7.3 搭建 Redis-4.0.1 单机服务</span>
+            <span class="post-date" title="2017-12-23 12:31:22">2017/12/23</span>
+        </a>
+        
+        <a  class="kafka "
+           href="/2017/12/23/2017-08-29-kafka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">搭建高吞吐量 Kafka 分布式发布订阅消息 集群</span>
+            <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
+            <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
+        </a>
+        
+        <a  class="kafka "
+           href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
+           data-tag="kafka"
+           data-author="" >
+            <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
+            <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-11-22-spring-cloud-eureka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（一）服务的注册与发现（Eureka）">Spring Cloud（一）服务的注册与发现（Eureka）</span>
+            <span class="post-date" title="2017-12-23 11:52:14">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-11-26-spring-cloud-consul/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（二）Consul 服务治理实现">Spring Cloud（二）Consul 服务治理实现</span>
+            <span class="post-date" title="2017-12-23 11:52:35">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）">Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）</span>
+            <span class="post-date" title="2017-12-23 11:53:01">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-06-spring-cloud-feign/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign</span>
+            <span class="post-date" title="2017-12-23 11:53:21">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（五）断路器监控(Hystrix Dashboard)">Spring Cloud（五）断路器监控(Hystrix Dashboard)</span>
+            <span class="post-date" title="2017-12-23 11:53:42">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-10-spring-cloud-zuul/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（六）服务网关 zuul 快速入门">Spring Cloud（六）服务网关 zuul 快速入门</span>
+            <span class="post-date" title="2017-12-23 11:54:04">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-11-spring-cloud-zuul-filter/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（七）服务网关 Zuul Filter 使用">Spring Cloud（七）服务网关 Zuul Filter 使用</span>
+            <span class="post-date" title="2017-12-23 11:51:33">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-13-spring-cloud-config/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config">Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config</span>
+            <span class="post-date" title="2017-12-23 11:51:12">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-14-spring-cloud-config-eureka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务">Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务</span>
+            <span class="post-date" title="2017-12-23 11:50:45">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-17-spring-cloud-actual-combat/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="基于 Spring Cloud 完整的微服务架构实战">基于 Spring Cloud 完整的微服务架构实战</span>
+            <span class="post-date" title="2017-12-23 11:49:47">2017/12/23</span>
+        </a>
+        
+        <a  class="hexo "
+           href="/2017/12/26/3-hexo使用说明/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
+            <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/15/Git分支管理/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="Git分支管理">Git分支管理</span>
+            <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/15/Git常用命令-1/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="Git常用命令">Git常用命令</span>
+            <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2017/12/23/Linux基础命令/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux基础命令">Linux基础命令</span>
+            <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringBoot "
+           href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
+            <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
+           data-tag="swagger"
+           data-author="" >
+            <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
+            <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
+           data-tag="SpringCloud"
+           data-author="" >
+            <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
+            <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
+        </a>
+        
+        <a  class="SpringBoot "
+           href="/2017/12/11/SpringBoot事务配置规则/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
+            <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/16/git常用命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="git常用命令">git常用命令</span>
+            <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
+        </a>
+        
+        <a  class="SpringBoot Mybatis "
+           href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
+           data-tag="SpringBoot,Mybatis"
+           data-author="" >
+            <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
+            <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
+            <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
+            <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/中华第一腿/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中华第一腿">中华第一腿</span>
+            <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
+            <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
+        </a>
+        
+        <a  class="COS "
+           href="/2017/12/10/宅舞/"
+           data-tag="COS"
+           data-author="" >
+            <span class="post-title" title="宅舞">宅舞</span>
+            <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
+        </a>
+        
+        <a  class="梦想开始的地方 "
+           href="/2017/12/17/梦想开始的地方/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
+            <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/这舞蹈可以/"
+           data-tag="bilibili"
+           data-author="" >
+            <span class="post-title" title="B站女王啊">B站女王啊</span>
+            <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-2017-08-14-redis" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">CentOs7.3 搭建 Redis-4.0.1 单机服务</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+            <a href="javascript:" data-rel="Redis">Redis</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2017-12-29 13:32:14'>2017-12-23 12:31</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CentOs7-3-搭建-Redis-4-0-1-单机服务"><span class="toc-text">CentOs7.3 搭建 Redis-4.0.1 单机服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-简介"><span class="toc-text">Redis 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis-优势"><span class="toc-text">Redis 优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis与其他key-value存储有什么不同？"><span class="toc-text">Redis与其他key-value存储有什么不同？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-text">环境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-text">注意事项</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单机搭建"><span class="toc-text">单机搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-Redis"><span class="toc-text">安装 Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建配置"><span class="toc-text">创建配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务"><span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检查服务"><span class="toc-text">检查服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试-Redis"><span class="toc-text">测试 Redis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动脚本"><span class="toc-text">启动脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动服务-1"><span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止服务"><span class="toc-text">停止服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启服务"><span class="toc-text">重启服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看进程"><span class="toc-text">查看进程</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CentOs7-3-搭建-Redis-4-0-1-单机服务"><a href="#CentOs7-3-搭建-Redis-4-0-1-单机服务" class="headerlink" title="CentOs7.3 搭建 Redis-4.0.1 单机服务"></a>CentOs7.3 搭建 Redis-4.0.1 单机服务</h1><h2 id="Redis-简介"><a href="#Redis-简介" class="headerlink" title="Redis 简介"></a>Redis 简介</h2><p>Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。</p>
+<p>Redis 与其他 key - value 缓存产品有以下三个特点：<br>Redis支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用。<br>Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。<br>Redis支持数据的备份，即master-slave模式的数据备份。</p>
+<a id="more"></a>
+<h2 id="Redis-优势"><a href="#Redis-优势" class="headerlink" title="Redis 优势"></a>Redis 优势</h2><p>性能极高 – Redis能读的速度是110000次/s,写的速度是81000次/s 。<br>丰富的数据类型 – Redis支持二进制案例的 Strings, Lists, Hashes, Sets 及 Ordered Sets 数据类型操作。<br>原子 – Redis的所有操作都是原子性的，同时Redis还支持对几个操作全并后的原子性执行。<br>丰富的特性 – Redis还支持 publish/subscribe, 通知, key 过期等等特性。</p>
+<h2 id="Redis与其他key-value存储有什么不同？"><a href="#Redis与其他key-value存储有什么不同？" class="headerlink" title="Redis与其他key-value存储有什么不同？"></a>Redis与其他key-value存储有什么不同？</h2><p>Redis有着更为复杂的数据结构并且提供对他们的原子性操作，这是一个不同于其他数据库的进化路径。Redis的数据类型都是基于基本数据结构的同时对程序员透明，无需进行额外的抽象。<br>Redis运行在内存中但是可以持久化到磁盘，所以在对不同数据集进行高速读写时需要权衡内存，应为数据量不能大于硬件内存。在内存数据库方面的另一个优点是， 相比在磁盘上相同的复杂的数据结构，在内存中操作起来非常简单，这样Redis可以做很多内部复杂性很强的事情。 同时，在磁盘格式方面他们是紧凑的以追加的方式产生的，因为他们并不需要进行随机访问。</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>VMware版本号：12.0.0</li>
+<li>CentOS版本：CentOS 7.3.1611</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>关闭防火墙 节点之前需要开放指定端口，为了方便，生产不要禁用</p>
+<p>centos 6.x</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop # 关闭命令：</span><br></pre></td></tr></table></figure>
+<p>centos 7.x<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service # 停止firewall</span><br></pre></td></tr></table></figure></p>
+<h2 id="单机搭建"><a href="#单机搭建" class="headerlink" title="单机搭建"></a>单机搭建</h2><h3 id="安装-Redis"><a href="#安装-Redis" class="headerlink" title="安装 Redis"></a>安装 Redis</h3><p><strong>下载，解压，编译安装</strong></p>
+<p>升级所有的包，防止出现版本过久不兼容问题</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure>
+<p>安裝 GCC 编译工具 不然会有编译不过的问题</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y gcc g++ gcc-c++ make</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt</span><br><span class="line">wget http://download.redis.io/releases/redis-4.0.1.tar.gz</span><br><span class="line">tar xzf redis-4.0.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> redis-4.0.1</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<p><strong>如果因为上次编译失败，有残留的文件</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make distclean</span><br></pre></td></tr></table></figure>
+<h3 id="创建配置"><a href="#创建配置" class="headerlink" title="创建配置"></a>创建配置</h3><p><strong>默认的 <code>redis.conf</code> 配置文件内容太多，很多配置，不太好，用的时候再往，自己定义的配置文件加</strong></p>
+<p> 1.创建 <code>redis-sentinel</code> 目录 用于放自定义配置文件启动 <code>redis.conf</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir redis-sentinel</span><br></pre></td></tr></table></figure>
+<p> 2.在 <code>redis-sentinel</code> 目录下，创建 redis.conf  把如下<code>Redis.conf  配置</code>内容粘贴进去</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/redis-4.0.1/redis-sentinel</span><br><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure>
+<p><strong>Redis.conf 配置</strong></p>
+<p><code>bind</code> 改成自己的IP 不然外网连不上</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">port 6379</span><br><span class="line"><span class="built_in">bind</span> 192.168.252.104</span><br><span class="line">daemonize yes</span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<p><strong>redis.conf 配置说明</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#端口7000</span></span><br><span class="line">port 7000</span><br><span class="line"></span><br><span class="line"><span class="comment">#默认IP为127.0.0.1，需要改为其他节点机器可访问的IP</span></span><br><span class="line"><span class="built_in">bind</span> 192.168.252.101</span><br><span class="line"></span><br><span class="line"><span class="comment">#redis后台运行</span></span><br><span class="line">daemonize yes </span><br><span class="line"></span><br><span class="line"><span class="comment">#当 Redis 以守护进程的方式运行的时候，Redis 默认会把 pid 文件放在/var/run/redis_6379.pid</span></span><br><span class="line">pidfile /var/run/redis_6379.pid</span><br><span class="line">        </span><br><span class="line"><span class="comment">#aof日志开启，有需要就开启，它会每次写操作都记录一条日志</span></span><br><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><p>使用指定配置文件启动 <code>--raw</code> 防止中文 <code>get</code> 乱码</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/opt/redis-4.0.1/src/redis-server /opt/redis-4.0.1/redis-sentinel/redis.conf --raw</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">21915:C 17 Aug 12:58:03.301 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">21915:C 17 Aug 12:58:03.301 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=21915, just started</span></span><br><span class="line">21915:C 17 Aug 12:58:03.301 <span class="comment"># Configuration loaded</span></span><br></pre></td></tr></table></figure>
+<p>‘$remote_addr - $remote_user [$time_local] “$request” ‘$status $body_bytes_sent “$http_referer” ‘’”$http_user_agent” “$http_x_forwarded_for”‘;</p>
+<h3 id="检查服务"><a href="#检查服务" class="headerlink" title="检查服务"></a>检查服务</h3><p>检查各 Redis 各个节点启动情况</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep redis           //redis是否启动成功</span><br><span class="line">$ netstat -tnlp | grep redis    //监听redis端口</span><br></pre></td></tr></table></figure>
+<h3 id="测试-Redis"><a href="#测试-Redis" class="headerlink" title="测试 Redis"></a>测试 Redis</h3><p>启动redis服务进程后，就可以使用测试客户端程序redis-cli和redis服务交互了</p>
+<p>比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/redis-4.0.1/src/redis-cli -h 192.168.252.104 -c -p 6379 </span><br><span class="line">192.168.252.104:6379&gt; set name www.ymq.io</span><br><span class="line">OK</span><br><span class="line">192.168.252.104:6379&gt; get name</span><br><span class="line">&quot;www.ymq.io&quot;</span><br><span class="line">192.168.252.104:6379&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="启动脚本"><a href="#启动脚本" class="headerlink" title="启动脚本"></a>启动脚本</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#kconfig: 345 86 14</span></span><br><span class="line"><span class="comment">#description: Startup and shutdown script for Redis</span></span><br><span class="line"> </span><br><span class="line">PROGDIR=/opt/redis-4.0.1 <span class="comment">#安装路径</span></span><br><span class="line">PROGNAME=src/redis-server</span><br><span class="line">DAEMON=<span class="variable">$PROGDIR</span>/<span class="variable">$PROGNAME</span></span><br><span class="line">CONFIG=/opt/redis-4.0.1/redis-sentinel/redis.conf</span><br><span class="line">PIDFILE=/var/run/redis_6379.pid</span><br><span class="line">DESC=<span class="string">"redis daemon"</span></span><br><span class="line">SCRIPTNAME=/etc/rc.d/init.d/redisd</span><br><span class="line"> </span><br><span class="line">start()</span><br><span class="line">&#123;</span><br><span class="line">         <span class="keyword">if</span> <span class="built_in">test</span> -x <span class="variable">$DAEMON</span></span><br><span class="line">         <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> -e <span class="string">"Starting <span class="variable">$DESC</span>: <span class="variable">$PROGNAME</span>"</span></span><br><span class="line">                   <span class="keyword">if</span> <span class="variable">$DAEMON</span> <span class="variable">$CONFIG</span></span><br><span class="line">                   <span class="keyword">then</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"OK"</span></span><br><span class="line">                   <span class="keyword">else</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"failed"</span></span><br><span class="line">                   <span class="keyword">fi</span></span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">                   <span class="built_in">echo</span> -e <span class="string">"Couldn't find Redis Server (<span class="variable">$DAEMON</span>)"</span></span><br><span class="line">         <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stop()</span><br><span class="line">&#123;</span><br><span class="line">         <span class="keyword">if</span> <span class="built_in">test</span> -e <span class="variable">$PIDFILE</span></span><br><span class="line">         <span class="keyword">then</span></span><br><span class="line">                   <span class="built_in">echo</span> -e <span class="string">"Stopping <span class="variable">$DESC</span>: <span class="variable">$PROGNAME</span>"</span></span><br><span class="line">                   <span class="keyword">if</span> <span class="built_in">kill</span> `cat <span class="variable">$PIDFILE</span>`</span><br><span class="line">                   <span class="keyword">then</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"OK"</span></span><br><span class="line">                   <span class="keyword">else</span></span><br><span class="line">                            <span class="built_in">echo</span> -e <span class="string">"failed"</span></span><br><span class="line">                   <span class="keyword">fi</span></span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">                   <span class="built_in">echo</span> -e <span class="string">"No Redis Server (<span class="variable">$DAEMON</span>) running"</span></span><br><span class="line">         <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">restart()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">echo</span> -e <span class="string">"Restarting <span class="variable">$DESC</span>: <span class="variable">$PROGNAME</span>"</span></span><br><span class="line">    stop</span><br><span class="line">         start</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">list()</span><br><span class="line">&#123;</span><br><span class="line">         ps aux | grep <span class="variable">$PROGNAME</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span></span><br><span class="line">         start)</span><br><span class="line">                   start</span><br><span class="line">        ;;</span><br><span class="line">         stop)</span><br><span class="line">        stop</span><br><span class="line">        ;;</span><br><span class="line">         restart)</span><br><span class="line">        restart</span><br><span class="line">        ;;</span><br><span class="line">         list)</span><br><span class="line">        list</span><br><span class="line">        ;;</span><br><span class="line"> </span><br><span class="line">         *)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$SCRIPTNAME</span> &#123;start|stop|restart|list&#125;"</span> &gt;&amp;2</span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure>
+<h3 id="启动服务-1"><a href="#启动服务-1" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd start</span><br><span class="line">Starting redis daemon: src/redis-server</span><br><span class="line">22330:C 17 Aug 13:56:59.300 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">22330:C 17 Aug 13:56:59.300 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=22330, just started</span></span><br><span class="line">22330:C 17 Aug 13:56:59.300 <span class="comment"># Configuration loaded</span></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<h3 id="停止服务"><a href="#停止服务" class="headerlink" title="停止服务"></a>停止服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd stop</span><br><span class="line">Stopping redis daemon: src/redis-server</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd restart</span><br><span class="line">Restarting redis daemon: src/redis-server</span><br><span class="line">No Redis Server (/opt/redis-4.0.1/src/redis-server) running</span><br><span class="line">Starting redis daemon: src/redis-server</span><br><span class="line">22354:C 17 Aug 13:57:16.110 <span class="comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span></span><br><span class="line">22354:C 17 Aug 13:57:16.110 <span class="comment"># Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=22354, just started</span></span><br><span class="line">22354:C 17 Aug 13:57:16.110 <span class="comment"># Configuration loaded</span></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<h3 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ service redisd list</span><br><span class="line">root      22355  0.0  0.7  41656  7512 ?        Ssl  13:57   0:00 /opt/redis-4.0.1/src/redis-server 192.168.252.104:6379</span><br><span class="line">root      22370  0.0  0.0   9028   660 pts/1    R+   13:57   0:00 grep src/redis-server</span><br></pre></td></tr></table></figure>
+<p>出处：<a href="http://www.ymq.io" target="_blank" rel="noopener">http://www.ymq.io</a><br>转自：鹏磊</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span>文章标题:</span>CentOs7.3 搭建 Redis-4.0.1 单机服务</p>
+    
+    <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
+    <p><span>发布时间:</span>2017-12-23, 12:31:22</p>
+    <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
+    <span>原始链接:</span><a class="post-url" href="/2017/12/23/2017-08-14-redis/" title="CentOs7.3 搭建 Redis-4.0.1 单机服务">http://yoursite.com/2017/12/23/2017-08-14-redis/</a>
+    <p>
+        <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2017 Yelog</p>
+<p class="footer-entry">Buit with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js"></script>
+<script>
+    var img_resize = 'photoSwipe';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1;
+            var $numbering = $('<ul/>').addClass('pre-numbering').attr("unselectable","on");
+            $(this).addClass('has-numbering')
+                    .parent()
+                    .append($numbering);
+            for(i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, .article-entry';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 2px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 2px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background: url("http://oncj6b2vl.bkt.clouddn.com/FlSExUGfRSaqxkK5v42CpuI-tXAL.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/photos/">相册</a>
+    
+    
+    
+</div>
+
+</html>

@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Git分支管理 | Hexo</title>
+  <meta name="keywords" content=" git ">
+  <meta name="description" content="Git分支管理 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:type" content="website">
+<meta property="og:title" content="相册">
+<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="相册">
+<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet" href="/css/hl_theme/atom-light.css">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+</div>
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Ciwei</span>
+</div>
+
+<div class="icon">
+    
+    <a class="rss" title="rss" href="/atom.xml" target="_blank"></a>
+    
+    
+    <a class="github" title="github" href="https://github.com/yelog" target="_blank"></a>
+    
+    
+    <a class="facebook" title="facebook" href="https://www.facebook.com/faker.tops" target="_blank"></a>
+    
+    
+    
+    <a class="linkedin" title="linkedin" href="https://www.linkedin.com/in/%E7%8E%89%E6%9D%B0-%E6%9D%A8-13a40a103/" target="_blank"></a>
+    
+    
+    
+    <a class="reddit" title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank"></a>
+    
+    
+    <a class="weibo" title="weibo" href="http://weibo.com/u/2307534817" target="_blank"></a>
+    
+    
+    <a class="email" title="email" href="mailto:jaytp@qq.com"></a>
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+<ul>
+    <li class="all active">全部文章</li>
+    
+    <li data-rel="Git"> Git </li>
+    
+    <li data-rel="Redis"> Redis </li>
+    
+    <li data-rel="kafka"> kafka </li>
+    
+    <li data-rel="SpringCloud"> SpringCloud </li>
+    
+    <li data-rel="hexo"> hexo </li>
+    
+    <li data-rel="Linux"> Linux </li>
+    
+    <li data-rel="SpringBoot"> SpringBoot </li>
+    
+    <li data-rel="舞蹈"> 舞蹈 </li>
+    
+    <li data-rel="COS"> COS </li>
+    
+    <li data-rel="梦想开始的地方"> 梦想开始的地方 </li>
+    
+    <li data-rel="Mybatis"> Mybatis </li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus" >
+    
+    
+    <a class="dynamic-menu site_url"   href="/photos/">相册</a>
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+        <label for="tagswitch">Tags:</label>
+        <input id="tagswitch" type="checkbox">
+    </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">SpringBoot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">swagger</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">SpringCloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Mybatis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">COS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">bilibili</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2017/12/29/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/23/2017-07-19-git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="常用 Git 命令清单">常用 Git 命令清单</span>
+            <span class="post-date" title="2017-12-23 12:29:54">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-08-14-redis-cluster/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务">CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务</span>
+            <span class="post-date" title="2017-12-23 12:30:55">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-08-14-redis/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOs7.3 搭建 Redis-4.0.1 单机服务">CentOs7.3 搭建 Redis-4.0.1 单机服务</span>
+            <span class="post-date" title="2017-12-23 12:31:22">2017/12/23</span>
+        </a>
+        
+        <a  class="kafka "
+           href="/2017/12/23/2017-08-29-kafka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">搭建高吞吐量 Kafka 分布式发布订阅消息 集群</span>
+            <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
+            <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
+        </a>
+        
+        <a  class="kafka "
+           href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
+           data-tag="kafka"
+           data-author="" >
+            <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
+            <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-11-22-spring-cloud-eureka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（一）服务的注册与发现（Eureka）">Spring Cloud（一）服务的注册与发现（Eureka）</span>
+            <span class="post-date" title="2017-12-23 11:52:14">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-11-26-spring-cloud-consul/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（二）Consul 服务治理实现">Spring Cloud（二）Consul 服务治理实现</span>
+            <span class="post-date" title="2017-12-23 11:52:35">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）">Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）</span>
+            <span class="post-date" title="2017-12-23 11:53:01">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-06-spring-cloud-feign/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign</span>
+            <span class="post-date" title="2017-12-23 11:53:21">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（五）断路器监控(Hystrix Dashboard)">Spring Cloud（五）断路器监控(Hystrix Dashboard)</span>
+            <span class="post-date" title="2017-12-23 11:53:42">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-10-spring-cloud-zuul/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（六）服务网关 zuul 快速入门">Spring Cloud（六）服务网关 zuul 快速入门</span>
+            <span class="post-date" title="2017-12-23 11:54:04">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-11-spring-cloud-zuul-filter/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（七）服务网关 Zuul Filter 使用">Spring Cloud（七）服务网关 Zuul Filter 使用</span>
+            <span class="post-date" title="2017-12-23 11:51:33">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-13-spring-cloud-config/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config">Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config</span>
+            <span class="post-date" title="2017-12-23 11:51:12">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-14-spring-cloud-config-eureka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务">Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务</span>
+            <span class="post-date" title="2017-12-23 11:50:45">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-17-spring-cloud-actual-combat/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="基于 Spring Cloud 完整的微服务架构实战">基于 Spring Cloud 完整的微服务架构实战</span>
+            <span class="post-date" title="2017-12-23 11:49:47">2017/12/23</span>
+        </a>
+        
+        <a  class="hexo "
+           href="/2017/12/26/3-hexo使用说明/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
+            <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/15/Git分支管理/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="Git分支管理">Git分支管理</span>
+            <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/15/Git常用命令-1/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="Git常用命令">Git常用命令</span>
+            <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2017/12/23/Linux基础命令/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux基础命令">Linux基础命令</span>
+            <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringBoot "
+           href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
+            <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
+           data-tag="swagger"
+           data-author="" >
+            <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
+            <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
+           data-tag="SpringCloud"
+           data-author="" >
+            <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
+            <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
+        </a>
+        
+        <a  class="SpringBoot "
+           href="/2017/12/11/SpringBoot事务配置规则/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
+            <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/16/git常用命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="git常用命令">git常用命令</span>
+            <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
+        </a>
+        
+        <a  class="SpringBoot Mybatis "
+           href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
+           data-tag="SpringBoot,Mybatis"
+           data-author="" >
+            <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
+            <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
+            <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
+            <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/中华第一腿/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中华第一腿">中华第一腿</span>
+            <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
+            <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
+        </a>
+        
+        <a  class="COS "
+           href="/2017/12/10/宅舞/"
+           data-tag="COS"
+           data-author="" >
+            <span class="post-title" title="宅舞">宅舞</span>
+            <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
+        </a>
+        
+        <a  class="梦想开始的地方 "
+           href="/2017/12/17/梦想开始的地方/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
+            <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/这舞蹈可以/"
+           data-tag="bilibili"
+           data-author="" >
+            <span class="post-title" title="B站女王啊">B站女王啊</span>
+            <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-Git分支管理" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Git分支管理</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+            <a href="javascript:" data-rel="Git">Git</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">git</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2017-12-29 13:32:14'>2017-12-15 11:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#On-branch-master"><span class="toc-text">On branch master</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Your-branch-is-ahead-of-‘origin-master’-by-2-commits"><span class="toc-text">Your branch is ahead of ‘origin/master’ by 2 commits.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Unmerged-paths"><span class="toc-text">Unmerged paths:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#use-“git-add-rm-…”-as-appropriate-to-mark-resolution"><span class="toc-text">(use “git add/rm …” as appropriate to mark resolution)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#both-modified-readme-txt"><span class="toc-text">both modified:      readme.txt</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Creating-a-new-branch-is-quick-amp-simple"><span class="toc-text">Creating a new branch is quick &amp; simple.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#On-branch-dev"><span class="toc-text">On branch dev</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Changes-to-be-committed"><span class="toc-text">Changes to be committed:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#use-“git-reset-HEAD-…”-to-unstage"><span class="toc-text">(use “git reset HEAD …” to unstage)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new-file-hello-py"><span class="toc-text">new file:   hello.py</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Changes-not-staged-for-commit"><span class="toc-text">Changes not staged for commit:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#use-“git-add-…”-to-update-what-will-be-committed"><span class="toc-text">(use “git add …” to update what will be committed)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory"><span class="toc-text">(use “git checkout – …” to discard changes in working directory)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#modified-readme-txt"><span class="toc-text">modified:   readme.txt</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#On-branch-dev-1"><span class="toc-text">On branch dev</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#On-branch-dev-2"><span class="toc-text">On branch dev</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Changes-to-be-committed-1"><span class="toc-text">Changes to be committed:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#use-“git-reset-HEAD-…”-to-unstage-1"><span class="toc-text">(use “git reset HEAD …” to unstage)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#new-file-hello-py-1"><span class="toc-text">new file:   hello.py</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Changes-not-staged-for-commit-1"><span class="toc-text">Changes not staged for commit:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#use-“git-add-…”-to-update-what-will-be-committed-1"><span class="toc-text">(use “git add …” to update what will be committed)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory-1"><span class="toc-text">(use “git checkout – …” to discard changes in working directory)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#modified-readme-txt-1"><span class="toc-text">modified:   readme.txt</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。</p>
+<p>分支的独立性：现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。<br><a id="more"></a><br>git分支的高效：其他版本控制系统如SVN等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。</p>
+<p>但Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。</p>
+<p>理解HEAD头指针</p>
+<p>一开始的时候，HEAD头指针指向的是主分支，即master分支。而HEAD指向的是当前分支，master指向的是提交。</p>
+<p>如果，在master分支上新建了一个分支dev，此时HEAD指向了dev，Git建立分支的过程很快，因为除了增加一个dev指针，改改HEAD的指向，工作区的文件都没有任何变化！</p>
+<p>不过，从现在开始，对工作区的修改和提交就是针对dev分支了，比如新提交一次后，dev指针往前移动一步，而master指针不变。</p>
+<p>创建dev分支</p>
+<p>创建分支使用git branch命令，命令格式：git branch [分支别名]</p>
+<p>$ git branch dev<br>可以使用$ git branch来查看所有本地分支，$ git branch -a查看所有分支（包括远程分支）。</p>
+<p>使用git checkout [分支名]切换到对应的分支，如：</p>
+<p>$ git checkout dev<br>此时，HEAD头指针会指向dev，如果在dev上提交，dev指针会往前移，而其他分支不变。（master分支及指针不变）</p>
+<p>当使用git checkout master时，HEAD头指针会重新指向master，此时再提交，master指针会往前移。</p>
+<p>这个过程，需要自己亲身的试验才能体会到它们的作用和变化。</p>
+<p>$gitk<br>使用Git自带的图形界面，可以很好的来管理分支。</p>
+<p>冲突解决</p>
+<p>冲突产生：当两个分支中修改的相同的文件并提交（add-&gt;commit），合并(merge)这两个分支的时候，会产生冲突。</p>
+<p>如下例：</p>
+<p>$ git checkout -b feature1<br>在新的feature1分支下修改了readme.txt：</p>
+<p>vi readme.txt<br>//修改，添加Creating a new branch is quick AND simple.<br>$ git add readme.txt<br>$ git commit -m “AND simple”<br>切换到master分支：</p>
+<p>$ git checkout master</p>
+<p>vi readme.txt<br>//在<code>master</code>分支上把readme.txt文件的最后一行改为：Creating a new branch is quick &amp; simple<br>$ git add readme.txt<br>$ git commit -m “&amp; simple”<br>试图合并master与feature1：</p>
+<p>$ git merge feature1<br>Auto-merging readme.txt<br>CONFLICT (content): Merge conflict in readme.txt<br>Automatic merge failed; fix conflicts and then commit the result.</p>
+<p>（1）使用：$ git status来查看冲突文件：</p>
+<p>$ git status</p>
+<h1 id="On-branch-master"><a href="#On-branch-master" class="headerlink" title="On branch master"></a>On branch master</h1><h1 id="Your-branch-is-ahead-of-‘origin-master’-by-2-commits"><a href="#Your-branch-is-ahead-of-‘origin-master’-by-2-commits" class="headerlink" title="Your branch is ahead of ‘origin/master’ by 2 commits."></a>Your branch is ahead of ‘origin/master’ by 2 commits.</h1><p>#</p>
+<h1 id="Unmerged-paths"><a href="#Unmerged-paths" class="headerlink" title="Unmerged paths:"></a>Unmerged paths:</h1><h1 id="use-“git-add-rm-…”-as-appropriate-to-mark-resolution"><a href="#use-“git-add-rm-…”-as-appropriate-to-mark-resolution" class="headerlink" title="(use “git add/rm …” as appropriate to mark resolution)"></a>(use “git add/rm <file>…” as appropriate to mark resolution)</file></h1><p>#</p>
+<h1 id="both-modified-readme-txt"><a href="#both-modified-readme-txt" class="headerlink" title="both modified:      readme.txt"></a>both modified:      readme.txt</h1><p>#<br>no changes added to commit (use “git add” and/or “git commit -a”)<br>（2）直接查看readme.txt文件内容：</p>
+<p>Git is a distributed version control system.<br>Git is free software distributed under the GPL.<br>Git has a mutable index called stage.<br>Git tracks changes of files.<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h1 id="Creating-a-new-branch-is-quick-amp-simple"><a href="#Creating-a-new-branch-is-quick-amp-simple" class="headerlink" title="Creating a new branch is quick &amp; simple."></a>Creating a new branch is quick &amp; simple.</h1><p>Creating a new branch is quick AND simple.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>feature1<br>Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容，我们修改如下后保存：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Creating a new branch is quick and simple.<br>再提交：</p>
+<p>$ git add readme.txt<br>$ git commit -m “conflict fixed”<br>[master 59bc1cb] conflict fixed<br>PS: 用带参数的git log也可以看到分支的合并情况：</p>
+<p>$ git log –graph –pretty=oneline –abbrev-commit</p>
+<ul>
+<li>59bc1cb conflict fixed<br>|\<br>| * 75a857c AND simple</li>
+<li>| 400b400 &amp; simple<br>|/</li>
+<li>fec145a branch test<br>…<br>最后，删除feature1分支：</li>
+</ul>
+<p>$ git branch -d feature1<br>Deleted branch feature1 (was 75a857c).</p>
+<p>分支管理策略</p>
+<p>通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
+<p>如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
+<p>下面我们实战一下–no-ff方式的git merge：</p>
+<p>首先，仍然创建并切换dev分支：</p>
+<p>$ git checkout -b dev<br>Switched to a new branch ‘dev’<br>修改readme.txt文件，并提交一个新的commit：</p>
+<p>$ git add readme.txt<br>$ git commit -m “add merge”<br>[dev 6224937] add merge<br> 1 file changed, 1 insertion(+)<br>现在，我们切换回master：</p>
+<p>$ git checkout master<br>Switched to branch ‘master<br>准备合并dev分支，请注意–no-ff参数，表示禁用Fast forward：</p>
+<p>$ git merge –no-ff -m “merge with no-ff” dev<br>Merge made by the ‘recursive’ strategy.<br> readme.txt |    1 +<br> 1 file changed, 1 insertion(+)<br>分支策略</p>
+<p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
+<p>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样：</p>
+<p>Bug分支</p>
+<p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：</p>
+<p>$ git status</p>
+<h1 id="On-branch-dev"><a href="#On-branch-dev" class="headerlink" title="On branch dev"></a>On branch dev</h1><h1 id="Changes-to-be-committed"><a href="#Changes-to-be-committed" class="headerlink" title="Changes to be committed:"></a>Changes to be committed:</h1><h1 id="use-“git-reset-HEAD-…”-to-unstage"><a href="#use-“git-reset-HEAD-…”-to-unstage" class="headerlink" title="(use “git reset HEAD …” to unstage)"></a>(use “git reset HEAD <file>…” to unstage)</file></h1><p>#</p>
+<h1 id="new-file-hello-py"><a href="#new-file-hello-py" class="headerlink" title="new file:   hello.py"></a>new file:   hello.py</h1><p>#</p>
+<h1 id="Changes-not-staged-for-commit"><a href="#Changes-not-staged-for-commit" class="headerlink" title="Changes not staged for commit:"></a>Changes not staged for commit:</h1><h1 id="use-“git-add-…”-to-update-what-will-be-committed"><a href="#use-“git-add-…”-to-update-what-will-be-committed" class="headerlink" title="(use “git add …” to update what will be committed)"></a>(use “git add <file>…” to update what will be committed)</file></h1><h1 id="use-“git-checkout-–-…”-to-discard-changes-in-working-directory"><a href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory" class="headerlink" title="(use “git checkout – …” to discard changes in working directory)"></a>(use “git checkout – <file>…” to discard changes in working directory)</file></h1><p>#</p>
+<h1 id="modified-readme-txt"><a href="#modified-readme-txt" class="headerlink" title="modified:   readme.txt"></a>modified:   readme.txt</h1><p>#<br>并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？</p>
+<p>幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：</p>
+<p>$ git stash<br>Saved working directory and index state WIP on dev: 6224937 add merge<br>HEAD is now at 6224937 add merge<br>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。</p>
+<p>首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：</p>
+<p>$ git checkout master<br>$ git checkout -b issue-101<br>现在修复bug，需要把“Git is free software …”改为“Git is a free software …”，然后提交：</p>
+<p>$ git add readme.txt<br>$ git commit -m “fix bug 101”<br>修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：</p>
+<p>$ git checkout master<br>$ git merge –no-ff -m “merged bug fix 101” issue-101<br>$ git branch -d issue-101<br>太棒了，原计划两个小时的bug修复只花了5分钟！现在，是时候接着回到dev分支干活了！</p>
+<p>$ git checkout dev<br>Switched to branch ‘dev’<br>$ git status</p>
+<h1 id="On-branch-dev-1"><a href="#On-branch-dev-1" class="headerlink" title="On branch dev"></a>On branch dev</h1><p>nothing to commit (working directory clean)<br>工作区是干净的，刚才的工作现场存到哪去了？用git stash list命令看看：</p>
+<p>$ git stash list<br>stash@{0}: WIP on dev: 6224937 add merge<br>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<p>一种方式：用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；</p>
+<p>另一种方式：是用git stash pop，恢复的同时把stash内容也删了：</p>
+<p>$ git stash pop</p>
+<h1 id="On-branch-dev-2"><a href="#On-branch-dev-2" class="headerlink" title="On branch dev"></a>On branch dev</h1><h1 id="Changes-to-be-committed-1"><a href="#Changes-to-be-committed-1" class="headerlink" title="Changes to be committed:"></a>Changes to be committed:</h1><h1 id="use-“git-reset-HEAD-…”-to-unstage-1"><a href="#use-“git-reset-HEAD-…”-to-unstage-1" class="headerlink" title="(use “git reset HEAD …” to unstage)"></a>(use “git reset HEAD <file>…” to unstage)</file></h1><p>#</p>
+<h1 id="new-file-hello-py-1"><a href="#new-file-hello-py-1" class="headerlink" title="new file:   hello.py"></a>new file:   hello.py</h1><p>#</p>
+<h1 id="Changes-not-staged-for-commit-1"><a href="#Changes-not-staged-for-commit-1" class="headerlink" title="Changes not staged for commit:"></a>Changes not staged for commit:</h1><h1 id="use-“git-add-…”-to-update-what-will-be-committed-1"><a href="#use-“git-add-…”-to-update-what-will-be-committed-1" class="headerlink" title="(use “git add …” to update what will be committed)"></a>(use “git add <file>…” to update what will be committed)</file></h1><h1 id="use-“git-checkout-–-…”-to-discard-changes-in-working-directory-1"><a href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory-1" class="headerlink" title="(use “git checkout – …” to discard changes in working directory)"></a>(use “git checkout – <file>…” to discard changes in working directory)</file></h1><p>#</p>
+<h1 id="modified-readme-txt-1"><a href="#modified-readme-txt-1" class="headerlink" title="modified:   readme.txt"></a>modified:   readme.txt</h1><p>#<br>Dropped refs/stash@{0} (f624f8e5f082f2df2bed8a4e09c12fd2943bdd40)<br>再用git stash list查看，就看不到任何stash内容了：</p>
+<p>$ git stash list<br>你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：</p>
+<p>$ git stash apply stash@{0}<br>删除分支</p>
+<p>软件开发中，总有无穷无尽的新的功能要不断添加进来。</p>
+<p>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>还记得吗？</p>
+<p>建立新的分支:git checkout -b feature-new</p>
+<p>工作提交：git add –a，git commit -m “something…”</p>
+<p>回到dev开发分支：git checkout dev</p>
+<p>合并分支：git merge –no-ff feature-new</p>
+<p>一切顺利的话，feature分支和bug分支是类似的，合并，然后删除。</p>
+<p>但是，就在此时，接到上级命令，因经费不足，新功能必须取消！虽然白干了，但是这个分支还是必须就地销毁：</p>
+<p>（1）如果没有合并之前，可以简单的使用git branch -d [分支名]来删除分支（使用-D命令，强制删除分支）</p>
+<p>（2）如果已经合并，除了上面的需要删除以外，还需要使用前面讲到的git reset –hard HEAD^来退回到上一个版本。</p>
+<p>PS:分支的删除，不会影响到其他分支上已经合并的分支内容。</p>
+<p>多人协作</p>
+<p>多人协作的工作模式通常是这样：</p>
+<p>首先，可以试图用git push origin branch-name推送自己的修改；</p>
+<p>如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+<p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+<p>没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！</p>
+<p>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream branch-name origin/branch-name。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<p>注：所有工作流建立在已经建立了个人账户，并添加了SSH key到个人的文档中。见Profile Settings → SSH keys → Before you can add an SSH key you need to [generate it].</p>
+<p>普通开发人员</p>
+<p>情况一：程序员A是后加入到项目中的，项目已经存在代码仓库。</p>
+<p>如：git@github.com:kanlidy/HelloGit.git</p>
+<p>（1）克隆版本仓库</p>
+<p>git clone git@github.com:kanlidy/HelloGit.git<br>（2）建立分支</p>
+<p>git checkout -b (分支名)<br>（3）提交代码</p>
+<p>查看代码修改的状态：</p>
+<p>git status<br>添加到工作区：</p>
+<p>git add .<br>提交到本地仓库：</p>
+<p>git commit -m “（写下提交日志）”<br>推送到服务器：</p>
+<p>git push origin 分支名<br>（4）在服务器上建立Merge Request，把自己的提交到远程的分支，Merge到Dev(开发分支)</p>
+<p>情况二：程序员B是在一个新项目中，本地有一些代码，需要建立一个版本控制仓库</p>
+<p>（1）在项目目录下，初始化仓库</p>
+<p>git init<br>（2）添加到git版本控制系统：</p>
+<p>git remote add origin git@github.com:kanlidy/HelloGit.git<br>（3）添加所有已经存在的文件到项目中：</p>
+<p>git add .<br>（4）提交代码到本地仓库：</p>
+<p>git commit -m “写下日志”<br>（5）提交代码远程服务器</p>
+<p>git push origin &lt;本地分支名&gt;：&lt;远程分支名&gt;</p>
+<p>git push origin master:master<br>对于单人项目，情况二足以满足代码控制要求。→吕扬、刘扬。</p>
+<p>仓库管理人员</p>
+<p>情况一：手工合并代码</p>
+<p>（1）在指定分支上获取更新</p>
+<p>git checkout &lt;指定分支&gt;<br>（2）拉取服务器上的代码</p>
+<p>git pull origin &lt;指定分支&gt;<br>（3）切换到dev，并获取dev上的更新，合并指定分支上的代码</p>
+<p>git checkout dev<br>git pull origin dev<br>git merge &lt;指定分支&gt;<br>情况二：直接在gitlab上进行操作</p>
+<p>直接点击accept merge request进行分支合并。</p>
+<p>代码回撤参考git reset命令，获取更新参考git fetch命令，分支查看git branch，逻辑流程图gitk，状态命令git status,日志命令git reflog与git log</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span>文章标题:</span>Git分支管理</p>
+    
+    <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
+    <p><span>发布时间:</span>2017-12-15, 11:54:00</p>
+    <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
+    <span>原始链接:</span><a class="post-url" href="/2017/12/15/Git分支管理/" title="Git分支管理">http://yoursite.com/2017/12/15/Git分支管理/</a>
+    <p>
+        <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2017 Yelog</p>
+<p class="footer-entry">Buit with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js"></script>
+<script>
+    var img_resize = 'photoSwipe';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1;
+            var $numbering = $('<ul/>').addClass('pre-numbering').attr("unselectable","on");
+            $(this).addClass('has-numbering')
+                    .parent()
+                    .append($numbering);
+            for(i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, .article-entry';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 2px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 2px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background: url("http://oncj6b2vl.bkt.clouddn.com/FlSExUGfRSaqxkK5v42CpuI-tXAL.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/photos/">相册</a>
+    
+    
+    
+</div>
+
+</html>

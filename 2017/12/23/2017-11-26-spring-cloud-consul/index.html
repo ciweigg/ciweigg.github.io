@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Spring Cloud（二）Consul 服务治理实现 | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Spring Cloud（二）Consul 服务治理实现 | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:type" content="website">
+<meta property="og:title" content="相册">
+<meta property="og:url" content="http://yoursite.com/photos/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-29T05:33:19.305Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="相册">
+<meta name="twitter:description" content="Photos 	待续   	图片正在加载中…     (function() {     var loadScript = function(path) {       var $script = document.createElement(&apos;script&apos;)       document.getElementsByTagName(&apos;body&apos;)[0].appendChild($scrip">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet" href="/css/hl_theme/atom-light.css">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+</div>
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>Ciwei</span>
+</div>
+
+<div class="icon">
+    
+    <a class="rss" title="rss" href="/atom.xml" target="_blank"></a>
+    
+    
+    <a class="github" title="github" href="https://github.com/yelog" target="_blank"></a>
+    
+    
+    <a class="facebook" title="facebook" href="https://www.facebook.com/faker.tops" target="_blank"></a>
+    
+    
+    
+    <a class="linkedin" title="linkedin" href="https://www.linkedin.com/in/%E7%8E%89%E6%9D%B0-%E6%9D%A8-13a40a103/" target="_blank"></a>
+    
+    
+    
+    <a class="reddit" title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank"></a>
+    
+    
+    <a class="weibo" title="weibo" href="http://weibo.com/u/2307534817" target="_blank"></a>
+    
+    
+    <a class="email" title="email" href="mailto:jaytp@qq.com"></a>
+    
+</div>
+
+
+
+<a class="more-menus">更多菜单</a>
+
+<ul>
+    <li class="all active">全部文章</li>
+    
+    <li data-rel="Git"> Git </li>
+    
+    <li data-rel="Redis"> Redis </li>
+    
+    <li data-rel="kafka"> kafka </li>
+    
+    <li data-rel="SpringCloud"> SpringCloud </li>
+    
+    <li data-rel="hexo"> hexo </li>
+    
+    <li data-rel="Linux"> Linux </li>
+    
+    <li data-rel="SpringBoot"> SpringBoot </li>
+    
+    <li data-rel="舞蹈"> 舞蹈 </li>
+    
+    <li data-rel="COS"> COS </li>
+    
+    <li data-rel="梦想开始的地方"> 梦想开始的地方 </li>
+    
+    <li data-rel="Mybatis"> Mybatis </li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus" >
+    
+    
+    <a class="dynamic-menu site_url"   href="/photos/">相册</a>
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+        <label for="tagswitch">Tags:</label>
+        <input id="tagswitch" type="checkbox">
+    </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">SpringBoot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">kafka</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">hexo</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">swagger</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">SpringCloud</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Mybatis</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">COS</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">bilibili</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2017/12/29/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2017-12-29 13:26:01">2017/12/29</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/23/2017-07-19-git/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="常用 Git 命令清单">常用 Git 命令清单</span>
+            <span class="post-date" title="2017-12-23 12:29:54">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-08-14-redis-cluster/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务">CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务</span>
+            <span class="post-date" title="2017-12-23 12:30:55">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-08-14-redis/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="CentOs7.3 搭建 Redis-4.0.1 单机服务">CentOs7.3 搭建 Redis-4.0.1 单机服务</span>
+            <span class="post-date" title="2017-12-23 12:31:22">2017/12/23</span>
+        </a>
+        
+        <a  class="kafka "
+           href="/2017/12/23/2017-08-29-kafka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">搭建高吞吐量 Kafka 分布式发布订阅消息 集群</span>
+            <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
+        </a>
+        
+        <a  class="Redis "
+           href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="Spring Boot 中使用 Redis">Spring Boot 中使用 Redis</span>
+            <span class="post-date" title="2017-12-23 12:04:00">2017/12/23</span>
+        </a>
+        
+        <a  class="kafka "
+           href="/2017/12/23/2017-10-17-kafka-spring-boot-example/"
+           data-tag="kafka"
+           data-author="" >
+            <span class="post-title" title="Spring Boot 中使用 kafka">Spring Boot 中使用 kafka</span>
+            <span class="post-date" title="2017-12-23 12:30:00">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-11-22-spring-cloud-eureka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（一）服务的注册与发现（Eureka）">Spring Cloud（一）服务的注册与发现（Eureka）</span>
+            <span class="post-date" title="2017-12-23 11:52:14">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-11-26-spring-cloud-consul/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（二）Consul 服务治理实现">Spring Cloud（二）Consul 服务治理实现</span>
+            <span class="post-date" title="2017-12-23 11:52:35">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）">Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）</span>
+            <span class="post-date" title="2017-12-23 11:53:01">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-06-spring-cloud-feign/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign</span>
+            <span class="post-date" title="2017-12-23 11:53:21">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（五）断路器监控(Hystrix Dashboard)">Spring Cloud（五）断路器监控(Hystrix Dashboard)</span>
+            <span class="post-date" title="2017-12-23 11:53:42">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-10-spring-cloud-zuul/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（六）服务网关 zuul 快速入门">Spring Cloud（六）服务网关 zuul 快速入门</span>
+            <span class="post-date" title="2017-12-23 11:54:04">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-11-spring-cloud-zuul-filter/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（七）服务网关 Zuul Filter 使用">Spring Cloud（七）服务网关 Zuul Filter 使用</span>
+            <span class="post-date" title="2017-12-23 11:51:33">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-13-spring-cloud-config/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config">Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config</span>
+            <span class="post-date" title="2017-12-23 11:51:12">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-14-spring-cloud-config-eureka/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务">Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务</span>
+            <span class="post-date" title="2017-12-23 11:50:45">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/23/2017-12-17-spring-cloud-actual-combat/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="基于 Spring Cloud 完整的微服务架构实战">基于 Spring Cloud 完整的微服务架构实战</span>
+            <span class="post-date" title="2017-12-23 11:49:47">2017/12/23</span>
+        </a>
+        
+        <a  class="hexo "
+           href="/2017/12/26/3-hexo使用说明/"
+           data-tag="hexo"
+           data-author="" >
+            <span class="post-title" title="3-hexo使用说明">3-hexo使用说明</span>
+            <span class="post-date" title="2017-12-26 17:23:00">2017/12/26</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/15/Git分支管理/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="Git分支管理">Git分支管理</span>
+            <span class="post-date" title="2017-12-15 11:54:00">2017/12/15</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/15/Git常用命令-1/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="Git常用命令">Git常用命令</span>
+            <span class="post-date" title="2017-12-15 11:52:00">2017/12/15</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2017/12/23/Linux基础命令/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux基础命令">Linux基础命令</span>
+            <span class="post-date" title="2017-12-23 10:16:00">2017/12/23</span>
+        </a>
+        
+        <a  class="SpringBoot "
+           href="/2017/12/10/Spring-Boot-Dubbo-applications-properties-配置清单-1/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="Spring Boot Dubbo applications.properties 配置清单">Spring Boot Dubbo applications.properties 配置清单</span>
+            <span class="post-date" title="2017-12-10 18:02:00">2017/12/10</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/22/Spring-Cloud-Eureka-控制台快速查看Swagger-API文档/"
+           data-tag="swagger"
+           data-author="" >
+            <span class="post-title" title="Spring Cloud Eureka 控制台快速查看Swagger API文档">Spring Cloud Eureka 控制台快速查看Swagger API文档</span>
+            <span class="post-date" title="2017-12-22 13:35:00">2017/12/22</span>
+        </a>
+        
+        <a  class="SpringCloud "
+           href="/2017/12/22/Spring-Cloud-Zuul结合Smconf配置中心动态进行IP黑名单限制/"
+           data-tag="SpringCloud"
+           data-author="" >
+            <span class="post-title" title="Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制">Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</span>
+            <span class="post-date" title="2017-12-22 13:40:00">2017/12/22</span>
+        </a>
+        
+        <a  class="SpringBoot "
+           href="/2017/12/11/SpringBoot事务配置规则/"
+           data-tag="SpringBoot"
+           data-author="" >
+            <span class="post-title" title="SpringBoot事务配置规则">SpringBoot事务配置规则</span>
+            <span class="post-date" title="2017-12-11 11:13:00">2017/12/11</span>
+        </a>
+        
+        <a  class="Git "
+           href="/2017/12/16/git常用命令/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="git常用命令">git常用命令</span>
+            <span class="post-date" title="2017-12-16 12:04:00">2017/12/16</span>
+        </a>
+        
+        <a  class="SpringBoot Mybatis "
+           href="/2017/12/23/【springboot】-springboot-整合mybatis-plus/"
+           data-tag="SpringBoot,Mybatis"
+           data-author="" >
+            <span class="post-title" title="【springboot】 springboot 整合mybatis-plus">【springboot】 springboot 整合mybatis-plus</span>
+            <span class="post-date" title="2017-12-23 10:05:00">2017/12/23</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/【酸奶】AOA-猫步轻俏-翻跳/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="【酸奶】AOA 猫步轻俏 翻跳">【酸奶】AOA 猫步轻俏 翻跳</span>
+            <span class="post-date" title="2017-12-17 14:02:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/【酸奶】EXID-Up-Down-翻跳/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="【酸奶】EXID - Up &amp; Down 翻跳">【酸奶】EXID - Up &amp; Down 翻跳</span>
+            <span class="post-date" title="2017-12-17 14:06:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/中华第一腿/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="中华第一腿">中华第一腿</span>
+            <span class="post-date" title="2017-12-17 13:46:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="你想怎样就怎样╮(╯_╰)╭ - 1.1">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
+            <span class="post-date" title="2017-12-17 13:23:00">2017/12/17</span>
+        </a>
+        
+        <a  class="COS "
+           href="/2017/12/10/宅舞/"
+           data-tag="COS"
+           data-author="" >
+            <span class="post-title" title="宅舞">宅舞</span>
+            <span class="post-date" title="2017-12-10 11:05:00">2017/12/10</span>
+        </a>
+        
+        <a  class="梦想开始的地方 "
+           href="/2017/12/17/梦想开始的地方/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="梦想开始的地方">梦想开始的地方</span>
+            <span class="post-date" title="2017-12-17 14:07:00">2017/12/17</span>
+        </a>
+        
+        <a  class="舞蹈 "
+           href="/2017/12/17/这舞蹈可以/"
+           data-tag="bilibili"
+           data-author="" >
+            <span class="post-title" title="B站女王啊">B站女王啊</span>
+            <span class="post-date" title="2017-12-17 12:57:00">2017/12/17</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-2017-11-26-spring-cloud-consul" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Spring Cloud（二）Consul 服务治理实现</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+            <a href="javascript:" data-rel="SpringCloud">SpringCloud</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2017-12-29 13:32:14'>2017-12-23 11:52</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Consul-简介"><span class="toc-text">Consul 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Consul-的使用场景"><span class="toc-text">Consul 的使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Consul-的优势"><span class="toc-text">Consul 的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Consul-的角色"><span class="toc-text">Consul 的角色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搭建环境"><span class="toc-text">搭建环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Consul常用命令"><span class="toc-text">Consul常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#consul-agent-命令的常用选项"><span class="toc-text">consul agent 命令的常用选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动服务"><span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Consul-的高可用"><span class="toc-text">Consul 的高可用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建步骤"><span class="toc-text">搭建步骤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub-代码"><span class="toc-text">GitHub:代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加依赖"><span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开启服务注册"><span class="toc-text">开启服务注册</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问服务"><span class="toc-text">访问服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码下载"><span class="toc-text">源码下载</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring Cloud Consul 项目是针对Consul的服务治理实现。Consul是一个分布式高可用的系统，具有分布式、高可用、高扩展性。</p>
+<h1 id="Consul-简介"><a href="#Consul-简介" class="headerlink" title="Consul 简介"></a>Consul 简介</h1><p>Consul 是 HashiCorp 公司推出的开源工具，用于实现分布式系统的服务发现与配置。与其他分布式服务注册与发现的方案，Consul的方案更“一站式”<br>，内置了服务注册与发现框 架、<strong>具有以下性质：</strong></p>
+<ul>
+<li>分布一致性协议实现、</li>
+<li>健康检查、</li>
+<li>Key/Value存储、</li>
+<li>多数据中心方案，</li>
+</ul>
+<p>不再需要依赖其他工具（比如ZooKeeper等）。</p>
+<a id="more"></a>
+<p>使用起来也较 为简单。Consul使用Go语言编写，因此具有天然可移植性(支持Linux、windows和Mac OS X)；安装包仅包含一个可执行文件，方便部署，与Docker等轻量级容器可无缝配合 。<br>基于 Mozilla Public License 2.0 的协议进行开源. Consul 支持健康检查,并允许 HTTP 和 DNS 协议调用 API 存储键值对.<br>一致性协议采用 Raft 算法,用来保证服务的高可用. 使用 GOSSIP 协议管理成员和广播消息, 并且支持 ACL 访问控制.</p>
+<h2 id="Consul-的使用场景"><a href="#Consul-的使用场景" class="headerlink" title="Consul 的使用场景"></a>Consul 的使用场景</h2><ul>
+<li>docker 实例的注册与配置共享</li>
+<li>coreos 实例的注册与配置共享</li>
+<li>vitess 集群</li>
+<li>SaaS 应用的配置共享</li>
+<li>与 confd 服务集成，动态生成 nginx 和 haproxy 配置文件</li>
+</ul>
+<h2 id="Consul-的优势"><a href="#Consul-的优势" class="headerlink" title="Consul 的优势"></a>Consul 的优势</h2><p>使用 Raft 算法来保证一致性, 比复杂的 Paxos 算法更直接. 相比较而言, zookeeper 采用的是 Paxos, 而 etcd 使用的则是 Raft.<br>支持多数据中心，内外网的服务采用不同的端口进行监听。 多数据中心集群可以避免单数据中心的单点故障,而其部署则需要考虑网络延迟, 分片等情况等. zookeeper 和 etcd 均不提供多数据中心功能的支持.<br>支持健康检查. etcd 不提供此功能.<br>支持 http 和 dns 协议接口. zookeeper 的集成较为复杂, etcd 只支持 http 协议.<br>官方提供web管理界面, etcd 无此功能.</p>
+<h2 id="Consul-的角色"><a href="#Consul-的角色" class="headerlink" title="Consul 的角色"></a>Consul 的角色</h2><p>client: 客户端, 无状态, 将 HTTP 和 DNS 接口请求转发给局域网内的服务端集群.server: 服务端, 保存配置信息, 高可用集群, 在局域网内与本地客户端通讯, 通过广域网与其他数据中心通讯. 每个数据中心的 server 数量推荐为 3 个或是 5 个.</p>
+<p>由于Spring Cloud Consul项目的实现，我们可以轻松的将基于Spring Boot的微服务应用注册到Consul上，并通过此实现微服务架构中的服务治理。</p>
+<h1 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h1><p><strong>参考</strong></p>
+<ul>
+<li><a href="http://cloud.spring.io/spring-cloud-consul/" target="_blank" rel="noopener">Spring Cloud 官方文档</a> </li>
+<li><a href="https://www.consul.io/intro/getting-started/install.html" target="_blank" rel="noopener">Consul 官方文档 </a></li>
+</ul>
+<p>要想利用Consul提供的服务实现服务的注册与发现，我们需要搭建Consul Cluster 环境。</p>
+<p>在Consul方案中，每个提供服务的节点上都要部署和运行Consul的agent，所有运行Consul agent节点的集合构成Consul Cluster。</p>
+<p>Consul agent有两种运行模式：Server和Client。这里的Server和Client只是Consul集群层面的区分，与搭建在Cluster之上 的应用服务无关。</p>
+<p>以Server模式运行的Consul agent节点用于维护Consul集群的状态，官方建议每个Consul Cluster至少有3个或以上的运行在Server mode的Agent，Client节点不限。</p>
+<p><strong>环境配置如下:</strong></p>
+<p>Centos 7.3</p>
+<table>
+<thead>
+<tr>
+<th>主机名称</th>
+<th>IP</th>
+<th>作用</th>
+<th>是否允许远程访问</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node1</td>
+<td>192.168.252.121</td>
+<td>consul server</td>
+<td>是</td>
+</tr>
+<tr>
+<td>node2</td>
+<td>192.168.252.122</td>
+<td>consul client</td>
+<td>否</td>
+</tr>
+<tr>
+<td>node3</td>
+<td>192.168.252.123</td>
+<td>consul client</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关闭防火墙</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br></pre></td></tr></table></figure>
+<p>Consul 最新版的下载地址:<br><a href="https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip" target="_blank" rel="noopener">https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip</a></p>
+<p><strong>下载，然后unzip 解压，得到唯一，一个可执行文件</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">wget https://releases.hashicorp.com/consul/1.0.1/consul_1.0.1_linux_amd64.zip</span><br><span class="line">unzip consul_1.0.1_linux_amd64.zip</span><br><span class="line">cp consul /usr/<span class="built_in">local</span>/bin/</span><br></pre></td></tr></table></figure>
+<p><strong>查看是否安装成功</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 opt]<span class="comment"># consul</span></span><br></pre></td></tr></table></figure>
+<p>出现如下结果，表示安装成功</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Usage: consul [--version] [--<span class="built_in">help</span>] &lt;<span class="built_in">command</span>&gt; [&lt;args&gt;]</span><br><span class="line"></span><br><span class="line">Available commands are:</span><br><span class="line">    agent          Runs a Consul agent</span><br><span class="line">    catalog        Interact with the catalog</span><br><span class="line">    event          Fire a new event</span><br><span class="line">    <span class="built_in">exec</span>           Executes a <span class="built_in">command</span> on Consul nodes</span><br><span class="line">    force-leave    Forces a member of the cluster to enter the <span class="string">"left"</span> state</span><br><span class="line">    info           Provides debugging information <span class="keyword">for</span> operators.</span><br><span class="line">    join           Tell Consul agent to join cluster</span><br><span class="line">    keygen         Generates a new encryption key</span><br><span class="line">    keyring        Manages gossip layer encryption keys</span><br><span class="line">    kv             Interact with the key-value store</span><br><span class="line">    leave          Gracefully leaves the Consul cluster and shuts down</span><br><span class="line">    lock           Execute a <span class="built_in">command</span> holding a lock</span><br><span class="line">    maint          Controls node or service maintenance mode</span><br><span class="line">    members        Lists the members of a Consul cluster</span><br><span class="line">    monitor        Stream logs from a Consul agent</span><br><span class="line">    operator       Provides cluster-level tools <span class="keyword">for</span> Consul operators</span><br><span class="line">    reload         Triggers the agent to reload configuration files</span><br><span class="line">    rtt            Estimates network round trip time between nodes</span><br><span class="line">    snapshot       Saves, restores and inspects snapshots of Consul server state</span><br><span class="line">    validate       Validate config files/directories</span><br><span class="line">    version        Prints the Consul version</span><br><span class="line">    watch          Watch <span class="keyword">for</span> changes <span class="keyword">in</span> Consul</span><br></pre></td></tr></table></figure>
+<p><strong>检查版本</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node1 opt]<span class="comment"># consul version</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Consul v1.0.1</span><br><span class="line">Protocol 2 spoken by default, understands 2 to 3 (agent will automatically use protocol &gt;2 when speaking to compatible agents)</span><br></pre></td></tr></table></figure>
+<h2 id="Consul常用命令"><a href="#Consul常用命令" class="headerlink" title="Consul常用命令"></a>Consul常用命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>agent</td>
+<td>运行一个consul agent</td>
+<td>consul agent -dev</td>
+</tr>
+<tr>
+<td>join</td>
+<td>将agent加入到consul集群</td>
+<td>consul join IP</td>
+</tr>
+<tr>
+<td>members</td>
+<td>列出consul cluster集群中的members</td>
+<td>consul members</td>
+</tr>
+<tr>
+<td>leave</td>
+<td>将节点移除所在集群</td>
+<td>consul leave</td>
+</tr>
+</tbody>
+</table>
+<h2 id="consul-agent-命令的常用选项"><a href="#consul-agent-命令的常用选项" class="headerlink" title="consul agent 命令的常用选项"></a>consul agent 命令的常用选项</h2><p><strong>-data-dir</strong></p>
+<ul>
+<li>作用：指定agent储存状态的数据目录</li>
+<li>这是所有agent都必须的</li>
+<li>对于server尤其重要，因为他们必须持久化集群的状态</li>
+</ul>
+<p><strong>-config-dir</strong></p>
+<ul>
+<li>作用：指定service的配置文件和检查定义所在的位置</li>
+<li>通常会指定为”某一个路径/consul.d”（通常情况下，.d表示一系列配置文件存放的目录）</li>
+</ul>
+<p><strong>-config-file</strong></p>
+<ul>
+<li>作用：指定一个要装载的配置文件</li>
+<li>该选项可以配置多次，进而配置多个配置文件（后边的会合并前边的，相同的值覆盖）</li>
+</ul>
+<p><strong>-dev</strong></p>
+<ul>
+<li>作用：创建一个开发环境下的server节点</li>
+<li>该参数配置下，不会有任何持久化操作，即不会有任何数据写入到磁盘</li>
+<li>这种模式不能用于生产环境（因为第二条）</li>
+</ul>
+<p><strong>-bootstrap-expect</strong></p>
+<ul>
+<li>作用：该命令通知consul server我们现在准备加入的server节点个数，该参数是为了延迟日志复制的启动直到我们指定数量的server节点成功的加入后启动。</li>
+</ul>
+<p><strong>-node</strong></p>
+<ul>
+<li>作用：指定节点在集群中的名称</li>
+<li>该名称在集群中必须是唯一的（默认采用机器的host）</li>
+<li>推荐：直接采用机器的IP</li>
+</ul>
+<p><strong>-bind</strong></p>
+<ul>
+<li>作用：指明节点的IP地址</li>
+<li>有时候不指定绑定IP，会报<code>Failed to get advertise address: Multiple private IPs found. Please configure one.</code> 的异常</li>
+</ul>
+<p><strong>-server</strong></p>
+<ul>
+<li>作用：指定节点为server</li>
+<li>每个数据中心（DC）的server数推荐至少为1，至多为5</li>
+<li>所有的server都采用raft一致性算法来确保事务的一致性和线性化，事务修改了集群的状态，且集群的状态保存在每一台server上保证可用性</li>
+<li>server也是与其他DC交互的门面（gateway）</li>
+</ul>
+<p><strong>-client</strong></p>
+<ul>
+<li>作用：指定节点为client，指定客户端接口的绑定地址，包括：HTTP、DNS、RPC</li>
+<li>默认是127.0.0.1，只允许回环接口访问</li>
+<li>若不指定为-server，其实就是-client</li>
+</ul>
+<p><strong>-join</strong></p>
+<ul>
+<li>作用：将节点加入到集群</li>
+</ul>
+<p><strong>-datacenter</strong>（老版本叫-dc，-dc已经失效）</p>
+<ul>
+<li>作用：指定机器加入到哪一个数据中心中</li>
+</ul>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>我们尝试一下：</p>
+<p><code>-dev表示开发模式运行，使用-client 参数可指定允许客户端使用什么ip去访问，例如-client 192.168.252.121 表示可以使用</code></p>
+<p><a href="http://192.168.252.121:8500/ui/" target="_blank" rel="noopener">http://192.168.252.121:8500/ui/ 去访问。</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">consul agent -dev -client 192.168.252.121</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/1.png" alt="Consul Cluster"></p>
+<h2 id="Consul-的高可用"><a href="#Consul-的高可用" class="headerlink" title="Consul 的高可用"></a>Consul 的高可用</h2><p>Consul Cluster集群架构图如下： </p>
+<p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/2.png" alt="Consul Cluster集群架构"></p>
+<p>这边准备了三台Centos 7.3的虚拟机，主机规划如下，供参考： </p>
+<table>
+<thead>
+<tr>
+<th>主机名称</th>
+<th>IP</th>
+<th>作用</th>
+<th>是否允许远程访问</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>node1</td>
+<td>192.168.252.121</td>
+<td>consul server</td>
+<td>是</td>
+</tr>
+<tr>
+<td>node2</td>
+<td>192.168.252.122</td>
+<td>consul client</td>
+<td>否</td>
+</tr>
+<tr>
+<td>node3</td>
+<td>192.168.252.123</td>
+<td>consul client</td>
+<td>是</td>
+</tr>
+</tbody>
+</table>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><p>命令参数，参看上面详细介绍</p>
+<p><strong>在 node1 机器上启动 Consul</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">mkdir data</span><br><span class="line">consul agent -data-dir /opt/data -node=192.168.252.121 -<span class="built_in">bind</span>=0.0.0.0 -datacenter=dc1 -ui -client=192.168.252.121 -server -bootstrap-expect 1 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p><strong>在 node2 机器上启动 Consul,并且将node2节点加入到node1节点上</strong><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">mkdir data</span><br><span class="line">consul agent -data-dir /opt/data -node=192.168.252.122 -<span class="built_in">bind</span>=0.0.0.0 -datacenter=dc1 -ui -client=192.168.252.122 -join=192.168.252.121 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></p>
+<p><strong>在 node3 机器上启动 Consul,并且将node3节点加入到node1节点上</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/</span><br><span class="line">mkdir data</span><br><span class="line">consul agent -data-dir /opt/data -node=192.168.252.123 -<span class="built_in">bind</span>=0.0.0.0 -datacenter=dc1 -ui  -client=192.168.252.123 -join=192.168.252.121 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>在node1上查看当前集群节点：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">consul members -rpc-addr=192.168.252.123:8400  </span><br><span class="line"></span><br><span class="line">consul leave -rpc-addr=192.168.252.123:8400</span><br></pre></td></tr></table></figure>
+<p><a href="http://192.168.252.121:8500/ui/" target="_blank" rel="noopener">http://192.168.252.121:8500/ui/ 去访问。</a></p>
+<p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/3.png" alt="Consul Cluster集群 nodes"></p>
+<h1 id="GitHub-代码"><a href="#GitHub-代码" class="headerlink" title="GitHub:代码"></a>GitHub:代码</h1><p>代码我已放到 Github ，导入<code>spring-cloud-consul-client</code> 项目 </p>
+<p>github <a href="https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client" target="_blank" rel="noopener">https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client</a></p>
+<h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>在项目 <code>spring-cloud-consul</code> <code>pom.xml</code>中引入需要的依赖内容：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- spring cloud starter consul discovery --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-consul-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="开启服务注册"><a href="#开启服务注册" class="headerlink" title="开启服务注册"></a>开启服务注册</h2><p>客户端注册Consul时，它提供有关自身的元数据，如主机和端口，ID，名称和标签。默认情况下，将创建一个HTTP 检查，每隔10秒Consul命中/health端点。如果健康检查失败，则服务实例被标记为关键。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> io.ymq.example.consul;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConsulApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">home</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello world"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(ConsulApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>在<code>application.yml</code>配置文件中增加如下信息：如果Consul客户端位于localhost:8500以外，则需要配置来定位客户端</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: consul-client</span><br><span class="line">  cloud:</span><br><span class="line">    consul:</span><br><span class="line">      host: 192.168.252.121</span><br><span class="line">      port: 8500</span><br><span class="line">      discovery:</span><br><span class="line">        healthCheckPath: /</span><br><span class="line">        healthCheckInterval: 5s</span><br></pre></td></tr></table></figure>
+<p>如果Consul客户端位于localhost:8500以外的位置，则需要配置来定位客户端。例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">host: 192.168.252.121</span><br><span class="line">port: 8500</span><br></pre></td></tr></table></figure>
+<p><strong>HTTP健康检查路径</strong></p>
+<p>“10s”和“1m”分别表示10秒和1分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">discovery:</span><br><span class="line">	healthCheckPath: $&#123;management.context-path&#125;/health</span><br><span class="line">	healthCheckInterval: 15s</span><br></pre></td></tr></table></figure>
+<h2 id="访问服务"><a href="#访问服务" class="headerlink" title="访问服务"></a>访问服务</h2><p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/4.png" alt="Consul Cluster 集群 服务注册情况"></p>
+<p><img src="http://www.ymq.io/images/2017/SpringCloud/consul/5.png" alt="Consul Cluster集群 服务注册情况"></p>
+<h2 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h2><p>代码我已放到 Github ，导入<code>spring-cloud-consul-client</code> 项目 </p>
+<p>github <a href="https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client" target="_blank" rel="noopener">https://github.com/souyunku/spring-cloud-examples/tree/master/spring-cloud-consul-client</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span>文章标题:</span>Spring Cloud（二）Consul 服务治理实现</p>
+    
+    <p><span>本文作者:</span><a href="javascript:void(0)" title="Ciwei">Ciwei</a></p>
+    <p><span>发布时间:</span>2017-12-23, 11:52:35</p>
+    <p><span>最后更新:</span>2017-12-29, 13:32:14</p>
+    <span>原始链接:</span><a class="post-url" href="/2017/12/23/2017-11-26-spring-cloud-consul/" title="Spring Cloud（二）Consul 服务治理实现">http://yoursite.com/2017/12/23/2017-11-26-spring-cloud-consul/</a>
+    <p>
+        <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2017 Yelog</p>
+<p class="footer-entry">Buit with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js"></script>
+<script>
+    var img_resize = 'photoSwipe';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#SpringBoot','#kafka','#hexo','#git','#Linux','#swagger','#SpringCloud','#Mybatis','#COS','#bilibili',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1;
+            var $numbering = $('<ul/>').addClass('pre-numbering').attr("unselectable","on");
+            $(this).addClass('has-numbering')
+                    .parent()
+                    .append($numbering);
+            for(i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, .article-entry';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 2px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 2px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background: url("http://oncj6b2vl.bkt.clouddn.com/FlSExUGfRSaqxkK5v42CpuI-tXAL.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    <a class="dynamic-menu site_url"   href="/photos/">相册</a>
+    
+    
+    
+</div>
+
+</html>
