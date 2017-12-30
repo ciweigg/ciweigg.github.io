@@ -1143,7 +1143,7 @@ left0px
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  color: #ababab;
+  color: #555;
   font-weight: normal;
   margin-left: 1px;
 }
@@ -1512,8 +1512,8 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  color: #828282;
-  font: 200 12px/1 "Open Sans", "Hiragino Sans GB", sans-serif;
+  color: #555;
+  font: 200 14px/1 "Open Sans", "Hiragino Sans GB", sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-text-size-adjust: none;
   overflow: hidden;
