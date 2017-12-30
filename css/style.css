@@ -1137,7 +1137,7 @@ left0px
 }
 .post {
   height: 100%;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.6;
   background: #fff;
   overflow-x: hidden;
@@ -1653,7 +1653,7 @@ img.img_max {
 @media screen and (max-width: 1468px) {
   html,
   body {
-    font: 400 15px/1 "Open Sans", "Hiragino Sans GB", sans-serif;
+    font: 200 15px/1 "Open Sans", "Hiragino Sans GB", sans-serif;
   }
   .nav {
     width: 492px;
@@ -1687,7 +1687,7 @@ img.img_max {
     left: 0;
   }
   .post {
-    font-size: 17px;
+    font-size: 12px;
   }
   .post .pjax {
     max-width: 780px;
@@ -1838,7 +1838,7 @@ img.img_max {
     display: none;
   }
   .post {
-    font-size: 16px;
+    font-size: 15px;
   }
   .post .pjax {
     padding: 0 18px;
