@@ -303,7 +303,57 @@
           </a>
         </li>
       
-    </ul>
+    
+<!-- 参考Never_yu的High一下功能 
+     网站位置：https://neveryu.github.io/2016/09/30/hexo-next-two,
+               https://neveryu.github.io/2016/11/11/hexo-next-three/-->
+    <li class="menu-item"> <a href='javascript:(
+    function go() {
+      var songs = [
+          "http://music.163.com/song/media/outer/url?id=479422062.mp3",
+          "http://music.163.com/song/media/outer/url?id=481859184.mp3",
+	  "http://music.163.com/song/media/outer/url?id=490595323.mp3"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="menu-item-icon fa fa-music fa-fw"></i><br>楽</a> </li>
+<!-- end High一下 -->
+
+</ul>
   
 
   
@@ -340,7 +390,7 @@
       
        
       
-      OK! 目前共计 36 篇日志。 继续努力。
+      OK! 目前共计 39 篇日志。 继续努力。
     </span>
 
     
@@ -354,6 +404,117 @@
         <div class="collection-title">
           <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
         </div>
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/12/17/你想怎样就怎样╮-╯-╰-╭-1-1/" itemprop="url">
+              
+                <span itemprop="name">你想怎样就怎样╮(╯_╰)╭ - 1.1</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-12-17T13:23:00+08:00"
+              content="2017-12-17" >
+          12-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/12/17/这舞蹈可以/" itemprop="url">
+              
+                <span itemprop="name">B站女王啊</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-12-17T12:57:00+08:00"
+              content="2017-12-17" >
+          12-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
+      
+      
+
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/12/16/git常用命令/" itemprop="url">
+              
+                <span itemprop="name">git常用命令</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-12-16T12:04:00+08:00"
+              content="2017-12-16" >
+          12-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+    
+
+      
+      
+      
+
       
       
 
@@ -584,7 +745,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -755,7 +916,7 @@
   <div class="powered-by"></div>
   <span class="post-count">
 	博客全站共&nbsp;
-	<a class="theme-link">43.1k</a>
+	<a class="theme-link">44.2k</a>
 	&nbsp;字
  </span>
 </div>

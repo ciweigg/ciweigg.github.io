@@ -129,13 +129,13 @@
 
 
 
-<meta name="description" content="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">
+<meta name="description" content="上一篇文章，讲述了如何通过RestTemplate+Ribbon去消费服务，这篇文章主要讲述如何通过Feign去消费服务。 一、Feign简介Feign是一个声明式的伪Http客户端，它使得写Http客户端变得更简单。使用Feign，只需要创建一个接口并注解。它具有可插拔的注解特性，可使用Feign 注解和JAX-RS注解。Feign支持可插拔的编码器和解码器。Feign默认集成了Ribbon，并">
 <meta name="keywords" content="SpringCloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">
 <meta property="og:url" content="http://yoursite.com/2017/12/23/2017-12-06-spring-cloud-feign/index.html">
 <meta property="og:site_name" content="如果没有你">
-<meta property="og:description" content="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">
+<meta property="og:description" content="上一篇文章，讲述了如何通过RestTemplate+Ribbon去消费服务，这篇文章主要讲述如何通过Feign去消费服务。 一、Feign简介Feign是一个声明式的伪Http客户端，它使得写Http客户端变得更简单。使用Feign，只需要创建一个接口并注解。它具有可插拔的注解特性，可使用Feign 注解和JAX-RS注解。Feign支持可插拔的编码器和解码器。Feign默认集成了Ribbon，并">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.ymq.io/images/2017/SpringCloud/feign/1.png">
 <meta property="og:image" content="http://www.ymq.io/images/2017/SpringCloud/feign/2.png">
@@ -145,10 +145,10 @@
 <meta property="og:image" content="http://www.ymq.io/images/2017/SpringCloud/feign/6.png">
 <meta property="og:image" content="http://www.ymq.io/images/2017/SpringCloud/feign/7.png">
 <meta property="og:image" content="http://www.ymq.io/images/2017/SpringCloud/feign/8.png">
-<meta property="og:updated_time" content="2017-12-29T05:32:14.386Z">
+<meta property="og:updated_time" content="2017-12-30T12:33:43.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">
-<meta name="twitter:description" content="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">
+<meta name="twitter:description" content="上一篇文章，讲述了如何通过RestTemplate+Ribbon去消费服务，这篇文章主要讲述如何通过Feign去消费服务。 一、Feign简介Feign是一个声明式的伪Http客户端，它使得写Http客户端变得更简单。使用Feign，只需要创建一个接口并注解。它具有可插拔的注解特性，可使用Feign 注解和JAX-RS注解。Feign支持可插拔的编码器和解码器。Feign默认集成了Ribbon，并">
 <meta name="twitter:image" content="http://www.ymq.io/images/2017/SpringCloud/feign/1.png">
 
 
@@ -317,7 +317,57 @@
           </a>
         </li>
       
-    </ul>
+    
+<!-- 参考Never_yu的High一下功能 
+     网站位置：https://neveryu.github.io/2016/09/30/hexo-next-two,
+               https://neveryu.github.io/2016/11/11/hexo-next-three/-->
+    <li class="menu-item"> <a href='javascript:(
+    function go() {
+      var songs = [
+          "http://music.163.com/song/media/outer/url?id=479422062.mp3",
+          "http://music.163.com/song/media/outer/url?id=481859184.mp3",
+	  "http://music.163.com/song/media/outer/url?id=490595323.mp3"
+      ];
+ 
+      function S() {
+          var e = document.getElementById("audio_element_id");
+          if(e != null){
+              var index = parseInt(e.getAttribute("curSongIndex"));
+              if(index > songs.length - 2) {
+                  index = 0;
+              } else {
+                  index++;
+              }
+              e.setAttribute("curSongIndex", index);
+          }
+          e.src = i;
+          e.play()
+      }
+      function initAudioEle() {
+          var e = document.getElementById("audio_element_id");
+          if(e === null){
+            e = document.createElement("audio");
+            e.setAttribute("curSongIndex", 0);
+            e.id = "audio_element_id";
+            e.loop = false;
+            e.bgcolor = 0;
+            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+            document.body.appendChild(e);
+            e.addEventListener("ended", function() {
+              go();
+            }, true);
+          }        
+      }
+    
+      initAudioEle();
+      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+      var i = songs[curSongIndex];
+      S();
+    })()'>
+    <i class="menu-item-icon fa fa-music fa-fw"></i><br>楽</a> </li>
+<!-- end High一下 -->
+
+</ul>
   
 
   
@@ -451,10 +501,6 @@
 
           
 
-          
-              <div class="post-description">
-                  Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign
-              </div>
           
  
         
@@ -709,7 +755,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -896,7 +942,7 @@
   <div class="powered-by"></div>
   <span class="post-count">
 	博客全站共&nbsp;
-	<a class="theme-link">43.1k</a>
+	<a class="theme-link">44.2k</a>
 	&nbsp;字
  </span>
 </div>
