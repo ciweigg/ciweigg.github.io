@@ -1137,13 +1137,13 @@ left0px
 }
 .post {
   height: 100%;
-  font-size: 18px;
+  font-size: 12px;
   line-height: 1.6;
   background: #fff;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  color: #2f2f2f;
+  color: #ababab;
   font-weight: normal;
   margin-left: 1px;
 }
@@ -1512,8 +1512,8 @@ body {
   width: 100%;
   height: 100%;
   margin: 0;
-  color: #283444;
-  font: 400 16px/1 "Open Sans", "Hiragino Sans GB", sans-serif;
+  color: #828282;
+  font: 200 12px/1 "Open Sans", "Hiragino Sans GB", sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-text-size-adjust: none;
   overflow: hidden;
@@ -1537,7 +1537,7 @@ h6 {
   font-family: inherit;
   font-weight: normal;
   margin-top: 30px;
-  color: #283444;
+  color: #828282;
   text-rendering: optimizelegibility;
   border-bottom: 1px solid #eee;
 }
