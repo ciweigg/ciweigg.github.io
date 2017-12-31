@@ -1851,7 +1851,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b69e01;
+  background: #ffa32d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2693,4 +2693,16 @@ img.img-topic {
   padding: 0;
   float: right;
   clear: right;
+}
+.post-sticky-flag {
+  font-size: inherit;
+  float: left;
+  color: #000;
+  cursor: help;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+.post-sticky-flag:hover {
+  color: #f935ea;
 }
