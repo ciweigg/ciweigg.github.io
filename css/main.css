@@ -726,9 +726,6 @@ pre .javascript .function {
 .post .group-picture-column {
   float: left;
 }
-.page-post-detail .post-body .group-picture-column {
-  margin-top: 10px;
-}
 .page-post-detail .post-body .group-picture-column img {
   margin: 0 auto;
 }
@@ -1851,7 +1848,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffd4ff;
+  background: #d537dd;
 }
 .links-of-blogroll {
   font-size: 13px;
