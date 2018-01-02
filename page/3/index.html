@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,38 +10,22 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
-</script>
 
-<style>
-    .pace .pace-progress {
-        background: #1E92FB; /*进度条颜色*/
-        height: 3px;
-    }
-    .pace .pace-progress-inner {
-         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
-    }
-    .pace .pace-activity {
-        border-top-color: #1E92FB;    /*上边框颜色*/
-        border-left-color: #1E92FB;    /*左边框颜色*/
-    }
-</style>
+
+
+
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
 
 
 
@@ -74,12 +58,6 @@
   
 
   
-    
-      
-    
-
-    
-  
 
   
 
@@ -96,7 +74,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Neucha:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Damion:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -108,21 +86,29 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Dmego" />
+  <link rel="apple-touch-icon" sizes="180x180" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3" color="#222">
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="如果没有你" type="application/atom+xml" />
+  <meta name="keywords" content="Ciwei, Blog, JAVA ,Dubbo ,Docker" />
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.1" />
 
 
 
@@ -144,9 +130,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    sidebar: {"position":"left","display":"always"},
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -169,61 +157,71 @@
 
 
 
-  <title> 如果没有你 </title>
+  <title>如果没有你 - </title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-89637345-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
-
-
-
-
-
-
-
-
-
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta custom-logo">
-  
-    <div class="site-meta-headline">
-      <a>
-        <img class="custom-logo-image" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
-             alt="如果没有你"/>
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
+               alt="如果没有你"/>
+        </a>
+      </div>
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">如果没有你</span>
+        <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">如果没有你</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
   </div>
-    
-      <h1 class="site-subtitle" itemprop="description"></h1>
-    
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -243,8 +241,28 @@
         </li>
       
         
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -254,7 +272,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -263,22 +281,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
             
-            标签
+            日程表
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-camera-retro"></i> <br />
             
-            关于
+            相册
           </a>
         </li>
       
@@ -312,16 +330,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-photo">
-          <a href="/photo/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-photo"></i> <br />
-            
-            相册
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -335,68 +343,29 @@
           </a>
         </li>
       
-    
-<!-- 参考Never_yu的High一下功能 
-     网站位置：https://neveryu.github.io/2016/09/30/hexo-next-two,
-               https://neveryu.github.io/2016/11/11/hexo-next-three/-->
-    <li class="menu-item"> <a href='javascript:(
-    function go() {
-      var songs = [
-          "http://music.163.com/song/media/outer/url?id=479422062.mp3",
-          "http://music.163.com/song/media/outer/url?id=481859184.mp3",
-	  "http://music.163.com/song/media/outer/url?id=490595323.mp3"
-      ];
- 
-      function S() {
-          var e = document.getElementById("audio_element_id");
-          if(e != null){
-              var index = parseInt(e.getAttribute("curSongIndex"));
-              if(index > songs.length - 2) {
-                  index = 0;
-              } else {
-                  index++;
-              }
-              e.setAttribute("curSongIndex", index);
-          }
-          e.src = i;
-          e.play()
-      }
-      function initAudioEle() {
-          var e = document.getElementById("audio_element_id");
-          if(e === null){
-            e = document.createElement("audio");
-            e.setAttribute("curSongIndex", 0);
-            e.id = "audio_element_id";
-            e.loop = false;
-            e.bgcolor = 0;
-            e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
-            document.body.appendChild(e);
-            e.addEventListener("ended", function() {
-              go();
-            }, true);
-          }        
-      }
-    
-      initAudioEle();
-      var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
-      var i = songs[curSongIndex];
-      S();
-    })()'>
-    <i class="menu-item-icon fa fa-music fa-fw"></i><br>楽</a> </li>
-<!-- end High一下 -->
-
-</ul>
+    </ul>
   
 
   
     <div class="site-search">
       
-  <div class="popup">
- <span class="search-icon fa fa-search"></span>
- <input type="text" id="local-search-input">
- <div id="local-search-result"></div>
- <span class="popup-btn-close">close</span>
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
 </div>
+
 
 
     </div>
@@ -423,21 +392,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-10-17-kafka-spring-boot-example/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-08-29-kafka/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -445,16 +415,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-10-17-kafka-spring-boot-example/" itemprop="url">
-                  Spring Boot 中使用 kafka
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-08-29-kafka/" itemprop="url">搭建高吞吐量 Kafka 分布式发布订阅消息 集群</a></h2>
         
 
         <div class="post-meta">
@@ -466,7 +428,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T12:30:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T12:30:00+08:00">
                 2017-12-23
               </time>
             
@@ -505,6 +467,161 @@
           
 
           
+          
+             <span id="/2017/12/23/2017-08-29-kafka/" class="leancloud_visitors" data-flag-title="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          搭建高吞吐量 Kafka 分布式发布订阅消息 集群
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/23/2017-08-29-kafka/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-10-17-kafka-spring-boot-example/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/23/2017-10-17-kafka-spring-boot-example/" itemprop="url">Spring Boot 中使用 kafka</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T12:30:00+08:00">
+                2017-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kafka/" itemprop="url" rel="index">
+                    <span itemprop="name">kafka</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
 
           
           
@@ -514,7 +631,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -523,15 +640,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -551,29 +669,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -581,6 +690,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -593,21 +706,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-07-19-git/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-07-19-git/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -615,16 +729,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-07-19-git/" itemprop="url">
-                  常用 Git 命令清单
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-07-19-git/" itemprop="url">常用 Git 命令清单</a></h2>
         
 
         <div class="post-meta">
@@ -636,7 +742,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T12:29:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T12:29:54+08:00">
                 2017-12-23
               </time>
             
@@ -675,8 +781,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-07-19-git/" class="leancloud_visitors" data-flag-title="常用 Git 命令清单">
                <span class="post-meta-divider">|</span>
@@ -684,7 +788,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -693,15 +797,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -721,29 +826,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -751,6 +847,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -763,21 +863,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -785,16 +886,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/" itemprop="url">
-                  Spring Boot 中使用 Redis
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/" itemprop="url">Spring Boot 中使用 Redis</a></h2>
         
 
         <div class="post-meta">
@@ -806,7 +899,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T12:04:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T12:04:00+08:00">
                 2017-12-23
               </time>
             
@@ -845,8 +938,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-10-16-redis-jedis-spring-boot-example/" class="leancloud_visitors" data-flag-title="Spring Boot 中使用 Redis">
                <span class="post-meta-divider">|</span>
@@ -854,7 +945,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -863,15 +954,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -891,29 +983,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -921,6 +1004,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -933,21 +1020,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-10-spring-cloud-zuul/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-10-spring-cloud-zuul/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -955,16 +1043,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-12-10-spring-cloud-zuul/" itemprop="url">
-                  Spring Cloud（六）服务网关 zuul 快速入门
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-12-10-spring-cloud-zuul/" itemprop="url">Spring Cloud（六）服务网关 zuul 快速入门</a></h2>
         
 
         <div class="post-meta">
@@ -976,7 +1056,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T11:54:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T11:54:04+08:00">
                 2017-12-23
               </time>
             
@@ -1015,8 +1095,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-12-10-spring-cloud-zuul/" class="leancloud_visitors" data-flag-title="Spring Cloud（六）服务网关 zuul 快速入门">
                <span class="post-meta-divider">|</span>
@@ -1024,7 +1102,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -1033,15 +1111,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1061,29 +1140,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -1091,6 +1161,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1103,21 +1177,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -1125,16 +1200,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/" itemprop="url">
-                  Spring Cloud（五）断路器监控(Hystrix Dashboard)
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/" itemprop="url">Spring Cloud（五）断路器监控(Hystrix Dashboard)</a></h2>
         
 
         <div class="post-meta">
@@ -1146,7 +1213,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T11:53:42+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T11:53:42+08:00">
                 2017-12-23
               </time>
             
@@ -1185,8 +1252,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-12-07-spring-cloud-hystrix-dashboard/" class="leancloud_visitors" data-flag-title="Spring Cloud（五）断路器监控(Hystrix Dashboard)">
                <span class="post-meta-divider">|</span>
@@ -1194,7 +1259,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -1203,15 +1268,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1231,29 +1297,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -1261,6 +1318,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1273,21 +1334,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-06-spring-cloud-feign/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-06-spring-cloud-feign/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -1295,16 +1357,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-12-06-spring-cloud-feign/" itemprop="url">
-                  Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-12-06-spring-cloud-feign/" itemprop="url">Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign</a></h2>
         
 
         <div class="post-meta">
@@ -1316,7 +1370,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T11:53:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T11:53:21+08:00">
                 2017-12-23
               </time>
             
@@ -1355,8 +1409,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-12-06-spring-cloud-feign/" class="leancloud_visitors" data-flag-title="Spring Cloud（四）服务提供者 Eureka + 服务消费者 Feign">
                <span class="post-meta-divider">|</span>
@@ -1364,7 +1416,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -1373,15 +1425,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1398,13 +1451,6 @@
 <li>支持Hystrix和它的Fallback</li>
 <li>支持Ribbon的负载均衡</li>
 <li><p>支持HTTP请求和响应的压缩 Feign是一个声明式的Web Service客户端，它的目的就是让Web Service调用更加简单。它整合了Ribbon和Hystrix，从而不再需要显式地使用这两个组件。Feign还提供了HTTP请求的模板，通过编写简单的接口和注解，就可以定义好HTTP请求的参数、格式、地址等信息。接下来，Feign会完全代理HTTP的请求，我们只需要像调用方法一样调用它就可以完成服务请求。</p>
-
-	 
-                <div class="out-img-topic">
-                         <img src=http://oisa91ton.bkt.clouddn.com/springcloud.png class="img-topic" />
-                </div>
-        
-
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/23/2017-12-06-spring-cloud-feign/#more" rel="contents">
@@ -1416,29 +1462,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -1446,6 +1483,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1458,21 +1499,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -1480,16 +1522,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/" itemprop="url">
-                  Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/" itemprop="url">Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）</a></h2>
         
 
         <div class="post-meta">
@@ -1501,7 +1535,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T11:53:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T11:53:01+08:00">
                 2017-12-23
               </time>
             
@@ -1540,8 +1574,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-12-05-spring-cloud-ribbon-rest/" class="leancloud_visitors" data-flag-title="Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）">
                <span class="post-meta-divider">|</span>
@@ -1549,7 +1581,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -1558,15 +1590,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1586,29 +1619,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -1616,6 +1640,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1628,21 +1656,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-11-26-spring-cloud-consul/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-11-26-spring-cloud-consul/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -1650,16 +1679,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-11-26-spring-cloud-consul/" itemprop="url">
-                  Spring Cloud（二）Consul 服务治理实现
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-11-26-spring-cloud-consul/" itemprop="url">Spring Cloud（二）Consul 服务治理实现</a></h2>
         
 
         <div class="post-meta">
@@ -1671,7 +1692,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T11:52:35+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T11:52:35+08:00">
                 2017-12-23
               </time>
             
@@ -1710,8 +1731,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-11-26-spring-cloud-consul/" class="leancloud_visitors" data-flag-title="Spring Cloud（二）Consul 服务治理实现">
                <span class="post-meta-divider">|</span>
@@ -1719,7 +1738,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -1728,15 +1747,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1756,29 +1776,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -1786,6 +1797,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1798,21 +1813,22 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-11-22-spring-cloud-eureka/">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-11-22-spring-cloud-eureka/">
 
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
     </span>
-  </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
 
     
       <header class="post-header">
@@ -1820,16 +1836,8 @@
         
         
           <h2 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/23/2017-11-22-spring-cloud-eureka/" itemprop="url">
-                  Spring Cloud（一）服务的注册与发现（Eureka）
-                </a>
-              
-            
-          </h2>
+                <a class="post-title-link" href="/2017/12/23/2017-11-22-spring-cloud-eureka/" itemprop="url">Spring Cloud（一）服务的注册与发现（Eureka）</a></h2>
         
 
         <div class="post-meta">
@@ -1841,7 +1849,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T11:52:14+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T11:52:14+08:00">
                 2017-12-23
               </time>
             
@@ -1880,8 +1888,6 @@
           
 
           
-
-          
           
              <span id="/2017/12/23/2017-11-22-spring-cloud-eureka/" class="leancloud_visitors" data-flag-title="Spring Cloud（一）服务的注册与发现（Eureka）">
                <span class="post-meta-divider">|</span>
@@ -1889,7 +1895,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数 </span>
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -1898,15 +1904,16 @@
           
 
           
- 
-        
 
+          
 
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1926,29 +1933,20 @@
       
     </div>
     
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
+    
+    
 
+    
 
-    <div>
-      
-    </div>
+    
 
-  
-
-
-    <div>
-      
-    </div>
-
+    
 
     <footer class="post-footer">
-         
+      
+
+      
+
       
 
       
@@ -1956,176 +1954,10 @@
         <div class="post-eof"></div>
       
     </footer>
-  </article>
-
-
-    
-      
-
-  
-
+  </div>
   
   
   
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/23/2017-12-11-spring-cloud-zuul-filter/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ciwei">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="如果没有你">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="如果没有你" src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/23/2017-12-11-spring-cloud-zuul-filter/" itemprop="url">
-                  Spring Cloud（七）服务网关 Zuul Filter 使用
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-23T11:51:33+08:00">
-                2017-12-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringCloud/" itemprop="url" rel="index">
-                    <span itemprop="name">SpringCloud</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-             <span id="/2017/12/23/2017-12-11-spring-cloud-zuul-filter/" class="leancloud_visitors" data-flag-title="Spring Cloud（七）服务网关 Zuul Filter 使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
- 
-        
-
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          Spring Cloud（七）服务网关 Zuul Filter 使用
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/23/2017-12-11-spring-cloud-zuul-filter/">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    <div>
-      
-    </div>
-	
-	<div>
-      
-	</div>
-
-
-    <div>
-      
-    </div>
-
-  
-
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-         
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </article>
 
 
@@ -2134,11 +1966,11 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
-          
+
           </div>
           
 
@@ -2158,215 +1990,136 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-	<a href="/" class="site-author-image" rel="start" style="border:none">
-          <img class="site-author-image" itemprop="image"
-               src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
-               alt="Ciwei" />
-          <p class="site-author-name" itemprop="name">Ciwei</p>
-          <p class="site-description motion-element" itemprop="description"></p>
-       </a>
-       </div>
-		
-        <nav class="site-state motion-element">
-        
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">50</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+	<a href="/" class="site-author-image" rel="start" style="border:none">             
+ 		<img class="site-author-image" itemprop="image"
+                src="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg"
+                alt="Ciwei" />
+	</a>
+            
+              <p class="site-author-name" itemprop="name">Ciwei</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
-        
 
-        <div class="links-of-author motion-element">
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/ciweigg" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github-alt"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://coding.net/" target="_blank" title="Coding">
-                  
-                    <i class="fa fa-fw fa-code"></i>
-                  
-                  Coding
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.cnblogs.com/" target="_blank" title="博客园">
-                  
-                    <i class="fa fa-fw fa-codiepie"></i>
-                  
-                  博客园
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/" target="_blank" title="微博">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  微博
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-dashcube"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.jianshu.com/" target="_blank" title="简书">
-                  
-                    <i class="fa fa-fw fa-book"></i>
-                  
-                  简书
-                </a>
-              </span>
-            
+
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ciweigg" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/cyj228" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ciweigg.github.io" title="温馨的小窝" target="_blank">温馨的小窝</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              Convenient LINK
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://www.aliyun.com/" title="阿里云" target="_blank">阿里云</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://www.qiniu.com/" title="七牛云" target="_blank">七牛云</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://livere.com/" title="来必力" target="_blank">来必力</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://leancloud.cn/" title="Leancloud" target="_blank">Leancloud</a>
-                </li>
-              
-            </ul>
-	    <br>
-            <div id="days"></div>
-</script>
-<script language="javascript">
-function show_date_time(){
-window.setTimeout("show_date_time()", 1000);
-BirthDay=new Date("12/30/2017 22:00:00");
-today=new Date();
-timeold=(today.getTime()-BirthDay.getTime());
-sectimeold=timeold/1000
-secondsold=Math.floor(sectimeold);
-msPerDay=24*60*60*1000
-e_daysold=timeold/msPerDay
-daysold=Math.floor(e_daysold);
-e_hrsold=(e_daysold-daysold)*24;
-hrsold=setzero(Math.floor(e_hrsold));
-e_minsold=(e_hrsold-hrsold)*60;
-minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
-seconds=setzero(Math.floor((e_minsold-minsold)*60));
-document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
-}
-function setzero(i){
-if (i<10)
-{i="0" + i};
-return i;
-}
-show_date_time();
-</script>
-
-          </div>
-        
-
-<!--        <div id="days"></div>
-</script>
-<script language="javascript">
-function show_date_time(){
-window.setTimeout("show_date_time()", 1000);
-BirthDay=new Date("12/30/2017 22:00:00");
-today=new Date();
-timeold=(today.getTime()-BirthDay.getTime());
-sectimeold=timeold/1000
-secondsold=Math.floor(sectimeold);
-msPerDay=24*60*60*1000
-e_daysold=timeold/msPerDay
-daysold=Math.floor(e_daysold);
-e_hrsold=(e_daysold-daysold)*24;
-hrsold=setzero(Math.floor(e_hrsold));
-e_minsold=(e_hrsold-hrsold)*60;
-minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
-seconds=setzero(Math.floor((e_minsold-minsold)*60));
-document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
-}
-function setzero(i){
-if (i<10)
-{i="0" + i};
-return i;
-}
-show_date_time();
-</script>
-  -->
-
       </section>
 
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
@@ -2379,58 +2132,54 @@ show_date_time();
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2016 - 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heartbeat "></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Ciwei</span>
+
+  
 </div>
 
 
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/dmego/hexo-theme-NextOne" rel="external nofollow">
-    NextOne
-  </a>
-</div>
-
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">
-	博客全站共&nbsp;
-	<a class="theme-link">48.9k</a>
-	&nbsp;字
- </span>
-</div>
+  <div class="powered-by">Hosted by <a target="_blank" href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></div>
 
 
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
 
 
 
 
         
-
 <div class="busuanzi-count">
-
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
   
 
   
-    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
   
 </div>
+
+
+
+
+
 
 
 
@@ -2438,9 +2187,10 @@ show_date_time();
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+
+    
+
   </div>
 
   
@@ -2464,51 +2214,78 @@ show_date_time();
 
 
 
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
-
-  
-  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
 
 
 
   
   
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
 
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
   
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
 
 
 
   
 
 
+  
+
+    
+
+    
 
   
+
+
 
 
 
@@ -2525,159 +2302,342 @@ show_date_time();
 
 
 
-  
-
-  
 
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
+
+
+
+
 
   
-  
+
   <script type="text/javascript">
     // Popup Window;
     var isfetched = false;
+    var isXml = true;
     // Search DB path;
     var search_path = "search.xml";
-    if (search_path.length == 0) {
+    if (search_path.length === 0) {
       search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
     }
     var path = "/" + search_path;
     // monitor main search box;
 
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
     }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
     // search function;
     var searchFunc = function(path, search_id, content_id) {
       'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
       $.ajax({
         url: path,
-        dataType: "xml",
+        dataType: isXml ? "xml" : "json",
         async: true,
-        success: function( xmlResponse ) {
+        success: function(res) {
           // get the contents from search data
           isfetched = true;
           $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
+          var datas = isXml ? $("entry", res).map(function() {
             return {
-              title: $( "title", this ).text(),
+              title: $("title", this).text(),
               content: $("content",this).text(),
-              url: $( "url" , this).text()
+              url: $("url" , this).text()
             };
-          }).get();
-          var $input = document.getElementById(search_id);
-          var $resultContent = document.getElementById(content_id);
-          $input.addEventListener('input', function(){
-            var matchcounts = 0;
-            var str='<ul class=\"search-result-list\">';
-            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-            $resultContent.innerHTML = "";
-            if (this.value.trim().length > 1) {
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
               // perform local searching
               datas.forEach(function(data) {
                 var isMatch = false;
-                var content_index = [];
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var data_url = decodeURIComponent(data.url);
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match artiles with not empty titles and contents
-                if(data_title != '') {
-                  keywords.forEach(function(keyword, i) {
-                    index_title = data_title.indexOf(keyword);
-                    index_content = data_content.indexOf(keyword);
-                    if( index_title >= 0 || index_content >= 0 ){
-                      isMatch = true;
-                      if (i == 0) {
-                        first_occur = index_content;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
                       }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
                     }
 
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
                   });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
                 }
+
                 // show search results
+
                 if (isMatch) {
-                  matchcounts += 1;
-                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                  var content = data.content.trim().replace(/<[^>]+>/g,"");
-                  if (first_occur >= 0) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
                     // cut out 100 characters
-                    var start = first_occur - 20;
-                    var end = first_occur + 80;
+                    var start = position - 20;
+                    var end = position + 80;
                     if(start < 0){
                       start = 0;
                     }
-                    if(start == 0){
-                      end = 50;
+                    if (end < position + word.length) {
+                      end = position + word.length;
                     }
                     if(end > content.length){
                       end = content.length;
                     }
-                    var match_content = content.substring(start, end);
-                    // highlight all keywords
-                    keywords.forEach(function(keyword){
-                      var regS = new RegExp(keyword, "gi");
-                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                    });
-
-                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
                   }
-                  str += "</li>";
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
                 }
-              })};
-            str += "</ul>";
-            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-            $resultContent.innerHTML = str;
-          });
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
           proceedsearch();
         }
-      });}
+      });
+    }
 
     // handle and trigger popup window;
     $('.popup-trigger').click(function(e) {
       e.stopPropagation();
-      if (isfetched == false) {
+      if (isfetched === false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
       } else {
         proceedsearch();
       };
     });
 
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
+    $('.popup-btn-close').click(onPopupClose);
     $('.popup').click(function(e){
       e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
     });
   </script>
 
 
-  
+
+
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
   <script>AV.initialize("MNWrQi0DrbN6fgqFjPM4C5vR-gzGzoHsz", "SoTXn9BWTQeoH3UpYjmmyK70");</script>
   <script>
     function showTime(Counter) {
@@ -2784,6 +2744,8 @@ show_date_time();
 
 
   
+
+  
 <script>
 (function(){
     var bp = document.createElement('script');
@@ -2801,15 +2763,17 @@ show_date_time();
 
 
   
+  
 
   
-<!--
-  <script type="text/javascript" color="34,34,34" opacity='0.7' zIndex="-2" count="150" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
- 
-  <a href="https://github.com/dmego"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
--->
-<!-- 背景动画 -->
-<script type="text/javascript" src="/js/src/particle.js"></script>
+
+  
+
+  
+
 </body>
 </html>
+<!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
