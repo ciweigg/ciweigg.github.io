@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="如果没有你">
 <meta property="og:description" content="Flyway简介Flyway是一个简单开源数据库版本控制器（约定大于配置），主要提供migrate、clean、info、validate、baseline、repair等命令。它支持SQL（PL/SQL、T-SQL）方式和Java方式，支持命令行客户端等，还提供一系列的插件支持（Maven、Gradle、SBT、ANT等）。官方网站：https://flywaydb.org/在Spring Bo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-04T05:30:40.817Z">
+<meta property="og:updated_time" content="2018-01-04T05:40:35.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot中使用Flyway来初始化数据库并控制版本">
 <meta name="twitter:description" content="Flyway简介Flyway是一个简单开源数据库版本控制器（约定大于配置），主要提供migrate、clean、info、validate、baseline、repair等命令。它支持SQL（PL/SQL、T-SQL）方式和Java方式，支持命令行客户端等，还提供一系列的插件支持（Maven、Gradle、SBT、ANT等）。官方网站：https://flywaydb.org/在Spring Bo">
@@ -491,7 +491,7 @@
       
 
       
-        <h3 id="Flyway简介"><a href="#Flyway简介" class="headerlink" title="Flyway简介"></a>Flyway简介</h3><p>Flyway是一个简单开源数据库版本控制器（约定大于配置），主要提供migrate、clean、info、validate、baseline、repair等命令。它支持SQL（PL/SQL、T-SQL）方式和Java方式，支持命令行客户端等，还提供一系列的插件支持（Maven、Gradle、SBT、ANT等）。<br>官方网站：<a href="https://flywaydb.org/" target="_blank" rel="noopener">https://flywaydb.org/</a><br>在Spring Boot应用中的应用，如何使用Flyway来创建数据库以及结构不一致的检查。<br>主要用于初始化数据库，数据库必须先创建好，里面不能有表</p>
+        <h3 id="Flyway简介"><a href="#Flyway简介" class="headerlink" title="Flyway简介"></a>Flyway简介</h3><p>Flyway是一个简单开源数据库版本控制器（约定大于配置），主要提供migrate、clean、info、validate、baseline、repair等命令。它支持SQL（PL/SQL、T-SQL）方式和Java方式，支持命令行客户端等，还提供一系列的插件支持（Maven、Gradle、SBT、ANT等）。<br>官方网站：<a href="https://flywaydb.org/" target="_blank" rel="noopener">https://flywaydb.org/</a><br>在Spring Boot应用中的应用，如何使用Flyway来创建数据库以及结构不一致的检查。<br>主要用于初始化数据库，数据库必须先创建好，里面不能有表<br><a id="more"></a></p>
 <ol>
 <li><p>第一步，在pom.xml中增加flyway的依赖<br>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.flywaydb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;flyway-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.0.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>

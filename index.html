@@ -490,35 +490,14 @@
 
       
         
-          
-            <h3 id="Flyway简介"><a href="#Flyway简介" class="headerlink" title="Flyway简介"></a>Flyway简介</h3><p>Flyway是一个简单开源数据库版本控制器（约定大于配置），主要提供migrate、clean、info、validate、baseline、repair等命令。它支持SQL（PL/SQL、T-SQL）方式和Java方式，支持命令行客户端等，还提供一系列的插件支持（Maven、Gradle、SBT、ANT等）。<br>官方网站：<a href="https://flywaydb.org/" target="_blank" rel="noopener">https://flywaydb.org/</a><br>在Spring Boot应用中的应用，如何使用Flyway来创建数据库以及结构不一致的检查。<br>主要用于初始化数据库，数据库必须先创建好，里面不能有表</p>
-<ol>
-<li><p>第一步，在pom.xml中增加flyway的依赖<br>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.flywaydb&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;flyway-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.0.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第二步，按Flyway的规范创建版本化的SQL脚本<br>在工程的src/main/resources目录下创建db目录<br>在db目录下创建版本化的SQL脚本V1__Base_version.sql(脚本名字不能随便乱起)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS user ;</span><br><span class="line">CREATE TABLE `user` (</span><br><span class="line">  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT &apos;主键&apos;,</span><br><span class="line">  `name` varchar(20) NOT NULL COMMENT &apos;姓名&apos;,</span><br><span class="line">  `age` int(5) DEFAULT NULL COMMENT &apos;年龄&apos;,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第三步，在application.properties文件中配置Flyway要加载的SQL脚本位置。按第二步创建的结果配置如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flyway.locations=classpath:/db</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>第四步，执行单元测试ApplicationTests，此时我们在日志中可以看到如下信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INFO 82441 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway Community Edition 5.0.3 by Boxfuse</span><br><span class="line">INFO 82441 --- [main] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:mysql://localhost:3306/test (MySQL 5.7)</span><br><span class="line">INFO 82441 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.022s)</span><br><span class="line">INFO 82441 --- [main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table: `test`.`flyway_schema_history`</span><br><span class="line">INFO 82441 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `test`: &lt;&lt; Empty Schema &gt;&gt;</span><br><span class="line">INFO 82441 --- [main] o.f.core.internal.command.DbMigrate      : Migrating schema `test` to version 1 - Base version</span><br><span class="line">WARN 82441 --- [main] o.f.core.internal.sqlscript.SqlScript    : DB: Unknown table &apos;test.user&apos; (SQL State: 42S02 - Error Code: 1051)</span><br><span class="line">INFO 82441 --- [main] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema `test` (execution time 00:00.128s)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Flyway监测到需要运行版本脚本来初始化数据库，因此执行了V1__Base_version.sql脚本，从而创建了user表，这才得以让一系列单元测试（对user表的CRUD操作）通过。</p>
-<ol>
-<li>第五步，我们可以继续再执行一下单元测试，此时我们会发现日志输出与之前不同<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INFO 83150 --- [main] o.f.core.internal.util.VersionPrinter    : Flyway Community Edition 5.0.3 by Boxfuse</span><br><span class="line">INFO 83150 --- [main] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:mysql://localhost:3306/test (MySQL 5.7)</span><br><span class="line">INFO 83150 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.031s)</span><br><span class="line">INFO 83150 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `test`: 1</span><br><span class="line">INFO 83150 --- [main] o.f.core.internal.command.DbMigrate      : Schema `test` is up to date. No migration necessary.</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>由于在第四步的时候，初始化脚本已经执行过，所以这次执行就没有再去执行V1__Base_version.sql脚本来重建user表。</p>
-<ol>
-<li>第六步，我们可以尝试修改一下V1__Base_version.sql脚本中的name字段长度，然后在运行一下单元测试，此时我们可以得到如下错误<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ERROR 83791 --- [main] o.s.boot.SpringApplication               : Application startup failed</span><br><span class="line"></span><br><span class="line">org.springframework.beans.factory.BeanCreationException: Error creating bean with name &apos;flywayInitializer&apos; defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Invocation of init method failed; nested exception is org.flywaydb.core.api.FlywayException: Validate failed: Migration checksum mismatch for migration version 1</span><br><span class="line">-&gt; Applied to database : 466264992</span><br><span class="line">-&gt; Resolved locally    : -270269434</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>由于初始化脚本的改动，Flyway校验失败，认为当前的V1__Base_version.sql脚本与上一次执行的内容不同，提示报错并终止程序，以免造成更严重的数据结构破坏。</p>
-
-          
+          <h3 id="Flyway简介"><a href="#Flyway简介" class="headerlink" title="Flyway简介"></a>Flyway简介</h3><p>Flyway是一个简单开源数据库版本控制器（约定大于配置），主要提供migrate、clean、info、validate、baseline、repair等命令。它支持SQL（PL/SQL、T-SQL）方式和Java方式，支持命令行客户端等，还提供一系列的插件支持（Maven、Gradle、SBT、ANT等）。<br>官方网站：<a href="https://flywaydb.org/" target="_blank" rel="noopener">https://flywaydb.org/</a><br>在Spring Boot应用中的应用，如何使用Flyway来创建数据库以及结构不一致的检查。<br>主要用于初始化数据库，数据库必须先创建好，里面不能有表<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/04/Spring Boot中使用Flyway来初始化数据库并控制版本/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
