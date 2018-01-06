@@ -1150,7 +1150,7 @@ pre .javascript .function {
   display: block;
 }
 .header {
-  background: transparent;
+  background: url("http://ossweb-img.qq.com/images/lol/act/a20150707lolcosplay/photo_5.jpg");
 }
 .header-inner {
   position: relative;
@@ -1744,7 +1744,7 @@ pre .javascript .function {
   }*/
 }
 .sidebar a {
-  color: #999;
+  color: #63b1b5;
   border-bottom-color: #555;
 }
 .sidebar a:hover {
@@ -1923,7 +1923,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff9fff;
+  background: #ff423c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2765,4 +2765,22 @@ embed {
 }
 img.emojione {
   display: inline-block;
+}
+#sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  z-index: 1040;
+  box-shadow: inset 2px 2px 40px #35644a;
+  background: #f5f5f5;
+  background: url("http://oisa91ton.bkt.clouddn.com/sidebar.png");
+  -webkit-transform: translateZ(0);
+}
+.site-author-name {
+  margin: 5px 0 0;
+  text-align: center;
+  color: #35644a;
+  font-weight: normal;
 }

@@ -3,6 +3,54 @@
   
     
     <entry>
+      <title><![CDATA[next的自动更新背景图片实现方法及效果图展示]]></title>
+      <url>/2018/01/06/next%E7%9A%84%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%E5%8F%8A%E6%95%88%E6%9E%9C%E5%9B%BE%E5%B1%95%E7%A4%BA/</url>
+      <content type="html"><![CDATA[<p>实现的原理<br>修改背景样式<br>修改themes/next/source/css/ _custom/custom.styl文件，这个是Next故意留给用户自己个性化定制一些样式的文件，添加以下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    background:url(https://source.unsplash.com/random/1600x900);</span><br><span class="line">    background-repeat: no-repeat;</span><br><span class="line">    background-attachment:fixed;</span><br><span class="line">    background-position:50% 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>如果自己不喜欢这个网址提供的图片做背景，那么修改url()里面的路径即可。repeat、attachment、position就是调整图片的位置，不重复出现、不滚动等等。</p>
+<p>修改不透明度<br>完成这一步其实背景就会自动更换了，但是会出现一个问题，因为next主题的背景是纯透明的，这样子就造成背景图片的影响看不见文字，这对于博客来说肯定不行。</p>
+<p>那么就需要调整背景的不透明度了。同样是修改themes/next/source/css/_custom/custom.styl文件。在后面添加如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.main-inner &#123; </span><br><span class="line">    margin-top: 60px;</span><br><span class="line">    padding: 60px 60px 60px 60px;</span><br><span class="line">    background: #fff;</span><br><span class="line">    opacity: 0.8;</span><br><span class="line">    min-height: 500px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>background: #fff; 白色 opacity: 0.8;不透明度</p>
+]]></content>
+      
+        <categories>
+            
+            <category> hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[为Hexo-Next主题设置头部图片]]></title>
+      <url>/2018/01/06/%E4%B8%BAHexo-Next%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE%E5%A4%B4%E9%83%A8%E5%9B%BE%E7%89%87/</url>
+      <content type="html"><![CDATA[<p> vi themes/next/source/css/_common/components/header/header.styl<br>// 下面的url()里不一定非要填相对路径，填一个能访问的url即可，比如放在七牛云上的图片<br>.header { background: url(‘../image/background.jpg’); }<br><a id="more"></a></p>
+]]></content>
+      
+        <categories>
+            
+            <category> hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[修改next主题右侧栏的背景图片]]></title>
       <url>/2018/01/06/%E4%BF%AE%E6%94%B9next%E4%B8%BB%E9%A2%98%E5%8F%B3%E4%BE%A7%E6%A0%8F%E7%9A%84%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87/</url>
       <content type="html"><![CDATA[<p>右侧栏都是黑色的看腻了啦<br>那么我们就换一套风格看看，哈哈<br><a id="more"></a></p>
