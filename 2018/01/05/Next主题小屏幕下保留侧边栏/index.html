@@ -118,11 +118,11 @@
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Next主题小屏幕下保留侧边栏">
-<meta property="og:url" content="https://ciweigg.github.io/2018/01/05/Next主题小屏幕下保留侧边栏/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/01/05/Next主题小屏幕下保留侧边栏/index.html">
 <meta property="og:site_name" content="如果没有你">
 <meta property="og:description" content="当然，iissnan最初决定在小屏幕上block掉侧栏是有原因的，这个副作用在这番改动之后也依然存在：极端尺寸设备上会出现侧栏完全覆盖主体甚至显示不全。改动的好处也很明显，页面内容展示更完全。毕竟H5普及之后，小型网站越来越不需要考虑兼容性问题，权衡利弊，这样做还是有意义的。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-05T14:20:27.816Z">
+<meta property="og:updated_time" content="2018-01-06T05:38:35.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Next主题小屏幕下保留侧边栏">
 <meta name="twitter:description" content="当然，iissnan最初决定在小屏幕上block掉侧栏是有原因的，这个副作用在这番改动之后也依然存在：极端尺寸设备上会出现侧栏完全覆盖主体甚至显示不全。改动的好处也很明显，页面内容展示更完全。毕竟H5普及之后，小型网站越来越不需要考虑兼容性问题，权衡利弊，这样做还是有意义的。">
@@ -135,7 +135,7 @@
     root: '/',
     scheme: 'Muse',
     version: '5.1.3',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -155,7 +155,7 @@
 
 
 
-  <link rel="canonical" href="https://ciweigg.github.io/2018/01/05/Next主题小屏幕下保留侧边栏/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/05/Next主题小屏幕下保留侧边栏/"/>
 
 
 
@@ -390,7 +390,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ciweigg.github.io/2018/01/05/Next主题小屏幕下保留侧边栏/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/05/Next主题小屏幕下保留侧边栏/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ciwei">
@@ -492,7 +492,8 @@
       
         <p>当然，iissnan最初决定在小屏幕上block掉侧栏是有原因的，这个副作用在这番改动之后也依然存在：极端尺寸设备上会出现侧栏完全覆盖主体甚至显示不全。改动的好处也很明显，页面内容展示更完全。毕竟H5普及之后，小型网站越来越不需要考虑兼容性问题，权衡利弊，这样做还是有意义的。<br><a id="more"></a><br>恢复侧栏开关(适用于手机)</p>
 <p>这一步参考上面提到的那篇教程。</p>
-<p>启用侧边栏<br>打开source/css/_common/components/sidebar/sidebar.styl，删掉或注释掉</p>
+<h3 id="启用侧边栏有两种方法："><a href="#启用侧边栏有两种方法：" class="headerlink" title="启用侧边栏有两种方法："></a>启用侧边栏有两种方法：</h3><h4 id="1-针对next主题："><a href="#1-针对next主题：" class="headerlink" title="1.针对next主题："></a>1.针对next主题：</h4><p>默认已经实现了，改成true就行<br>themes/next/_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Enable sidebar on narrow view (only for Muse | Mist).</span><br><span class="line">onmobile: true</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-针对其他主题"><a href="#2-针对其他主题" class="headerlink" title="2.针对其他主题"></a>2.针对其他主题</h4><p>打开source/css/_common/components/sidebar/sidebar.styl，删掉或注释掉</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*+tablet() &#123;</span><br><span class="line">    display: none !important;</span><br><span class="line">&#125;</span><br><span class="line">+mobile() &#123;</span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;*/</span><br></pre></td></tr></table></figure>
 <p>启用按钮<br>首先是侧边栏开关，打开source/css/_common/components/sidebar/sidebar-toggle.styl，在.sidebar-toggle下修改</p>
 <p>注释掉里面多余的代码留下和下面一样的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+tablet() &#123;</span><br><span class="line">  right: 20px;</span><br><span class="line">  opacity: 0.8;</span><br><span class="line">&#125;</span><br><span class="line">+mobile() &#123;</span><br><span class="line">  right: 20px;</span><br><span class="line">  opacity: 0.8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -534,7 +535,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://ciweigg.github.io/2018/01/05/Next主题小屏幕下保留侧边栏/" title="Next主题小屏幕下保留侧边栏">https://ciweigg.github.io/2018/01/05/Next主题小屏幕下保留侧边栏/</a>
+    <a href="http://yoursite.com/2018/01/05/Next主题小屏幕下保留侧边栏/" title="Next主题小屏幕下保留侧边栏">http://yoursite.com/2018/01/05/Next主题小屏幕下保留侧边栏/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -633,13 +634,24 @@
   <div id="sidebar-dimmer"></div>
   <div class="sidebar-inner">
     
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -753,6 +765,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#启用侧边栏有两种方法："><span class="nav-number">1.</span> <span class="nav-text">启用侧边栏有两种方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-针对next主题："><span class="nav-number">1.1.</span> <span class="nav-text">1.针对next主题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-针对其他主题"><span class="nav-number">1.2.</span> <span class="nav-text">2.针对其他主题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -932,7 +960,7 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://ciweigg.github.io/2018/01/05/Next主题小屏幕下保留侧边栏/';
+          this.page.url = 'http://yoursite.com/2018/01/05/Next主题小屏幕下保留侧边栏/';
           this.page.identifier = '2018/01/05/Next主题小屏幕下保留侧边栏/';
           this.page.title = 'Next主题小屏幕下保留侧边栏';
         };
