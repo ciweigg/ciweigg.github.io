@@ -1923,7 +1923,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3c11ff;
+  background: #ffb808;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2782,17 +2782,4 @@ img.emojione {
   text-align: center;
   color: #35644a;
   font-weight: normal;
-}
-body {
-  background: url("http://img.cosplay.la//0f905765-b133-c95d-1514-c74c4522c120.jpg?imageView2/2/w/1440/interlace/1/q/100");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
-}
-.main-inner {
-  margin-top: 60px;
-  padding: 60px 60px 60px 60px;
-  background: #fff;
-  opacity: 0.9;
-  min-height: 500px;
 }
