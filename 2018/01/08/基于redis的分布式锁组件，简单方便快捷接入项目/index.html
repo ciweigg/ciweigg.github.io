@@ -114,18 +114,18 @@
 
 
 
-<meta name="description" content="使项目拥有分布式锁能力 https://github.com/kekingcn/spring-boot-klock-starter spring-boot-klock-starter基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目 快速开始spring boot项目接入">
+<meta name="description" content="使项目拥有分布式锁能力 https://github.com/kekingcn/spring-boot-klock-starter spring-boot-klock-starter基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目">
 <meta name="keywords" content="分布式锁">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于redis的分布式锁组件，简单方便快捷接入项目">
 <meta property="og:url" content="http://yoursite.com/2018/01/08/基于redis的分布式锁组件，简单方便快捷接入项目/index.html">
 <meta property="og:site_name" content="如果没有你">
-<meta property="og:description" content="使项目拥有分布式锁能力 https://github.com/kekingcn/spring-boot-klock-starter spring-boot-klock-starter基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目 快速开始spring boot项目接入">
+<meta property="og:description" content="使项目拥有分布式锁能力 https://github.com/kekingcn/spring-boot-klock-starter spring-boot-klock-starter基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T03:20:16.630Z">
+<meta property="og:updated_time" content="2018-01-08T03:24:12.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于redis的分布式锁组件，简单方便快捷接入项目">
-<meta name="twitter:description" content="使项目拥有分布式锁能力 https://github.com/kekingcn/spring-boot-klock-starter spring-boot-klock-starter基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目 快速开始spring boot项目接入">
+<meta name="twitter:description" content="使项目拥有分布式锁能力 https://github.com/kekingcn/spring-boot-klock-starter spring-boot-klock-starter基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目">
 
 
 
@@ -491,8 +491,7 @@
 
       
         <p>使项目拥有分布式锁能力 <a href="https://github.com/kekingcn/spring-boot-klock-starter" target="_blank" rel="noopener">https://github.com/kekingcn/spring-boot-klock-starter</a></p>
-<p>spring-boot-klock-starter<br>基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目</p>
-<p>快速开始<br>spring boot项目接入</p>
+<p>spring-boot-klock-starter<br>基于redis的分布式锁spring-boot starter组件，使得项目拥有分布式锁能力变得异常简单，支持spring boot，和spirng mvc等spring相关项目<br><a id="more"></a><br>快速开始<br>spring boot项目接入</p>
 <p>1.添加lock starter组件依赖，目前还没上传到公共仓库，需要自己下源码build<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-klock-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
 <p>2.application.properties配置redis链接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.klock.address=127.0.0.1:6379</span><br></pre></td></tr></table></figure></p>
 <p>3.在需要加分布式锁的方法上，添加注解@Klock，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class TestService &#123;</span><br><span class="line"></span><br><span class="line">    @Klock(waitTime = Long.MAX_VALUE)</span><br><span class="line">    public String getValue(String param) throws Exception &#123;</span><br><span class="line">        if (&quot;sleep&quot;.equals(param)) &#123;//线程休眠或者断点阻塞，达到一直占用锁的测试效果</span><br><span class="line">            Thread.sleep(1000 * 50);</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;success&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
