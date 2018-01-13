@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Damion:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Kafka" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="如果没有你" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">
+<meta name="keywords" content="Kafka">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">
+<meta property="og:url" content="https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/index.html">
+<meta property="og:site_name" content="如果没有你">
+<meta property="og:description" content="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.ymq.io/images/2017/Kafka/add-cluster.png">
+<meta property="og:image" content="http://www.ymq.io/images/2017/Kafka/topic.png">
+<meta property="og:image" content="http://www.ymq.io/images/2017/Kafka/brokers.png">
+<meta property="og:updated_time" content="2017-12-29T05:32:14.386Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">
+<meta name="twitter:description" content="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">
+<meta name="twitter:image" content="http://www.ymq.io/images/2017/Kafka/add-cluster.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/"/>
+
+
+
+
+
+  <title>搭建高吞吐量 Kafka 分布式发布订阅消息 集群 | 如果没有你</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-89637345-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="http://oisa91ton.bkt.clouddn.com/tx2.gif"
+               alt="如果没有你"/>
+        </a>
+      </div>
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">如果没有你</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera-retro"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-picture">
+          <a href="/tags/picture" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-map-marker"></i> <br />
+            
+            旅行
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            排行
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favorite">
+          <a href="/favorite/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-video-camera"></i> <br />
+            
+            追剧
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/tx.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">搭建高吞吐量 Kafka 分布式发布订阅消息 集群</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T12:30:00+08:00">
+                2017-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/kafka/" itemprop="url" rel="index">
+                    <span itemprop="name">kafka</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/23/2017-08-29-kafka/" class="leancloud_visitors" data-flag-title="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  搭建高吞吐量 Kafka 分布式发布订阅消息 集群
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="搭建高吞吐量-Kafka-分布式发布订阅消息-集群"><a href="#搭建高吞吐量-Kafka-分布式发布订阅消息-集群" class="headerlink" title="搭建高吞吐量 Kafka 分布式发布订阅消息 集群"></a>搭建高吞吐量 Kafka 分布式发布订阅消息 集群</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Kafka 是一种高吞吐的分布式发布订阅消息系统，能够替代传统的消息队列用于解耦合数据处理，缓存未处理消息等，同时具有更高的吞吐率，支持分区、多副本、冗余，因此被广泛用于大规模消息数据处理应用。Kafka 支持Java 及多种其它语言客户端，可与Hadoop、Storm、Spark等其它大数据工具结合使用。</p>
+<a id="more"></a>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Zookeeper集群: 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181</p>
+<p>kafka 集群: 192.168.252.124 , 192.168.252.125 , 192.168.252.126  </p>
+<p>kafka-manager: 192.168.252.127 </p>
+<h3 id="主机名修改"><a href="#主机名修改" class="headerlink" title="主机名修改"></a>主机名修改</h3><p><a href="https://segmentfault.com/a/1190000010723105" target="_blank" rel="noopener">CentOs7.3 修改主机名</a>  </p>
+<h3 id="ssh-免密登录"><a href="#ssh-免密登录" class="headerlink" title="ssh 免密登录"></a>ssh 免密登录</h3><p><a href="https://segmentfault.com/a/1190000010738165" target="_blank" rel="noopener">CentOs7.3 ssh 免密登录</a></p>
+<h3 id="安装-JDK1-8"><a href="#安装-JDK1-8" class="headerlink" title="安装 JDK1.8"></a>安装 JDK1.8</h3><p><a href="https://segmentfault.com/a/1190000010716919" target="_blank" rel="noopener">CentOs7.3 安装 JDK1.8</a></p>
+<h3 id="搭建-Zookeeper-集群"><a href="#搭建-Zookeeper-集群" class="headerlink" title="搭建 Zookeeper 集群"></a>搭建 Zookeeper 集群</h3><p><a href="https://segmentfault.com/a/1190000010807875" target="_blank" rel="noopener">CentOs7.3 搭建 ZooKeeper-3.4.9 Cluster 集群服务</a></p>
+<p>Zookeeper集群: 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181</p>
+<p>主机名依次被我修改成: <strong>node1,node2,node3</strong></p>
+<h2 id="搭建-kafka-集群"><a href="#搭建-kafka-集群" class="headerlink" title="搭建 kafka 集群"></a>搭建 kafka 集群</h2><p>kafka 集群: 192.168.252.124 , 192.168.252.125 , 192.168.252.126  </p>
+<p>主机名依次被我修改成: <strong>node4,node5,node6</strong></p>
+<h3 id="1-下载代码"><a href="#1-下载代码" class="headerlink" title="1.下载代码"></a>1.下载代码</h3><p><a href="http://kafka.apache.org/downloads" target="_blank" rel="noopener">kafka 官网下载 http://kafka.apache.org/downloads </a></p>
+<p>下载最新版本的kafka ，我在北京我就选择，清华镜像比较快</p>
+<p>清华镜像:<a href="https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/ </a></p>
+<p>阿里镜像:<a href="https://mirrors.aliyun.com/apache/kafka/" target="_blank" rel="noopener">https://mirrors.aliyun.com/apache/kafka/</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /opt</span><br><span class="line">$ wget https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/0.11.0.0/kafka_2.12-0.11.0.0.tgz</span><br><span class="line">$ tar -zxvf kafka_2.12-0.11.0.0.tgz</span><br><span class="line">$ <span class="built_in">cd</span> kafka_2.12-0.11.0.0</span><br></pre></td></tr></table></figure>
+<h3 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2.修改配置"></a>2.修改配置</h3><p>在 node4 操作</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi /opt/kafka_2.12-0.11.0.0/config/server.properties</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">broker.id=0  每台服务器不能重复</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置zookeeper的集群地址</span></span><br><span class="line">zookeeper.connect=192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181</span><br></pre></td></tr></table></figure>
+<p>把配置复制到 node5,node6 集群</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;5..6&#125; ; <span class="keyword">do</span> scp -r /opt/kafka_2.12-0.11.0.0/ node<span class="variable">$a</span>:/opt/kafka_2.12-0.11.0.0 ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>修改 node5,node6 集群的<code>broker.id</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi /opt/kafka_2.12-0.11.0.0/config/server.properties</span><br></pre></td></tr></table></figure>
+<h3 id="3-启动kafka"><a href="#3-启动kafka" class="headerlink" title="3.启动kafka"></a>3.启动kafka</h3><p>在 node1,启动 Kafka使用的 ZooKeeper，所以先<strong>启动ZooKeeper服务器</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;1..3&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile;  /opt/zookeeper-3.4.9/bin/zkServer.sh start"</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p><strong>现在 node4 启动Kafka服务器</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;4..6&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile;  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-start.sh /opt/kafka_2.12-0.11.0.0/config/server.properties"</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>或者后台启动运行，日志查看去Kafka解压目录有个<code>log</code> 文件夹查看</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;4..6&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile; nohup  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-start.sh /opt/kafka_2.12-0.11.0.0/config/server.properties &gt; /dev/null 2&gt;&amp;1 &amp;"</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>查看进程，Kafka 是否启动成功</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">3825 Kafka</span><br><span class="line">6360 Jps</span><br></pre></td></tr></table></figure>
+<p>如果报错删除<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kafka.common.KafkaException: Failed to acquire lock on file .lock <span class="keyword">in</span> /tmp/kafka-logs. A Kafka instance <span class="keyword">in</span> another process or thread is using this directory.</span><br><span class="line"></span><br><span class="line">$ rm -rf /tmp/kafka-logs</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-创建主题"><a href="#4-创建主题" class="headerlink" title="4.创建主题"></a>4.创建主题</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --create --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --replication-factor 2 --partitions 1 --topic ymq</span><br></pre></td></tr></table></figure>
+<p>–replication-factor 2   #复制两份<br>–partitions 1              #创建1个分区<br>–topic                     #主题为ymq  </p>
+<p>运行list topic命令，可以看到该主题：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --list --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181</span><br></pre></td></tr></table></figure>
+<h3 id="5-生产消息"><a href="#5-生产消息" class="headerlink" title="5.生产消息"></a>5.生产消息</h3><p>Kafka附带一个命令行客户端，它将从文件或标准输入中输入，并将其作为消息发送到Kafka群集。默认情况下，每行将作为单独的消息发送。</p>
+<p>在 <strong>node5</strong> 运行生产者，然后在控制台中输入一些消息以发送到服务器。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic ymq</span><br><span class="line">&gt;www.ymq.io</span><br></pre></td></tr></table></figure>
+<h3 id="6-消费消息"><a href="#6-消费消息" class="headerlink" title="6.消费消息"></a>6.消费消息</h3><p>在<strong>node6</strong> 运行消费者，将把消息转储到标准输出。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-console-consumer.sh --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181  --topic ymq --from-beginning</span><br><span class="line">Using the ConsoleConsumer with old consumer is deprecated and will be removed <span class="keyword">in</span> a future major release. Consider using the new consumer by passing [bootstrap-server] instead of [zookeeper]. </span><br><span class="line">www.ymq.io</span><br></pre></td></tr></table></figure>
+<h3 id="7-topic详情"><a href="#7-topic详情" class="headerlink" title="7.topic详情"></a>7.topic详情</h3><p>用describe 查看集群中topic每个节点情况 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --describe --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --topic ymq</span><br><span class="line">Topic:ymq	PartitionCount:1	ReplicationFactor:2	Configs:</span><br><span class="line">	Topic: ymq	Partition: 0	Leader: 1	Replicas: 1,3	Isr: 3,1</span><br></pre></td></tr></table></figure>
+<p>以下是输出的说明。第一行给出了所有分区的摘要，每个附加行提供有关一个分区的信息。由于我们这个主题只有一个分区，只有一行。</p>
+<p><code>leader</code>负责给定分区的读取和写入分配节点编号，每个分区的部分数据会随机指定不同的节点<br><code>replicas</code>是复制此分区的日志的节点列表<br><code>isr</code>一组正在同步的副本列表</p>
+<h3 id="8-删除topic"><a href="#8-删除topic" class="headerlink" title="8.删除topic"></a>8.删除topic</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka_2.12-0.11.0.0/bin/kafka-topics.sh --delete --zookeeper 192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181 --topic ymq</span><br><span class="line">Topic ymq is marked <span class="keyword">for</span> deletion.</span><br><span class="line">Note: This will have no impact <span class="keyword">if</span> delete.topic.enable is not <span class="built_in">set</span> to <span class="literal">true</span>.</span><br></pre></td></tr></table></figure>
+<h3 id="9-停止kafka"><a href="#9-停止kafka" class="headerlink" title="9.停止kafka"></a>9.停止kafka</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">for</span> a <span class="keyword">in</span> &#123;4..6&#125; ; <span class="keyword">do</span> ssh node<span class="variable">$a</span> <span class="string">"source /etc/profile;  /opt/kafka_2.12-0.11.0.0/bin/kafka-server-stop.sh /opt/kafka_2.12-0.11.0.0/config/server.properties "</span> ; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h2 id="部署-Kafka-Manager"><a href="#部署-Kafka-Manager" class="headerlink" title="部署 Kafka Manager"></a>部署 Kafka Manager</h2><p><a href="https://github.com/yahoo/kafka-manager" target="_blank" rel="noopener">Yahoo开源Kafka集群管理器Kafka Manager</a></p>
+<p>作为一个分布式的消息发布-订阅系统，Apache Kafka在Yahoo内部已经被很多团队所使用，例如媒体分析团队就将其应用到了实时分析流水线中，同时，Yahoo整个Kafka集群处理的峰值带宽超过了20Gbps（压缩数据）。为了让开发者和服务工程师能够更加简单地维护Kafka集群，Yahoo构建了一个基于Web的管理工具，称为Kafka Manager，日前该项目已经在GitHub上开源。</p>
+<p>通过Kafka Manager用户能够更容易地发现集群中哪些主题或者分区分布不均匀，同时能够管理多个集群，能够更容易地检查集群的状态，能够创建主题，执行首选的副本选择，能够基于集群当前的状态生成分区分配，并基于生成的分配执行分区的重分配，此外，Kafka Manager还是一个非常好的可以快速查看集群状态的工具。</p>
+<p>Kafka Manager使用Scala语言编写，其Web控制台基于Play Framework实现，除此之外，Yahoo还迁移了一些Apache Kafka的帮助程序以便能够与Apache Curator框架一起工作。</p>
+<p>一、它支持以下内容：</p>
+<ul>
+<li>管理多个群集</li>
+<li>容易检查集群状态（主题，消费者，偏移量，经纪人，副本分发，分区分配）</li>
+<li>运行首选副本选举</li>
+<li>使用选项生成分区分配，以选择要使用的代理</li>
+<li>运行分区的重新分配（基于生成的分配）</li>
+<li>创建可选主题配置的主题（0.8.1.1具有不同于0.8.2+的配置）</li>
+<li>删除主题（仅支持0.8.2+，并记住在代理配​​置中设置delete.topic.enable = true）</li>
+<li>主题列表现在表示标记为删除的主题（仅支持0.8.2+）</li>
+<li>批量生成多个主题的分区分配，并选择要使用的代理</li>
+<li>批量运行多个主题的分区重新分配</li>
+<li>将分区添加到现有主题</li>
+<li>更新现有主题的配置</li>
+<li>可选地，启用JMX轮询代理级和主题级度量。</li>
+<li>可选地筛选出在zookeeper中没有ids / owner /＆offset /目录的消费者。</li>
+</ul>
+<h3 id="源码，并编译打包"><a href="#源码，并编译打包" class="headerlink" title="源码，并编译打包"></a>源码，并编译打包</h3><p>在 kafka-manager: 192.168.252.127 <strong>node7</strong> 部署</p>
+<p><strong>编译超级慢</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ yum install git</span><br><span class="line">$ <span class="built_in">cd</span> /opt/</span><br><span class="line">$ git <span class="built_in">clone</span> https://github.com/yahoo/kafka-manager</span><br><span class="line">$ <span class="built_in">cd</span> kafka-manager/</span><br><span class="line">$ ./sbt clean dist</span><br></pre></td></tr></table></figure>
+<h3 id="下载编译好的包"><a href="#下载编译好的包" class="headerlink" title="下载编译好的包"></a>下载编译好的包</h3><p>反正我是没编译成功，从网上找了一个编译好的</p>
+<p>链接: <a href="https://pan.baidu.com/s/1mimPXHI" target="_blank" rel="noopener">百度网盘下载</a> 密码: kha2  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yum install unzip</span><br><span class="line">$ unzip kafka-manager-1.3.2.1.zip</span><br><span class="line">$ vi /opt/kafka-manager-1.3.2.1/conf/application.conf</span><br></pre></td></tr></table></figure>
+<p>修改这个 zk 地址<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kafka-manager.zkhosts=<span class="string">"192.168.252.121:2181,192.168.252.122:2181,192.168.252.123:2181"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="启动-kafka-manager"><a href="#启动-kafka-manager" class="headerlink" title="启动 kafka-manager"></a>启动 kafka-manager</h3><p>默认端口 <code>NettyServer - Listening for HTTP on /0:0:0:0:0:0:0:0:9000</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /opt/kafka-manager-1.3.2.1/bin/kafka-manager -Dconfig.file=conf/application.conf</span><br></pre></td></tr></table></figure>
+<p>或者后台运行 并且配置端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nohup bin/kafka-manager  -Dconfig.file=/home/hadoop/app/kafka-manager-1.3.2.1/conf/application.conf -Dhttp.port=9000 &amp;</span><br></pre></td></tr></table></figure>
+<p>访问：<a href="">http://ip:9000/</a></p>
+<p><img src="http://www.ymq.io/images/2017/Kafka/add-cluster.png" alt=""> </p>
+<p><img src="http://www.ymq.io/images/2017/Kafka/topic.png" alt=""> </p>
+<p><img src="http://www.ymq.io/images/2017/Kafka/brokers.png" alt=""> </p>
+<p>出处：<a href="http://www.ymq.io" target="_blank" rel="noopener">http://www.ymq.io</a><br>转自：鹏磊</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Ciwei
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/" title="搭建高吞吐量 Kafka 分布式发布订阅消息 集群">https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/23/2017-10-17-kafka-spring-boot-example/" rel="next" title="Spring Boot 中使用 kafka">
+                <i class="fa fa-chevron-left"></i> Spring Boot 中使用 kafka
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/23/2017-08-14-redis-cluster/" rel="prev" title="CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务">
+                CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-inner">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+	<a href="/" class="site-author-image" rel="start" style="border:none">             
+ 		<img class="site-author-image" itemprop="image"
+                src="http://oisa91ton.bkt.clouddn.com/tx.gif"
+                alt="Ciwei" />
+	</a>
+            
+              <p class="site-author-name" itemprop="name">Ciwei</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ciweigg" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/cyj228" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ciweigg.github.io" title="温馨的小窝" target="_blank">温馨的小窝</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建高吞吐量-Kafka-分布式发布订阅消息-集群"><span class="nav-number">1.</span> <span class="nav-text">搭建高吞吐量 Kafka 分布式发布订阅消息 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境"><span class="nav-number">1.2.</span> <span class="nav-text">环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主机名修改"><span class="nav-number">1.2.1.</span> <span class="nav-text">主机名修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-免密登录"><span class="nav-number">1.2.2.</span> <span class="nav-text">ssh 免密登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-JDK1-8"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装 JDK1.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搭建-Zookeeper-集群"><span class="nav-number">1.2.4.</span> <span class="nav-text">搭建 Zookeeper 集群</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-kafka-集群"><span class="nav-number">1.3.</span> <span class="nav-text">搭建 kafka 集群</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-下载代码"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.下载代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-修改配置"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.修改配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-启动kafka"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.启动kafka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-创建主题"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.创建主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-生产消息"><span class="nav-number">1.3.5.</span> <span class="nav-text">5.生产消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-消费消息"><span class="nav-number">1.3.6.</span> <span class="nav-text">6.消费消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-topic详情"><span class="nav-number">1.3.7.</span> <span class="nav-text">7.topic详情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-删除topic"><span class="nav-number">1.3.8.</span> <span class="nav-text">8.删除topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-停止kafka"><span class="nav-number">1.3.9.</span> <span class="nav-text">9.停止kafka</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署-Kafka-Manager"><span class="nav-number">1.4.</span> <span class="nav-text">部署 Kafka Manager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码，并编译打包"><span class="nav-number">1.4.1.</span> <span class="nav-text">源码，并编译打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载编译好的包"><span class="nav-number">1.4.2.</span> <span class="nav-text">下载编译好的包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-kafka-manager"><span class="nav-number">1.4.3.</span> <span class="nav-text">启动 kafka-manager</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ciwei</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Hosted by <a target="_blank" href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+<script src="/js/src/photoswipe.min.js?v=5.1.3"></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/';
+          this.page.identifier = '2017/12/23/2017-08-29-kafka/';
+          this.page.title = '搭建高吞吐量 Kafka 分布式发布订阅消息 集群';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ciwei.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("MNWrQi0DrbN6fgqFjPM4C5vR-gzGzoHsz", "SoTXn9BWTQeoH3UpYjmmyK70");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>

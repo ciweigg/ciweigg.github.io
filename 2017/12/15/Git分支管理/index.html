@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Damion:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3">
+
+
+  <link rel="mask-icon" href="http://oisa91ton.bkt.clouddn.com/%E5%A4%B4%E5%83%8F.jpg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="git," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="如果没有你" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。 分支的独立性：现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git分支管理">
+<meta property="og:url" content="https://ciweigg.github.io/2017/12/15/Git分支管理/index.html">
+<meta property="og:site_name" content="如果没有你">
+<meta property="og:description" content="分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。 分支的独立性：现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-02T09:02:30.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git分支管理">
+<meta name="twitter:description" content="分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。 分支的独立性：现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ciweigg.github.io/2017/12/15/Git分支管理/"/>
+
+
+
+
+
+  <title>Git分支管理 | 如果没有你</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-89637345-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="http://oisa91ton.bkt.clouddn.com/tx2.gif"
+               alt="如果没有你"/>
+        </a>
+      </div>
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">如果没有你</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera-retro"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-picture">
+          <a href="/tags/picture" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-map-marker"></i> <br />
+            
+            旅行
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-top">
+          <a href="/top/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />
+            
+            排行
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-favorite">
+          <a href="/favorite/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-video-camera"></i> <br />
+            
+            追剧
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ciweigg.github.io/2017/12/15/Git分支管理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/tx.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Git分支管理</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T11:54:00+08:00">
+                2017-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/15/Git分支管理/" class="leancloud_visitors" data-flag-title="Git分支管理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。</p>
+<p>分支的独立性：现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。<br><a id="more"></a><br>git分支的高效：其他版本控制系统如SVN等都有分支管理，但是用过之后你会发现，这些版本控制系统创建和切换分支比蜗牛还慢，简直让人无法忍受，结果分支功能成了摆设，大家都不去用。</p>
+<p>但Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。</p>
+<p>理解HEAD头指针</p>
+<p>一开始的时候，HEAD头指针指向的是主分支，即master分支。而HEAD指向的是当前分支，master指向的是提交。</p>
+<p>如果，在master分支上新建了一个分支dev，此时HEAD指向了dev，Git建立分支的过程很快，因为除了增加一个dev指针，改改HEAD的指向，工作区的文件都没有任何变化！</p>
+<p>不过，从现在开始，对工作区的修改和提交就是针对dev分支了，比如新提交一次后，dev指针往前移动一步，而master指针不变。</p>
+<p>创建dev分支</p>
+<p>创建分支使用git branch命令，命令格式：git branch [分支别名]</p>
+<p>$ git branch dev<br>可以使用$ git branch来查看所有本地分支，$ git branch -a查看所有分支（包括远程分支）。</p>
+<p>使用git checkout [分支名]切换到对应的分支，如：</p>
+<p>$ git checkout dev<br>此时，HEAD头指针会指向dev，如果在dev上提交，dev指针会往前移，而其他分支不变。（master分支及指针不变）</p>
+<p>当使用git checkout master时，HEAD头指针会重新指向master，此时再提交，master指针会往前移。</p>
+<p>这个过程，需要自己亲身的试验才能体会到它们的作用和变化。</p>
+<p>$gitk<br>使用Git自带的图形界面，可以很好的来管理分支。</p>
+<p>冲突解决</p>
+<p>冲突产生：当两个分支中修改的相同的文件并提交（add-&gt;commit），合并(merge)这两个分支的时候，会产生冲突。</p>
+<p>如下例：</p>
+<p>$ git checkout -b feature1<br>在新的feature1分支下修改了readme.txt：</p>
+<p>vi readme.txt<br>//修改，添加Creating a new branch is quick AND simple.<br>$ git add readme.txt<br>$ git commit -m “AND simple”<br>切换到master分支：</p>
+<p>$ git checkout master</p>
+<p>vi readme.txt<br>//在<code>master</code>分支上把readme.txt文件的最后一行改为：Creating a new branch is quick &amp; simple<br>$ git add readme.txt<br>$ git commit -m “&amp; simple”<br>试图合并master与feature1：</p>
+<p>$ git merge feature1<br>Auto-merging readme.txt<br>CONFLICT (content): Merge conflict in readme.txt<br>Automatic merge failed; fix conflicts and then commit the result.</p>
+<p>（1）使用：$ git status来查看冲突文件：</p>
+<p>$ git status</p>
+<h1 id="On-branch-master"><a href="#On-branch-master" class="headerlink" title="On branch master"></a>On branch master</h1><h1 id="Your-branch-is-ahead-of-‘origin-master’-by-2-commits"><a href="#Your-branch-is-ahead-of-‘origin-master’-by-2-commits" class="headerlink" title="Your branch is ahead of ‘origin/master’ by 2 commits."></a>Your branch is ahead of ‘origin/master’ by 2 commits.</h1><p>#</p>
+<h1 id="Unmerged-paths"><a href="#Unmerged-paths" class="headerlink" title="Unmerged paths:"></a>Unmerged paths:</h1><h1 id="use-“git-add-rm-…”-as-appropriate-to-mark-resolution"><a href="#use-“git-add-rm-…”-as-appropriate-to-mark-resolution" class="headerlink" title="(use “git add/rm …” as appropriate to mark resolution)"></a>(use “git add/rm <file>…” as appropriate to mark resolution)</file></h1><p>#</p>
+<h1 id="both-modified-readme-txt"><a href="#both-modified-readme-txt" class="headerlink" title="both modified:      readme.txt"></a>both modified:      readme.txt</h1><p>#<br>no changes added to commit (use “git add” and/or “git commit -a”)<br>（2）直接查看readme.txt文件内容：</p>
+<p>Git is a distributed version control system.<br>Git is free software distributed under the GPL.<br>Git has a mutable index called stage.<br>Git tracks changes of files.<br>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<h1 id="Creating-a-new-branch-is-quick-amp-simple"><a href="#Creating-a-new-branch-is-quick-amp-simple" class="headerlink" title="Creating a new branch is quick &amp; simple."></a>Creating a new branch is quick &amp; simple.</h1><p>Creating a new branch is quick AND simple.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>feature1<br>Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;，=======，&gt;&gt;&gt;&gt;&gt;&gt;&gt;标记出不同分支的内容，我们修改如下后保存：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Creating a new branch is quick and simple.<br>再提交：</p>
+<p>$ git add readme.txt<br>$ git commit -m “conflict fixed”<br>[master 59bc1cb] conflict fixed<br>PS: 用带参数的git log也可以看到分支的合并情况：</p>
+<p>$ git log –graph –pretty=oneline –abbrev-commit</p>
+<ul>
+<li>59bc1cb conflict fixed<br>|\<br>| * 75a857c AND simple</li>
+<li>| 400b400 &amp; simple<br>|/</li>
+<li>fec145a branch test<br>…<br>最后，删除feature1分支：</li>
+</ul>
+<p>$ git branch -d feature1<br>Deleted branch feature1 (was 75a857c).</p>
+<p>分支管理策略</p>
+<p>通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
+<p>如果要强制禁用Fast forward模式，Git就会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
+<p>下面我们实战一下–no-ff方式的git merge：</p>
+<p>首先，仍然创建并切换dev分支：</p>
+<p>$ git checkout -b dev<br>Switched to a new branch ‘dev’<br>修改readme.txt文件，并提交一个新的commit：</p>
+<p>$ git add readme.txt<br>$ git commit -m “add merge”<br>[dev 6224937] add merge<br> 1 file changed, 1 insertion(+)<br>现在，我们切换回master：</p>
+<p>$ git checkout master<br>Switched to branch ‘master<br>准备合并dev分支，请注意–no-ff参数，表示禁用Fast forward：</p>
+<p>$ git merge –no-ff -m “merge with no-ff” dev<br>Merge made by the ‘recursive’ strategy.<br> readme.txt |    1 +<br> 1 file changed, 1 insertion(+)<br>分支策略</p>
+<p>在实际开发中，我们应该按照几个基本原则进行分支管理：</p>
+<p>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样：</p>
+<p>Bug分支</p>
+<p>软件开发中，bug就像家常便饭一样。有了bug就需要修复，在Git中，由于分支是如此的强大，所以，每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。</p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交：</p>
+<p>$ git status</p>
+<h1 id="On-branch-dev"><a href="#On-branch-dev" class="headerlink" title="On branch dev"></a>On branch dev</h1><h1 id="Changes-to-be-committed"><a href="#Changes-to-be-committed" class="headerlink" title="Changes to be committed:"></a>Changes to be committed:</h1><h1 id="use-“git-reset-HEAD-…”-to-unstage"><a href="#use-“git-reset-HEAD-…”-to-unstage" class="headerlink" title="(use “git reset HEAD …” to unstage)"></a>(use “git reset HEAD <file>…” to unstage)</file></h1><p>#</p>
+<h1 id="new-file-hello-py"><a href="#new-file-hello-py" class="headerlink" title="new file:   hello.py"></a>new file:   hello.py</h1><p>#</p>
+<h1 id="Changes-not-staged-for-commit"><a href="#Changes-not-staged-for-commit" class="headerlink" title="Changes not staged for commit:"></a>Changes not staged for commit:</h1><h1 id="use-“git-add-…”-to-update-what-will-be-committed"><a href="#use-“git-add-…”-to-update-what-will-be-committed" class="headerlink" title="(use “git add …” to update what will be committed)"></a>(use “git add <file>…” to update what will be committed)</file></h1><h1 id="use-“git-checkout-–-…”-to-discard-changes-in-working-directory"><a href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory" class="headerlink" title="(use “git checkout – …” to discard changes in working directory)"></a>(use “git checkout – <file>…” to discard changes in working directory)</file></h1><p>#</p>
+<h1 id="modified-readme-txt"><a href="#modified-readme-txt" class="headerlink" title="modified:   readme.txt"></a>modified:   readme.txt</h1><p>#<br>并不是你不想提交，而是工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？</p>
+<p>幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：</p>
+<p>$ git stash<br>Saved working directory and index state WIP on dev: 6224937 add merge<br>HEAD is now at 6224937 add merge<br>现在，用git status查看工作区，就是干净的（除非有没有被Git管理的文件），因此可以放心地创建分支来修复bug。</p>
+<p>首先确定要在哪个分支上修复bug，假定需要在master分支上修复，就从master创建临时分支：</p>
+<p>$ git checkout master<br>$ git checkout -b issue-101<br>现在修复bug，需要把“Git is free software …”改为“Git is a free software …”，然后提交：</p>
+<p>$ git add readme.txt<br>$ git commit -m “fix bug 101”<br>修复完成后，切换到master分支，并完成合并，最后删除issue-101分支：</p>
+<p>$ git checkout master<br>$ git merge –no-ff -m “merged bug fix 101” issue-101<br>$ git branch -d issue-101<br>太棒了，原计划两个小时的bug修复只花了5分钟！现在，是时候接着回到dev分支干活了！</p>
+<p>$ git checkout dev<br>Switched to branch ‘dev’<br>$ git status</p>
+<h1 id="On-branch-dev-1"><a href="#On-branch-dev-1" class="headerlink" title="On branch dev"></a>On branch dev</h1><p>nothing to commit (working directory clean)<br>工作区是干净的，刚才的工作现场存到哪去了？用git stash list命令看看：</p>
+<p>$ git stash list<br>stash@{0}: WIP on dev: 6224937 add merge<br>工作现场还在，Git把stash内容存在某个地方了，但是需要恢复一下，有两个办法：</p>
+<p>一种方式：用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；</p>
+<p>另一种方式：是用git stash pop，恢复的同时把stash内容也删了：</p>
+<p>$ git stash pop</p>
+<h1 id="On-branch-dev-2"><a href="#On-branch-dev-2" class="headerlink" title="On branch dev"></a>On branch dev</h1><h1 id="Changes-to-be-committed-1"><a href="#Changes-to-be-committed-1" class="headerlink" title="Changes to be committed:"></a>Changes to be committed:</h1><h1 id="use-“git-reset-HEAD-…”-to-unstage-1"><a href="#use-“git-reset-HEAD-…”-to-unstage-1" class="headerlink" title="(use “git reset HEAD …” to unstage)"></a>(use “git reset HEAD <file>…” to unstage)</file></h1><p>#</p>
+<h1 id="new-file-hello-py-1"><a href="#new-file-hello-py-1" class="headerlink" title="new file:   hello.py"></a>new file:   hello.py</h1><p>#</p>
+<h1 id="Changes-not-staged-for-commit-1"><a href="#Changes-not-staged-for-commit-1" class="headerlink" title="Changes not staged for commit:"></a>Changes not staged for commit:</h1><h1 id="use-“git-add-…”-to-update-what-will-be-committed-1"><a href="#use-“git-add-…”-to-update-what-will-be-committed-1" class="headerlink" title="(use “git add …” to update what will be committed)"></a>(use “git add <file>…” to update what will be committed)</file></h1><h1 id="use-“git-checkout-–-…”-to-discard-changes-in-working-directory-1"><a href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory-1" class="headerlink" title="(use “git checkout – …” to discard changes in working directory)"></a>(use “git checkout – <file>…” to discard changes in working directory)</file></h1><p>#</p>
+<h1 id="modified-readme-txt-1"><a href="#modified-readme-txt-1" class="headerlink" title="modified:   readme.txt"></a>modified:   readme.txt</h1><p>#<br>Dropped refs/stash@{0} (f624f8e5f082f2df2bed8a4e09c12fd2943bdd40)<br>再用git stash list查看，就看不到任何stash内容了：</p>
+<p>$ git stash list<br>你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：</p>
+<p>$ git stash apply stash@{0}<br>删除分支</p>
+<p>软件开发中，总有无穷无尽的新的功能要不断添加进来。</p>
+<p>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</p>
+<p>还记得吗？</p>
+<p>建立新的分支:git checkout -b feature-new</p>
+<p>工作提交：git add –a，git commit -m “something…”</p>
+<p>回到dev开发分支：git checkout dev</p>
+<p>合并分支：git merge –no-ff feature-new</p>
+<p>一切顺利的话，feature分支和bug分支是类似的，合并，然后删除。</p>
+<p>但是，就在此时，接到上级命令，因经费不足，新功能必须取消！虽然白干了，但是这个分支还是必须就地销毁：</p>
+<p>（1）如果没有合并之前，可以简单的使用git branch -d [分支名]来删除分支（使用-D命令，强制删除分支）</p>
+<p>（2）如果已经合并，除了上面的需要删除以外，还需要使用前面讲到的git reset –hard HEAD^来退回到上一个版本。</p>
+<p>PS:分支的删除，不会影响到其他分支上已经合并的分支内容。</p>
+<p>多人协作</p>
+<p>多人协作的工作模式通常是这样：</p>
+<p>首先，可以试图用git push origin branch-name推送自己的修改；</p>
+<p>如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+<p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+<p>没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！</p>
+<p>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream branch-name origin/branch-name。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<p>注：所有工作流建立在已经建立了个人账户，并添加了SSH key到个人的文档中。见Profile Settings → SSH keys → Before you can add an SSH key you need to [generate it].</p>
+<p>普通开发人员</p>
+<p>情况一：程序员A是后加入到项目中的，项目已经存在代码仓库。</p>
+<p>如：git@github.com:kanlidy/HelloGit.git</p>
+<p>（1）克隆版本仓库</p>
+<p>git clone git@github.com:kanlidy/HelloGit.git<br>（2）建立分支</p>
+<p>git checkout -b (分支名)<br>（3）提交代码</p>
+<p>查看代码修改的状态：</p>
+<p>git status<br>添加到工作区：</p>
+<p>git add .<br>提交到本地仓库：</p>
+<p>git commit -m “（写下提交日志）”<br>推送到服务器：</p>
+<p>git push origin 分支名<br>（4）在服务器上建立Merge Request，把自己的提交到远程的分支，Merge到Dev(开发分支)</p>
+<p>情况二：程序员B是在一个新项目中，本地有一些代码，需要建立一个版本控制仓库</p>
+<p>（1）在项目目录下，初始化仓库</p>
+<p>git init<br>（2）添加到git版本控制系统：</p>
+<p>git remote add origin git@github.com:kanlidy/HelloGit.git<br>（3）添加所有已经存在的文件到项目中：</p>
+<p>git add .<br>（4）提交代码到本地仓库：</p>
+<p>git commit -m “写下日志”<br>（5）提交代码远程服务器</p>
+<p>git push origin &lt;本地分支名&gt;：&lt;远程分支名&gt;</p>
+<p>git push origin master:master<br>对于单人项目，情况二足以满足代码控制要求。→吕扬、刘扬。</p>
+<p>仓库管理人员</p>
+<p>情况一：手工合并代码</p>
+<p>（1）在指定分支上获取更新</p>
+<p>git checkout &lt;指定分支&gt;<br>（2）拉取服务器上的代码</p>
+<p>git pull origin &lt;指定分支&gt;<br>（3）切换到dev，并获取dev上的更新，合并指定分支上的代码</p>
+<p>git checkout dev<br>git pull origin dev<br>git merge &lt;指定分支&gt;<br>情况二：直接在gitlab上进行操作</p>
+<p>直接点击accept merge request进行分支合并。</p>
+<p>代码回撤参考git reset命令，获取更新参考git fetch命令，分支查看git branch，逻辑流程图gitk，状态命令git status,日志命令git reflog与git log</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    John Doe
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://ciweigg.github.io/2017/12/15/Git分支管理/" title="Git分支管理">https://ciweigg.github.io/2017/12/15/Git分支管理/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/15/Git常用命令-1/" rel="next" title="Git常用命令">
+                <i class="fa fa-chevron-left"></i> Git常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/16/git常用命令/" rel="prev" title="git常用命令">
+                git常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+  <div id="sidebar-dimmer"></div>
+  <div class="sidebar-inner">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+	<a href="/" class="site-author-image" rel="start" style="border:none">             
+ 		<img class="site-author-image" itemprop="image"
+                src="http://oisa91ton.bkt.clouddn.com/tx.gif"
+                alt="Ciwei" />
+	</a>
+            
+              <p class="site-author-name" itemprop="name">Ciwei</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ciweigg" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/cyj228" target="_blank" title="Facebook">
+                      
+                        <i class="fa fa-fw fa-facebook"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://ciweigg.github.io" title="温馨的小窝" target="_blank">温馨的小窝</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#On-branch-master"><span class="nav-number">1.</span> <span class="nav-text">On branch master</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Your-branch-is-ahead-of-‘origin-master’-by-2-commits"><span class="nav-number">2.</span> <span class="nav-text">Your branch is ahead of ‘origin/master’ by 2 commits.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unmerged-paths"><span class="nav-number">3.</span> <span class="nav-text">Unmerged paths:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-“git-add-rm-…”-as-appropriate-to-mark-resolution"><span class="nav-number">4.</span> <span class="nav-text">(use “git add/rm …” as appropriate to mark resolution)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#both-modified-readme-txt"><span class="nav-number">5.</span> <span class="nav-text">both modified:      readme.txt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Creating-a-new-branch-is-quick-amp-simple"><span class="nav-number">6.</span> <span class="nav-text">Creating a new branch is quick &amp; simple.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#On-branch-dev"><span class="nav-number">7.</span> <span class="nav-text">On branch dev</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changes-to-be-committed"><span class="nav-number">8.</span> <span class="nav-text">Changes to be committed:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-“git-reset-HEAD-…”-to-unstage"><span class="nav-number">9.</span> <span class="nav-text">(use “git reset HEAD …” to unstage)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new-file-hello-py"><span class="nav-number">10.</span> <span class="nav-text">new file:   hello.py</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changes-not-staged-for-commit"><span class="nav-number">11.</span> <span class="nav-text">Changes not staged for commit:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-“git-add-…”-to-update-what-will-be-committed"><span class="nav-number">12.</span> <span class="nav-text">(use “git add …” to update what will be committed)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory"><span class="nav-number">13.</span> <span class="nav-text">(use “git checkout – …” to discard changes in working directory)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#modified-readme-txt"><span class="nav-number">14.</span> <span class="nav-text">modified:   readme.txt</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#On-branch-dev-1"><span class="nav-number">15.</span> <span class="nav-text">On branch dev</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#On-branch-dev-2"><span class="nav-number">16.</span> <span class="nav-text">On branch dev</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changes-to-be-committed-1"><span class="nav-number">17.</span> <span class="nav-text">Changes to be committed:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-“git-reset-HEAD-…”-to-unstage-1"><span class="nav-number">18.</span> <span class="nav-text">(use “git reset HEAD …” to unstage)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#new-file-hello-py-1"><span class="nav-number">19.</span> <span class="nav-text">new file:   hello.py</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Changes-not-staged-for-commit-1"><span class="nav-number">20.</span> <span class="nav-text">Changes not staged for commit:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-“git-add-…”-to-update-what-will-be-committed-1"><span class="nav-number">21.</span> <span class="nav-text">(use “git add …” to update what will be committed)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#use-“git-checkout-–-…”-to-discard-changes-in-working-directory-1"><span class="nav-number">22.</span> <span class="nav-text">(use “git checkout – …” to discard changes in working directory)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#modified-readme-txt-1"><span class="nav-number">23.</span> <span class="nav-text">modified:   readme.txt</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ciwei</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Hosted by <a target="_blank" href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+<script src="/js/src/photoswipe.min.js?v=5.1.3"></script>
+<script src="/js/src/photoswipe-ui-default.min.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://ciweigg.github.io/2017/12/15/Git分支管理/';
+          this.page.identifier = '2017/12/15/Git分支管理/';
+          this.page.title = 'Git分支管理';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ciwei.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("MNWrQi0DrbN6fgqFjPM4C5vR-gzGzoHsz", "SoTXn9BWTQeoH3UpYjmmyK70");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
