@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>https://ciweigg.github.io/2018/01/14/Intellij-IDEA%E5%9F%BA%E4%BA%8ESpringboot%E7%9A%84%E6%B5%8B%E8%AF%95%E7%94%9F%E4%BA%A7%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/</loc>
+    <lastmod>2018-01-14T04:55:22.976Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij IDEA基于Springboot的测试生产远程调试</title>
+        <pubTime>2018-01-14T04:50:00.000Z</pubTime>
+        
+        <tag>JAVA</tag>
+         
+         
+           
+             
+              <breadCrumb title="JAVA" url="https://ciweigg.github.io/categories/JAVA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ciweigg.github.io/2018/01/11/%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%89%E5%85%A8%E5%8A%A0%E5%AF%86/</loc>
     <lastmod>2018-01-11T10:31:55.952Z</lastmod>
     <data>
@@ -207,7 +227,7 @@
     
   <url>
     <loc>https://ciweigg.github.io/2018/01/02/hexo-next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0photoswipe%E7%B1%BB%E5%9E%8B%E7%9B%B8%E5%86%8C/</loc>
-    <lastmod>2018-01-03T14:06:50.571Z</lastmod>
+    <lastmod>2018-01-03T14:04:29.709Z</lastmod>
     <data>
         <display>
         <title>hexo next主题添加photoswipe类型相册</title>
@@ -697,86 +717,72 @@
     
     
   <url>
+    <loc>https://ciweigg.github.io/2017/12/11/SpringBoot%E4%BA%8B%E5%8A%A1%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99/</loc>
+    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
+    <data>
+        <display>
+        <title>SpringBoot事务配置规则</title>
+        <pubTime>2017-12-11T03:13:00.000Z</pubTime>
+        
+        <tag>SpringBoot</tag>
+         
+         
+           
+             
+              <breadCrumb title="SpringBoot" url="https://ciweigg.github.io/categories/SpringBoot/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/22/Spring-Cloud-Zuul%E7%BB%93%E5%90%88Smconf%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%8A%A8%E6%80%81%E8%BF%9B%E8%A1%8CIP%E9%BB%91%E5%90%8D%E5%8D%95%E9%99%90%E5%88%B6/</loc>
+    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</title>
+        <pubTime>2017-12-22T05:40:00.000Z</pubTime>
+        
+        <tag>SpringCloud</tag>
+         
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/10/%E5%AE%85%E8%88%9E/</loc>
+    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
+    <data>
+        <display>
+        <title>宅舞</title>
+        <pubTime>2017-12-10T03:05:00.000Z</pubTime>
+        
+        <tag>COS</tag>
+         
+         
+           
+             
+              <breadCrumb title="COS" url="https://ciweigg.github.io/categories/COS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ciweigg.github.io/2017/12/17/%E3%80%90%E9%85%B8%E5%A5%B6%E3%80%91AOA-%E7%8C%AB%E6%AD%A5%E8%BD%BB%E4%BF%8F-%E7%BF%BB%E8%B7%B3/</loc>
     <lastmod>2017-12-29T05:32:14.387Z</lastmod>
     <data>
         <display>
         <title>【酸奶】AOA 猫步轻俏 翻跳</title>
         <pubTime>2017-12-17T06:02:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="舞蹈" url="https://ciweigg.github.io/categories/%E8%88%9E%E8%B9%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/17/%E8%BF%99%E8%88%9E%E8%B9%88%E5%8F%AF%E4%BB%A5/</loc>
-    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
-    <data>
-        <display>
-        <title>B站女王啊</title>
-        <pubTime>2017-12-17T04:57:00.000Z</pubTime>
-        
-        <tag>bilibili</tag>
-         
-         
-           
-             
-              <breadCrumb title="舞蹈" url="https://ciweigg.github.io/categories/%E8%88%9E%E8%B9%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/17/%E6%A2%A6%E6%83%B3%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</loc>
-    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
-    <data>
-        <display>
-        <title>梦想开始的地方</title>
-        <pubTime>2017-12-17T06:07:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="梦想开始的地方" url="https://ciweigg.github.io/categories/%E6%A2%A6%E6%83%B3%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/17/%E3%80%90%E9%85%B8%E5%A5%B6%E3%80%91EXID-Up-Down-%E7%BF%BB%E8%B7%B3/</loc>
-    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
-    <data>
-        <display>
-        <title>【酸奶】EXID - Up & Down 翻跳</title>
-        <pubTime>2017-12-17T06:06:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="舞蹈" url="https://ciweigg.github.io/categories/%E8%88%9E%E8%B9%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/17/%E4%B8%AD%E5%8D%8E%E7%AC%AC%E4%B8%80%E8%85%BF/</loc>
-    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
-    <data>
-        <display>
-        <title>中华第一腿</title>
-        <pubTime>2017-12-17T05:46:00.000Z</pubTime>
         
          
            
@@ -814,19 +820,17 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/22/Spring-Cloud-Zuul%E7%BB%93%E5%90%88Smconf%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%8A%A8%E6%80%81%E8%BF%9B%E8%A1%8CIP%E9%BB%91%E5%90%8D%E5%8D%95%E9%99%90%E5%88%B6/</loc>
+    <loc>https://ciweigg.github.io/2017/12/17/%E6%A2%A6%E6%83%B3%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</loc>
     <lastmod>2017-12-29T05:32:14.387Z</lastmod>
     <data>
         <display>
-        <title>Spring Cloud Zuul结合Smconf配置中心动态进行IP黑名单限制</title>
-        <pubTime>2017-12-22T05:40:00.000Z</pubTime>
+        <title>梦想开始的地方</title>
+        <pubTime>2017-12-17T06:07:00.000Z</pubTime>
         
-        <tag>SpringCloud</tag>
-         
          
            
              
-              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
+              <breadCrumb title="梦想开始的地方" url="https://ciweigg.github.io/categories/%E6%A2%A6%E6%83%B3%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/"/>
           
         </display>
     </data>
@@ -834,19 +838,19 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/11/SpringBoot%E4%BA%8B%E5%8A%A1%E9%85%8D%E7%BD%AE%E8%A7%84%E5%88%99/</loc>
+    <loc>https://ciweigg.github.io/2017/12/17/%E8%BF%99%E8%88%9E%E8%B9%88%E5%8F%AF%E4%BB%A5/</loc>
     <lastmod>2017-12-29T05:32:14.387Z</lastmod>
     <data>
         <display>
-        <title>SpringBoot事务配置规则</title>
-        <pubTime>2017-12-11T03:13:00.000Z</pubTime>
+        <title>B站女王啊</title>
+        <pubTime>2017-12-17T04:57:00.000Z</pubTime>
         
-        <tag>SpringBoot</tag>
+        <tag>bilibili</tag>
          
          
            
              
-              <breadCrumb title="SpringBoot" url="https://ciweigg.github.io/categories/SpringBoot/"/>
+              <breadCrumb title="舞蹈" url="https://ciweigg.github.io/categories/%E8%88%9E%E8%B9%88/"/>
           
         </display>
     </data>
@@ -872,19 +876,17 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/10/%E5%AE%85%E8%88%9E/</loc>
+    <loc>https://ciweigg.github.io/2017/12/17/%E4%B8%AD%E5%8D%8E%E7%AC%AC%E4%B8%80%E8%85%BF/</loc>
     <lastmod>2017-12-29T05:32:14.387Z</lastmod>
     <data>
         <display>
-        <title>宅舞</title>
-        <pubTime>2017-12-10T03:05:00.000Z</pubTime>
+        <title>中华第一腿</title>
+        <pubTime>2017-12-17T05:46:00.000Z</pubTime>
         
-        <tag>COS</tag>
-         
          
            
              
-              <breadCrumb title="COS" url="https://ciweigg.github.io/categories/COS/"/>
+              <breadCrumb title="舞蹈" url="https://ciweigg.github.io/categories/%E8%88%9E%E8%B9%88/"/>
           
         </display>
     </data>
@@ -892,17 +894,53 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-08-14-redis-cluster/</loc>
-    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <loc>https://ciweigg.github.io/2017/12/17/%E3%80%90%E9%85%B8%E5%A5%B6%E3%80%91EXID-Up-Down-%E7%BF%BB%E8%B7%B3/</loc>
+    <lastmod>2017-12-29T05:32:14.387Z</lastmod>
     <data>
         <display>
-        <title>CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务</title>
-        <pubTime>2017-12-23T04:30:55.000Z</pubTime>
+        <title>【酸奶】EXID - Up & Down 翻跳</title>
+        <pubTime>2017-12-17T06:06:00.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Redis" url="https://ciweigg.github.io/categories/Redis/"/>
+              <breadCrumb title="舞蹈" url="https://ciweigg.github.io/categories/%E8%88%9E%E8%B9%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-12-13-spring-cloud-config/</loc>
+    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config</title>
+        <pubTime>2017-12-23T03:51:12.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-12-11-spring-cloud-zuul-filter/</loc>
+    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud（七）服务网关 Zuul Filter 使用</title>
+        <pubTime>2017-12-23T03:51:33.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
           
         </display>
     </data>
@@ -946,53 +984,17 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-07-19-git/</loc>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-08-14-redis-cluster/</loc>
     <lastmod>2017-12-29T05:32:14.386Z</lastmod>
     <data>
         <display>
-        <title>常用 Git 命令清单</title>
-        <pubTime>2017-12-23T04:29:54.000Z</pubTime>
+        <title>CentOs7.3 搭建 Redis-4.0.1 Cluster 集群服务</title>
+        <pubTime>2017-12-23T04:30:55.000Z</pubTime>
         
          
            
              
-              <breadCrumb title="Git" url="https://ciweigg.github.io/categories/Git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-12-14-spring-cloud-config-eureka/</loc>
-    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务</title>
-        <pubTime>2017-12-23T03:50:45.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-12-13-spring-cloud-config/</loc>
-    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Cloud（八）高可用的分布式配置中心 Spring Cloud Config</title>
-        <pubTime>2017-12-23T03:51:12.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
+              <breadCrumb title="Redis" url="https://ciweigg.github.io/categories/Redis/"/>
           
         </display>
     </data>
@@ -1006,6 +1008,42 @@
         <display>
         <title>Spring Cloud（三）服务提供者 Eureka + 服务消费者（rest + Ribbon）</title>
         <pubTime>2017-12-23T03:53:01.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-11-26-spring-cloud-consul/</loc>
+    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud（二）Consul 服务治理实现</title>
+        <pubTime>2017-12-23T03:52:35.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-11-22-spring-cloud-eureka/</loc>
+    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Cloud（一）服务的注册与发现（Eureka）</title>
+        <pubTime>2017-12-23T03:52:14.000Z</pubTime>
         
          
            
@@ -1038,12 +1076,50 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-12-11-spring-cloud-zuul-filter/</loc>
+    <loc>https://ciweigg.github.io/2017/12/15/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-1/</loc>
     <lastmod>2017-12-29T05:32:14.386Z</lastmod>
     <data>
         <display>
-        <title>Spring Cloud（七）服务网关 Zuul Filter 使用</title>
-        <pubTime>2017-12-23T03:51:33.000Z</pubTime>
+        <title>Git常用命令</title>
+        <pubTime>2017-12-15T03:52:00.000Z</pubTime>
+        
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="Git" url="https://ciweigg.github.io/categories/Git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-07-19-git/</loc>
+    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <data>
+        <display>
+        <title>常用 Git 命令清单</title>
+        <pubTime>2017-12-23T04:29:54.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Git" url="https://ciweigg.github.io/categories/Git/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-12-17-spring-cloud-actual-combat/</loc>
+    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <data>
+        <display>
+        <title>基于 Spring Cloud 完整的微服务架构实战</title>
+        <pubTime>2017-12-23T03:49:47.000Z</pubTime>
         
          
            
@@ -1056,73 +1132,17 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-11-22-spring-cloud-eureka/</loc>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-12-14-spring-cloud-config-eureka/</loc>
     <lastmod>2017-12-29T05:32:14.386Z</lastmod>
     <data>
         <display>
-        <title>Spring Cloud（一）服务的注册与发现（Eureka）</title>
-        <pubTime>2017-12-23T03:52:14.000Z</pubTime>
+        <title>Spring Cloud（九）高可用的分布式配置中心 Spring Cloud Config 集成 Eureka 服务</title>
+        <pubTime>2017-12-23T03:50:45.000Z</pubTime>
         
          
            
              
               <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-11-26-spring-cloud-consul/</loc>
-    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Cloud（二）Consul 服务治理实现</title>
-        <pubTime>2017-12-23T03:52:35.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/10/Spring-Boot-Dubbo-applications-properties-%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95-1/</loc>
-    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Boot Dubbo applications.properties 配置清单</title>
-        <pubTime>2017-12-10T10:02:00.000Z</pubTime>
-        
-        <tag>SpringBoot</tag>
-         
-         
-           
-             
-              <breadCrumb title="SpringBoot" url="https://ciweigg.github.io/categories/SpringBoot/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/</loc>
-    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
-    <data>
-        <display>
-        <title>搭建高吞吐量 Kafka 分布式发布订阅消息 集群</title>
-        <pubTime>2017-12-23T04:30:00.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="kafka" url="https://ciweigg.github.io/categories/kafka/"/>
           
         </display>
     </data>
@@ -1150,6 +1170,24 @@
 
     
   <url>
+    <loc>https://ciweigg.github.io/2017/12/23/2017-08-29-kafka/</loc>
+    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
+    <data>
+        <display>
+        <title>搭建高吞吐量 Kafka 分布式发布订阅消息 集群</title>
+        <pubTime>2017-12-23T04:30:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="kafka" url="https://ciweigg.github.io/categories/kafka/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ciweigg.github.io/2017/12/23/2017-08-14-redis/</loc>
     <lastmod>2017-12-29T05:32:14.386Z</lastmod>
     <data>
@@ -1168,37 +1206,19 @@
 
     
   <url>
-    <loc>https://ciweigg.github.io/2017/12/15/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4-1/</loc>
+    <loc>https://ciweigg.github.io/2017/12/10/Spring-Boot-Dubbo-applications-properties-%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95-1/</loc>
     <lastmod>2017-12-29T05:32:14.386Z</lastmod>
     <data>
         <display>
-        <title>Git常用命令</title>
-        <pubTime>2017-12-15T03:52:00.000Z</pubTime>
+        <title>Spring Boot Dubbo applications.properties 配置清单</title>
+        <pubTime>2017-12-10T10:02:00.000Z</pubTime>
         
-        <tag>git</tag>
+        <tag>SpringBoot</tag>
          
          
            
              
-              <breadCrumb title="Git" url="https://ciweigg.github.io/categories/Git/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ciweigg.github.io/2017/12/23/2017-12-17-spring-cloud-actual-combat/</loc>
-    <lastmod>2017-12-29T05:32:14.386Z</lastmod>
-    <data>
-        <display>
-        <title>基于 Spring Cloud 完整的微服务架构实战</title>
-        <pubTime>2017-12-23T03:49:47.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="SpringCloud" url="https://ciweigg.github.io/categories/SpringCloud/"/>
+              <breadCrumb title="SpringBoot" url="https://ciweigg.github.io/categories/SpringBoot/"/>
           
         </display>
     </data>

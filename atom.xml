@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ciweigg.github.io/"/>
-  <updated>2018-01-11T10:31:55.952Z</updated>
+  <updated>2018-01-14T04:55:22.976Z</updated>
   <id>https://ciweigg.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Intellij IDEA基于Springboot的测试生产远程调试</title>
+    <link href="https://ciweigg.github.io/2018/01/14/Intellij-IDEA%E5%9F%BA%E4%BA%8ESpringboot%E7%9A%84%E6%B5%8B%E8%AF%95%E7%94%9F%E4%BA%A7%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95/"/>
+    <id>https://ciweigg.github.io/2018/01/14/Intellij-IDEA基于Springboot的测试生产远程调试/</id>
+    <published>2018-01-14T04:50:00.000Z</published>
+    <updated>2018-01-14T04:55:22.976Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本篇博客介绍一下在Intellij IDEA下对Springboot类型的项目的远程调试功能。所谓的远程调试就是服务端程序运行在一台远程服务器上，我们可以在本地服务端的代码（前提是本地的代码必须和远程服务器运行的代码一致）中设置断点，每当有请求到远程服务器时时能够在本地知道远程服务端的此时的内部状态。<br><a id="more"></a></p><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>首先，打开Edit configurations，点击+号，创建一个Remote应用。<br><img src="http://oisa91ton.bkt.clouddn.com/1515905506985cxng7pn0.png?imageslim" alt="paste image"></p><p>填写name，配置Host地址（远程服务器地址）和端口（选一个未被占用的端口）。然后复制For JDK1.4.x下面的参数，示例配置的端口为5005</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005</span><br></pre></td></tr></table></figure><p><img src="http://oisa91ton.bkt.clouddn.com/151590553445978inszc5.png?imageslim" alt="paste image"></p><p>经过以上步骤，已经获得了启动远程服务器的参数。在启动springboot时默认使用java命令来启动。<br>比如，示例项目启动命令为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar remotedebug-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure></p><p>那么此时在启动命令上添加上面获得的参数（非springbboot项目，就是把多的那段配置添加到相应的环境变量即可）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005  remotedebug-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure></p><p>这样服务端就监听在5005端口了。可以通过以下命令来检查是否监听成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 5005</span><br></pre></td></tr></table></figure></p><p>docker<br>如果应用是跑在容器中的，只需要修改Dockerfile即可。例子如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM java:8</span><br><span class="line">COPY target/agents.jar /app.jar</span><br><span class="line">EXPOSE 8080</span><br><span class="line">EXPOSE 5005</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot; ,&quot;-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005&quot;,&quot;-Dspring.profiles.active=sit&quot;,&quot;/app.jar&quot;]</span><br></pre></td></tr></table></figure><p>通过以上步骤已经完成了服务器端参数的添加。下面启动刚才配置的Remote服务。在启动时候我们会发现此项启动程序只有debug启动模式。</p><p>启动完成，对需要debug的代码打上断点，剩下的操作步骤就是访问远程服务器对应的业务请求，本地就会同步debug。其余的操作与本地debug相同，测试环境调试可以这样操作，生产千万别这样测试。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;本篇博客介绍一下在Intellij IDEA下对Springboot类型的项目的远程调试功能。所谓的远程调试就是服务端程序运行在一台远程服务器上，我们可以在本地服务端的代码（前提是本地的代码必须和远程服务器运行的代码一致）中设置断点，每当有请求到远程服务器时时能够在本地知道远程服务端的此时的内部状态。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JAVA" scheme="https://ciweigg.github.io/categories/JAVA/"/>
+    
+    
+      <category term="JAVA" scheme="https://ciweigg.github.io/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>接口的安全加密</title>
@@ -247,7 +269,7 @@
     <link href="https://ciweigg.github.io/2018/01/02/hexo-next%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0photoswipe%E7%B1%BB%E5%9E%8B%E7%9B%B8%E5%86%8C/"/>
     <id>https://ciweigg.github.io/2018/01/02/hexo-next主题添加photoswipe类型相册/</id>
     <published>2018-01-02T09:12:00.000Z</published>
-    <updated>2018-01-03T14:06:50.571Z</updated>
+    <updated>2018-01-03T14:04:29.709Z</updated>
     
     <content type="html"><![CDATA[<p>next主题一定是要我github的next主题<br>每个精彩的镜头，需要用照片来描绘，所以这个主题有照片功能啦<br><a id="more"></a><br>其实就是github上搜索hexo-theme-next这个人的next主题<br><img src="http://oisa91ton.bkt.clouddn.com/1514884431453sqwkgwdz.png?imageslim" alt="paste image"></p><p>首先下载我的博客备份：<br>shell文件夹中的tool.py就是我们需要的生成照片脚本了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">执行：python tool.py</span><br><span class="line">照片格式：2017-01-02_名称.jpg</span><br><span class="line">上传照片存储在脚本的photos</span><br><span class="line">会生成缩略图存储在min_photos</span><br></pre></td></tr></table></figure></p><p>他会将生成的照片放在/blog/source/photos/文件中data.json<br>那么当然了photos文件夹中的文件也就是照片需要的page页面了<br>修改成自己的github备份仓库能访问到图片的地址就行：<br>文件位置(blog根目录)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blog/source/photos/ins.js</span><br></pre></td></tr></table></figure></p><p><img src="http://oisa91ton.bkt.clouddn.com/1514884819115xldu0nf6.png?imageslim" alt="paste image"></p><p>hexo g<br>hexo s<br>访问photos就能看到相册了，菜单配置就不说了<br><img src="http://oisa91ton.bkt.clouddn.com/151488514435550agul4q.png?imageslim" alt="paste image"></p>]]></content>
     
@@ -337,7 +359,7 @@
     <published>2017-12-31T13:18:00.000Z</published>
     <updated>2017-12-31T13:23:57.250Z</updated>
     
-    <content type="html"><![CDATA[<p>我使用了mp4的动态视频作为背景，感觉看大片一样呀<br><a id="more"></a><br>创建个html文件404.html 放在blog的source目录下面，hexo d的时候会自动上传github<br>如果找不到页面会自动跳转404页面的<br>可以预览我的404页面：<a href="https://ciweigg.github.io/404.html">Dream</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">layout: false</span><br><span class="line">title: &quot;404&quot;</span><br><span class="line">---</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;404 Page not found&lt;/title&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">&lt;script&gt;!function(e,t,a,n,c,o,s)&#123;e.GoogleAnalyticsObject=c,e[c]=e[c]||function()&#123;(e[c].q=e[c].q||[]).push(arguments)&#125;,e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=&quot;https://www.google-analytics.com/analytics.js&quot;,s.parentNode.insertBefore(o,s)&#125;(window,document,&quot;script&quot;,0,&quot;ga&quot;),ga(&quot;create&quot;,&quot;UA-100434861-1&quot;,&quot;auto&quot;),ga(&quot;send&quot;,&quot;pageview&quot;)&lt;/script&gt;&lt;/head&gt;&lt;style&gt;body&#123;margin:0;background:rgba(255,255,255,0);font-family:Lato,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,sans-serif&#125;video&#123;position:fixed;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;z-index:-100;transform:translateX(-50%) translateY(-50%);background:url(https://yixiuer.oss-cn-shanghai.aliyuncs.com/Picture/404bg.png) no-repeat;background-size:cover&#125;h1&#123;font-size:3rem;text-transform:uppercase;letter-spacing:.3rem;text-align:center;top:15%;left:5%;right:5%;position:absolute&#125;.footer&#123;font-size:2rem;position:absolute;bottom:15%;left:10%;right:10%;text-align:center&#125;a&#123;color:#5073b8;text-decoration:underline&#125;a:hover&#123;color:#a166ab;text-decoration:underline;cursor:pointer&#125;@media only screen and (max-device-width:1024px)&#123;html&#123;background:url() no-repeat rgba(255,255,255,0);background-size:100% 100%&#125;#bgvid&#123;display:none&#125;&#125;&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;video poster=&quot;http://pic.qiantucdn.com/58pic/28/19/46/84Z58PICquE_1024.jpg!/fw/780/watermark/url/L3dhdGVybWFyay12MS4zLnBuZw==/align/center&quot; id=&quot;bgvid&quot; playsinline=&quot;&quot; autoplay muted loop&gt;</span><br><span class="line">&lt;source src=&quot;http://pic.qiantucdn.com/58pic/video/28/19/46/28194684_26.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt;&lt;a href=&quot;https://ciweigg.github.io/&quot;&gt;页面丢失啦，点击返回&lt;/a&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<p>我使用了mp4的动态视频作为背景，感觉看大片一样呀<br><a id="more"></a><br>创建个html文件404.html 放在blog的source目录下面，hexo d的时候会自动上传github<br>如果找不到页面会自动跳转404页面的<br>可以预览我的404页面：<a href="https://ciweigg.github.io/404.html" target="_blank" rel="noopener">Dream</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">layout: false</span><br><span class="line">title: &quot;404&quot;</span><br><span class="line">---</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;title&gt;404 Page not found&lt;/title&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">&lt;script&gt;!function(e,t,a,n,c,o,s)&#123;e.GoogleAnalyticsObject=c,e[c]=e[c]||function()&#123;(e[c].q=e[c].q||[]).push(arguments)&#125;,e[c].l=1*new Date,o=t.createElement(a),s=t.getElementsByTagName(a)[0],o.async=1,o.src=&quot;https://www.google-analytics.com/analytics.js&quot;,s.parentNode.insertBefore(o,s)&#125;(window,document,&quot;script&quot;,0,&quot;ga&quot;),ga(&quot;create&quot;,&quot;UA-100434861-1&quot;,&quot;auto&quot;),ga(&quot;send&quot;,&quot;pageview&quot;)&lt;/script&gt;&lt;/head&gt;&lt;style&gt;body&#123;margin:0;background:rgba(255,255,255,0);font-family:Lato,&quot;PingFang SC&quot;,&quot;Microsoft YaHei&quot;,sans-serif&#125;video&#123;position:fixed;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;z-index:-100;transform:translateX(-50%) translateY(-50%);background:url(https://yixiuer.oss-cn-shanghai.aliyuncs.com/Picture/404bg.png) no-repeat;background-size:cover&#125;h1&#123;font-size:3rem;text-transform:uppercase;letter-spacing:.3rem;text-align:center;top:15%;left:5%;right:5%;position:absolute&#125;.footer&#123;font-size:2rem;position:absolute;bottom:15%;left:10%;right:10%;text-align:center&#125;a&#123;color:#5073b8;text-decoration:underline&#125;a:hover&#123;color:#a166ab;text-decoration:underline;cursor:pointer&#125;@media only screen and (max-device-width:1024px)&#123;html&#123;background:url() no-repeat rgba(255,255,255,0);background-size:100% 100%&#125;#bgvid&#123;display:none&#125;&#125;&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;video poster=&quot;http://pic.qiantucdn.com/58pic/28/19/46/84Z58PICquE_1024.jpg!/fw/780/watermark/url/L3dhdGVybWFyay12MS4zLnBuZw==/align/center&quot; id=&quot;bgvid&quot; playsinline=&quot;&quot; autoplay muted loop&gt;</span><br><span class="line">&lt;source src=&quot;http://pic.qiantucdn.com/58pic/video/28/19/46/28194684_26.mp4&quot; type=&quot;video/mp4&quot;&gt;</span><br><span class="line">&lt;/video&gt;</span><br><span class="line">&lt;div class=&quot;footer&quot;&gt;&lt;a href=&quot;https://ciweigg.github.io/&quot;&gt;页面丢失啦，点击返回&lt;/a&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>]]></content>
     
     <summary type="html">
     
@@ -430,29 +452,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;文章置顶&quot;&gt;&lt;a href=&quot;#文章置顶&quot; class=&quot;headerlink&quot; title=&quot;文章置顶&quot;&gt;&lt;/a&gt;文章置顶&lt;/h3&gt;&lt;p&gt;一篇博客如果自己觉得很有价值，那肯定要放在首页啦，所以产生了置顶功能&lt;br&gt;
-    
-    </summary>
-    
-      <category term="hexo" scheme="https://ciweigg.github.io/categories/hexo/"/>
-    
-    
-      <category term="hexo" scheme="https://ciweigg.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo next主题点击侧栏头像回到博客首页</title>
-    <link href="https://ciweigg.github.io/2017/12/31/hexo-next%E4%B8%BB%E9%A2%98%E7%82%B9%E5%87%BB%E4%BE%A7%E6%A0%8F%E5%A4%B4%E5%83%8F%E5%9B%9E%E5%88%B0%E5%8D%9A%E5%AE%A2%E9%A6%96%E9%A1%B5/"/>
-    <id>https://ciweigg.github.io/2017/12/31/hexo-next主题点击侧栏头像回到博客首页/</id>
-    <published>2017-12-31T05:39:00.000Z</published>
-    <updated>2017-12-31T05:41:18.311Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>不知道为什么，我看到侧栏头像的第一反应是点击，然后心理预期会跳到博客首页<br>但是默认主题是不能跳转的呀<br>所以找了篇文章记录下<br><a id="more"></a></p></blockquote><p>文件位置：~/blog/themes/next/layout/_macro/sidebar.swig<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+        &lt;a href=&quot;/&quot; class=&quot;site-author-image&quot; rel=&quot;start&quot; style=&quot;border:none&quot;&gt;</span><br><span class="line">          &lt;img class=&quot;site-author-image&quot; itemprop=&quot;image&quot;</span><br><span class="line">               src=&quot;&#123;&#123; url_for( theme.avatar | default(theme.images + &apos;/avatar.gif&apos;) ) &#125;&#125;&quot;</span><br><span class="line">               alt=&quot;&#123;&#123; theme.author &#125;&#125;&quot; /&gt;</span><br><span class="line">+        &lt;/a&gt;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;不知道为什么，我看到侧栏头像的第一反应是点击，然后心理预期会跳到博客首页&lt;br&gt;但是默认主题是不能跳转的呀&lt;br&gt;所以找了篇文章记录下&lt;br&gt;
     
     </summary>
     
