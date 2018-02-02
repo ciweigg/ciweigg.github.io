@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="如果没有你">
 <meta property="og:description" content="获取客户端真实的IP地址">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-29T10:00:35.137Z">
+<meta property="og:updated_time" content="2018-02-02T08:42:06.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx反向代理JAVA获取真实IP">
 <meta name="twitter:description" content="获取客户端真实的IP地址">
@@ -492,43 +492,38 @@
       
         <h3 id="获取客户端真实的IP地址"><a href="#获取客户端真实的IP地址" class="headerlink" title="获取客户端真实的IP地址"></a>获取客户端真实的IP地址</h3><a id="more"></a>
 <pre><code>/**
- * 
- * @description：获取客户端真实IP
+ * 获取用户ip
  * @param request
  * @return
  */
-public static String getIpAddr(HttpServletRequest request)
-{
+public static String getIpAddress(HttpServletRequest request) {
 
-    if (request == null)
-    {
-        return &quot;&quot;;
+    String ip = request.getHeader(&quot;X-requested-For&quot;);
+    if (StringUtils.isBlank(ip) || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+        ip = request.getHeader(&quot;X-Forwarded-For&quot;);
     }
-    String ip = request.getHeader(&quot;x-forwarded-for&quot;);
-
-    if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip))
-    {
+    if (StringUtils.isBlank(ip) || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
         ip = request.getHeader(&quot;Proxy-Client-IP&quot;);
     }
-    if (ip == null || ip.length() getHeader(&quot;WL-Proxy-Client-IP&quot;);
+    if (StringUtils.isBlank(ip) || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+        ip = request.getHeader(&quot;WL-Proxy-Client-IP&quot;);
     }
-    if (ip == nul (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip))
-    {
-        ip = request.getRemoteAddr();
+    if (StringUtils.isBlank(ip) || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+        ip = request.getHeader(&quot;HTTP_CLIENT_IP&quot;);
     }
-    if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip))
-    {
-        ip = request.getHeader(&quot;http_client_ip&quot;);
-    }
-    if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip))
-    {
+    if (StringUtils.isBlank(ip) || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
         ip = request.getHeader(&quot;HTTP_X_FORWARDED_FOR&quot;);
     }
+    if (StringUtils.isBlank(ip) || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+        ip = request.getRemoteAddr();
+    }
+
     // 如果是多级代理，那么取第一个ip为客户ip
     if (ip != null &amp;&amp; ip.indexOf(&quot;,&quot;) != -1)
     {
         ip = ip.substring(ip.lastIndexOf(&quot;,&quot;) + 1, ip.length()).trim();
     }
+
     return ip;
 }
 </code></pre>
