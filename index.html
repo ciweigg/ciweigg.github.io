@@ -386,204 +386,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/Spring Boot 2.0 新特性 配置绑定 2.0 全解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ciwei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/201510051200323972.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="如果没有你">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/07/Spring Boot 2.0 新特性 配置绑定 2.0 全解析/" itemprop="url">Spring Boot 2.0 新特性 配置绑定 2.0 全解析</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T14:27:34+08:00">
-                2018-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
-                    <span itemprop="name">SpringBoot</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/03/07/Spring Boot 2.0 新特性 配置绑定 2.0 全解析/" class="leancloud_visitors" data-flag-title="Spring Boot 2.0 新特性 配置绑定 2.0 全解析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="配置文件绑定"><a href="#配置文件绑定" class="headerlink" title="配置文件绑定"></a>配置文件绑定</h1><h2 id="简单类型"><a href="#简单类型" class="headerlink" title="简单类型"></a>简单类型</h2><ul>
-<li>在Spring Boot 2.0中对配置属性加载的时候会除了像1.x版本时候那样移除特殊字符外，还会将配置均以全小写的方式进行匹配和加载。所以，下面的4种配置方式都是等价的：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.jpa.databaseplatform=mysql</span><br><span class="line">spring.jpa.database-platform=mysql</span><br><span class="line">spring.jpa.databasePlatform=mysql</span><br><span class="line">spring.JPA.database_platform=mysql</span><br></pre></td></tr></table></figure>
-<ul>
-<li>yaml格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  jpa:</span><br><span class="line">    databaseplatform: mysql</span><br><span class="line">    database-platform: mysql</span><br><span class="line">    databasePlatform: mysql</span><br><span class="line">    database_platform: mysql</span><br><span class="line">```    </span><br><span class="line">Tips：推荐使用全小写配合-分隔符的方式来配置，比如：spring.jpa.database-platform=mysql</span><br><span class="line"></span><br><span class="line">## List类型</span><br><span class="line">在properties文件中使用[]来定位列表类型，比如：</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>spring.my-example.url[0]=<a href="http://example.com" target="_blank" rel="noopener">http://example.com</a><br>spring.my-example.url[1]=<a href="http://spring.io" target="_blank" rel="noopener">http://spring.io</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也支持使用逗号分割的配置方式，上面与下面的配置是等价的：</span><br></pre></td></tr></table></figure></p>
-<p>spring.my-example.url=<a href="http://example.com,http://spring.io" target="_blank" rel="noopener">http://example.com,http://spring.io</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">而在yaml文件中使用可以使用如下配置：</span><br></pre></td></tr></table></figure></p>
-<p>spring:<br>  my-example:<br>    url:</p>
-<pre><code>- http://example.com
-- http://spring.io
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也支持逗号分割的方式：</span><br></pre></td></tr></table></figure>
-<p>spring:<br>  my-example:<br>    url: <a href="http://example.com" target="_blank" rel="noopener">http://example.com</a>, <a href="http://spring.io" target="_blank" rel="noopener">http://spring.io</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：在Spring Boot 2.0中对于List类型的配置必须是连续的，不然会抛出UnboundConfigurationPropertiesException异常，所以如下配置是不允许的：</span><br></pre></td></tr></table></figure></p>
-<p>foo[0]=a<br>foo[2]=b<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在Spring Boot 1.x中上述配置是可以的，foo[1]由于没有配置，它的值会是null</span><br><span class="line"></span><br><span class="line">## Map类型</span><br><span class="line">Map类型在properties和yaml中的标准配置方式如下：</span><br><span class="line"></span><br><span class="line">properties格式：</span><br></pre></td></tr></table></figure></p>
-<p>spring.my-example.foo=bar<br>spring.my-example.hello=world<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yaml格式：</span><br></pre></td></tr></table></figure></p>
-<p>spring:<br>  my-example:<br>    foo: bar<br>    hello: world<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注意：如果Map类型的key包含非字母数字和-的字符，需要用[]括起来，比如：</span><br></pre></td></tr></table></figure></p>
-<p>spring:<br>  my-example:<br>    ‘[foo.baz]’: bar<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 环境属性绑定</span><br><span class="line">简单类型</span><br><span class="line"></span><br><span class="line">在环境变量中通过小写转换与.替换_来映射配置文件中的内容，比如：环境变量SPRING_JPA_DATABASEPLATFORM=mysql的配置会产生与在配置文件中设置spring.jpa.databaseplatform=mysql一样的效果。</span><br><span class="line"></span><br><span class="line">## List类型</span><br><span class="line"></span><br><span class="line">由于环境变量中无法使用[和]符号，所以使用_来替代。任何由下划线包围的数字都会被认为是[]的数组形式。比如：</span><br></pre></td></tr></table></figure></p>
-<p>MY_FOO<em>1</em> = my.foo[1]<br>MY_FOO_1_BAR = my.foo[1].bar<br>MY_FOO_1<em>2</em> = my.foo[1][2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">另外，最后环境变量最后是以数字和下划线结尾的话，最后的下划线可以省略，比如上面例子中的第一条和第三条等价于下面的配置：</span><br></pre></td></tr></table></figure></p>
-<p>MY_FOO_1 = my.foo[1]<br>MY_FOO_1_2 = my.foo[1][2]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 系统属性绑定</span><br><span class="line">### 简单类型</span><br><span class="line"></span><br><span class="line">系统属性与文件配置中的类似，都以移除特殊字符并转化小写后实现绑定，比如下面的命令行参数都会实现配置spring.jpa.databaseplatform=mysql的效果：</span><br></pre></td></tr></table></figure></p>
-<p>-Dspring.jpa.database-platform=mysql<br>-Dspring.jpa.databasePlatform=mysql<br>-Dspring.JPA.database_platform=mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### List类型</span><br><span class="line"></span><br><span class="line">系统属性的绑定也与文件属性的绑定类似，通过[]来标示，比如：</span><br></pre></td></tr></table></figure></p>
-<p>-D”spring.my-example.url[0]=<a href="http://example.com" target="_blank" rel="noopener">http://example.com</a>“<br>-D”spring.my-example.url[1]=<a href="http://spring.io" target="_blank" rel="noopener">http://spring.io</a>“<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">同样的，他也支持逗号分割的方式，比如：</span><br><span class="line"></span><br><span class="line">-Dspring.my-example.url=http://example.com,http://spring.io</span><br><span class="line"></span><br><span class="line"># 属性的读取</span><br><span class="line">上文介绍了Spring Boot 2.0中对属性绑定的内容，可以看到对于一个属性我们可以有多种不同的表达，但是如果我们要在Spring应用程序的environment中读取属性的时候，每个属性的唯一名称符合如下规则：</span><br><span class="line"></span><br><span class="line">通过.分离各个元素</span><br><span class="line">最后一个.将前缀与属性名称分开</span><br><span class="line">必须是字母（a-z）和数字(0-9)</span><br><span class="line">必须是小写字母</span><br><span class="line">用连字符-来分隔单词</span><br><span class="line">唯一允许的其他字符是[和]，用于List的索引</span><br><span class="line">不能以数字开头</span><br><span class="line">所以，如果我们要读取配置文件中spring.jpa.database-platform的配置，可以这样写：</span><br></pre></td></tr></table></figure></p>
-<p>this.environment.containsProperty(“spring.jpa.database-platform”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">而下面的方式是无法获取到spring.jpa.database-platform配置内容的：</span><br></pre></td></tr></table></figure></p>
-<p>this.environment.containsProperty(“spring.jpa.databasePlatform”)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">注意：使用@Value获取配置内容的时候也需要这样的特点</span><br><span class="line"></span><br><span class="line">## 全新的绑定API</span><br><span class="line">在Spring Boot 2.0中增加了新的绑定API来帮助我们更容易的获取配置信息。下面举个例子来帮助大家更容易的理解：</span><br><span class="line"></span><br><span class="line">### 例子一：简单类型</span><br><span class="line"></span><br><span class="line">假设在propertes配置中有这样一个配置：com.didispace.foo=bar</span><br><span class="line"></span><br><span class="line">我们为它创建对应的配置类：</span><br></pre></td></tr></table></figure></p>
-<p>@Data<br>@ConfigurationProperties(prefix = “com.didispace”)<br>public class FooProperties {</p>
-<pre><code>private String foo;
-</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">接下来，通过最新的Binder就可以这样来拿配置信息了：</span><br></pre></td></tr></table></figure></p>
-<p>@SpringBootApplication<br>public class Application {</p>
-<pre><code>public static void main(String[] args) {
-    ApplicationContext context = SpringApplication.run(Application.class, args);
-
-    Binder binder = Binder.get(context.getEnvironment());
-
-    // 绑定简单配置
-    FooProperties foo = binder.bind(&quot;com.didispace&quot;, Bindable.of(FooProperties.class)).get();
-    System.out.println(foo.getFoo());
-}
-</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">### 例子二：List类型</span><br><span class="line"></span><br><span class="line">如果配置内容是List类型呢？比如：</span><br></pre></td></tr></table></figure></p>
-<p>com.didispace.post[0]=Why Spring Boot<br>com.didispace.post[1]=Why Spring Cloud</p>
-<p>com.didispace.posts[0].title=Why Spring Boot<br>com.didispace.posts[0].content=It is perfect!<br>com.didispace.posts[1].title=Why Spring Cloud<br>com.didispace.posts[1].content=It is perfect too!<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要获取这些配置依然很简单，可以这样实现：</span><br></pre></td></tr></table></figure></p>
-<p>ApplicationContext context = SpringApplication.run(Application.class, args);</p>
-<p>Binder binder = Binder.get(context.getEnvironment());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 绑定List配置</span><br></pre></td></tr></table></figure></p>
-<p>List<string> post = binder.bind(“com.didispace.post”, Bindable.listOf(String.class)).get();<br>System.out.println(post);</string></p>
-<p>List<postinfo> posts = binder.bind(“com.didispace.posts”, Bindable.listOf(PostInfo.class)).get();<br>System.out.println(posts);<br>```</postinfo></p>
-<p>示例：<br>Gitee：<a href="https://gitee.com/didispace/SpringBoot-Learning" target="_blank" rel="noopener">https://gitee.com/didispace/SpringBoot-Learning</a> 库Chapter2-2-1目录</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/Nginx负载均衡配置实例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1993,6 +1795,164 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/Spring Boot Async异步执行/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ciwei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oisa91ton.bkt.clouddn.com/201510051200323972.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如果没有你">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/19/Spring Boot Async异步执行/" itemprop="url">Spring Boot Async异步执行</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T10:19:12+08:00">
+                2018-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringBoot/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/19/Spring Boot Async异步执行/" class="leancloud_visitors" data-flag-title="Spring Boot Async异步执行">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>异步调用就是不用等待结果的返回就执行后面的逻辑，同步调用则需要等带结果再执行后面的逻辑。</p>
+<p>通常我们使用异步操作都会去创建一个线程执行一段逻辑，然后把这个线程丢到线程池中去执行，代码如下：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/19/Spring Boot Async异步执行/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2051,7 +2011,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
